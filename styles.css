@@ -78,6 +78,7 @@ body {
   /* Categories Section */
   .categories {
     padding: 40px 20px;
+    background-color: #454648;
   }
   
   .category-grid {
@@ -92,6 +93,7 @@ body {
     text-align: center;
     border: 1px solid #ddd;
     cursor: pointer;
+    color: #fff;
   }
   
   .category-card:hover {
