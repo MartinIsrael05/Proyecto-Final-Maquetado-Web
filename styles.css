@@ -216,10 +216,65 @@ body {
 }
   
   /* Footer */
-  .footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-  }
-  
+footer {
+    background-color: #454648;
+    color: #fff;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    align-items: center; /* Centra verticalmente las columnas */
+}
+
+.col-md-4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Asegura que el contenido dentro de cada columna esté alineado al inicio */
+}
+
+footer img {
+    max-width: 100px;
+    margin-bottom: 0; /* Quitamos el margen inferior para que el logo esté alineado con los títulos */
+}
+
+footer p {
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+footer form {
+    display: flex;
+    align-items: center;
+    margin-top: 20px; /* Aseguramos que el formulario esté alineado correctamente */
+}
+
+footer input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+footer button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
