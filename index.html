@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -9,130 +9,134 @@
 </head>
 
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar">
+    <header>
         <div class="logo">
-            <img src="assets/images/logo.png" alt="Logo">
+            <a href="index.html"><img class="logo" src="assets/images/logo.png" alt="Logo"></a>
         </div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Pages</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Elements</a></li>
-            <li><a href="#">Shop</a></li>
-        </ul>
-        <div class="nav-icons">
-            <a href="#"><i class="search-icon">&#x1F50D;</i></a>
-            <a href="#"><i class="cart-icon">&#x1F6D2;</i></a>
-        </div>
-    </nav>
 
-    <!-- Banner Section -->
-    <section class="banner">
-        <img src="banner.jpg" alt="Main Banner">
-        <div class="banner-content">
-            <button class="shop-now-btn">Shop Now</button>
-        </div>
-    </section>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages.html">Pages</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="elements.html">Elements</a></li>
+                <li><a href="shop.html">Shop</a></li>
+            </ul>
+            <ul class="nav-icons">
+                <li><a href="search.html"><i class="search-icon">&#x1F50D;</i></a></li>
+                <li><a href="cart.html"><i class="cart-icon">&#x1F6D2;</i></a></li> 
+                <li><a href="cart.html"><i class="cart-icon">&#x1F6D2;</i></a></li> 
+            </ul>
+        </nav>
 
-    <!-- Categories Section -->
-    <section class="categories">
-        <div class="container">
-            <h2>CATEGORIES</h2>
-            <div class="category-grid">
-                <div class="category-card">
-                    <img src="assets/images/sillon.png" alt="Sillon">
-                    <h3>LIVING ROOM</h3>
-                    <p>Sofas, coffee tables, couches</p>
-                </div>
-                <div class="category-card">
-                    <img src="assets/images/cama.png" alt="Cama">
-                    <h3>BEDROOM</h3>
-                    <p>Beds, nightstands, dressers</p>
-                </div>
-                <div class="category-card">
-                    <img src="assets/images/cajon.png" alt="Cajon">
-                    <h3>DINING ROOM</h3>
-                    <p>Tables, chairs, cabinets</p>
-                </div>
-                <div class="category-card">
-                    <img src="assets/images/baño.png" alt="Baño">
-                    <h3>BATHROOM</h3>
-                    <p>Vanities, mirrors, lighting</p>
-                </div>
-                <div class="category-card">
-                    <img src="assets/images/lampara.png" alt="Lampara">
-                    <h3>DECOR & FURNITURE</h3>
-                    <p>Cushions, wall art, drapery</p>
-                </div>
-                <div class="category-card">
-                    <img src="assets/images/bebe.png" alt="Bebe">
-                    <h3>KIDS ROOM</h3>
-                    <p>Kids beds, trundlers, dressers</p>
+
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Banner Section -->
+        <section class="banner">
+            <img src="assets/images/slide-1.jpg" alt="Main Banner">
+            <div class="banner-content">
+                <a href="shop.html" class="shop-now-btn">Shop Now</a>
+            </div>
+        </section>
+        <!-- Categories Section -->
+        <section class="categories">
+            <div class="container">
+                <h2>CATEGORIES</h2>
+                <div class="category-grid">
+                    <article class="category-card">
+                        <img src="assets/images/sillon.png" alt="Sillón">
+                        <h3>Living Room</h3>
+                        <p>Sofas, coffee tables, couches</p>
+                    </article>
+                    <article class="category-card">
+                        <img src="assets/images/cama.png" alt="Cama">
+                        <h3>Bedroom</h3>
+                        <p>Beds, nightstands, dressers</p>
+                    </article>
+                    <article class="category-card">
+                        <img src="assets/images/cajon.png" alt="Cajón">
+                        <h3>Dining Room</h3>
+                        <p>Tables, chairs, cabinets</p>
+                    </article>
+                    <article class="category-card">
+                        <img src="assets/images/baño.png" alt="Baño">
+                        <h3>Bathroom</h3>
+                        <p>Vanities, mirrors, lighting</p>
+                    </article>
+                    <article class="category-card">
+                        <img src="assets/images/lampara.png" alt="Lámpara">
+                        <h3>Decor & Furniture</h3>
+                        <p>Cushions, wall art, drapery</p>
+                    </article>
+                    <article class="category-card">
+                        <img src="assets/images/bebe.png" alt="Bebé">
+                        <h3>Kids Room</h3>
+                        <p>Kids beds, trundlers, dressers</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-
-    <!-- Trending Products Section -->
-    <section class="trending-products">
-        <h2>Trending Products</h2>
-        <div class="container">
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="/assets/images/producto1.png" alt="Product 1">
-                    <h4>GARDEN TABLE</h4>
-                    <p>$23.00</p>
-                </div>
-                <div class="product-card">
-                    <img src="/assets/images/producto2.png" alt="Product 2">
-                    <h4>CLUB CHAIR</h4>
-                    <p>$13.00</p>
-                </div>
-                <div class="product-card">
-                    <img src="/assets/images/producto3.png" alt="Product 3">
-                    <h4>PENDANT LAMP</h4>
-                    <p>$17.00</p>
-                </div>
-                <div class="product-card">
-                    <img src="/assets/images/producto4.png" alt="Product 4">
-                    <h4>DARK GREY CLUB CHAIR</h4>
-                    <p>$14.00</p>
-                </div>
-                <div class="product-card">
-                    <img src="/assets/images/producto5.png" alt="Product 5">
-                    <h4>TABLE LAMP</h4>
-                    <p>$11.00</p>
-                </div>
-                <div class="product-card">
-                    <img src="/assets/images/producto6.png" alt="Product 6">
-                    <h4>ORANGE STACKING CHAIR</h4>
-                    <p>$15.00</p>
-                </div>
-                <div class="product-card">
-                    <img src="/assets/images/producto7.png" alt="Product 7">
-                    <h4>FLOOR LAMP</h4>
-                    <p>$22.00</p>
-                </div>
-                <div class="product-card">
-                    <img src="/assets/images/producto8.png" alt="Product 8">
-                    <h4>WHITE CHAIR</h4>
-                    <p>$10.00</p>
+        <!-- Trending Products Section -->
+        <section class="trending-products">
+            <h2>Trending Products</h2>
+            <div class="container">
+                <div class="product-grid">
+                    <article class="product-card">
+                        <img src="assets/images/producto1.png" alt="Product 1">
+                        <h4>Garden Table</h4>
+                        <p>$23.00</p>
+                    </article>
+                    <article class="product-card">
+                        <img src="assets/images/producto2.png" alt="Product 2">
+                        <h4>Club Chair</h4>
+                        <p>$13.00</p>
+                    </article>
+                    <article class="product-card">
+                        <img src="assets/images/producto3.png" alt="Product 3">
+                        <h4>Pendant Lamp</h4>
+                        <p>$17.00</p>
+                    </article>
+                    <article class="product-card">
+                        <img src="assets/images/producto4.png" alt="Product 4">
+                        <h4>Dark Grey Club Chair</h4>
+                        <p>$14.00</p>
+                    </article>
+                    <article class="product-card">
+                        <img src="assets/images/producto5.png" alt="Product 5">
+                        <h4>Table Lamp</h4>
+                        <p>$11.00</p>
+                    </article>
+                    <article class="product-card">
+                        <img src="assets/images/producto6.png" alt="Product 6">
+                        <h4>Orange Stacking Chair</h4>
+                        <p>$15.00</p>
+                    </article>
+                    <article class="product-card">
+                        <img src="assets/images/producto7.png" alt="Product 7">
+                        <h4>Floor Lamp</h4>
+                        <p>$22.00</p>
+                    </article>
+                    <article class="product-card">
+                        <img src="assets/images/producto8.png" alt="Product 8">
+                        <h4>White Chair</h4>
+                        <p>$10.00</p>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
-
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="assets/images/logo.png" alt="Logo">
+                    <a href="index.html"><img src="assets/images/logo.png" alt="Logo"></a>
                     <p>Weekdays: 08:00am-08:00pm</p>
                     <p>Weekends: 10:00am-06:30pm</p>
                     <p>Get Social:</p>
@@ -140,17 +144,17 @@
                     <a href="#"><i class="fa fa-twitter"></i></a>
                     <a href="#"><i class="fa fa-google-plus"></i></a>
                 </div>
-                <div class="col-md-4">   
-    
-                    <h3>CONTACTS</h3>
+                <div class="col-md-4">
+                    <h3>Contacts</h3>
                     <p>523 Sylvan Ave. 5th Floor</p>
                     <p>Mountain View, CA 94041 USA</p>
-                    <p>+1 (844) 123 456 78</p>
-                    <p>info@demolink.org</p>
+                    <p><a href="tel:+184412345678">+1 (844) 123 456 78</a></p>
+                    <p><a href="mailto:info@demolink.org">info@demolink.org</a></p>
                 </div>
                 <div class="col-md-4">
-                    <h3>NEWSLETTER</h3>
-                    <p>Subscribe to our newsletter to receive weekly news, updates, special offers, and exclusive discounts.</p>
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive weekly news, updates, special offers, and exclusive
+                        discounts.</p>
                     <form>
                         <input type="email" placeholder="Enter your email">
                         <button type="submit">Subscribe</button>
