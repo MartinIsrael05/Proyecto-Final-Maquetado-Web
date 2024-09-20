@@ -9,6 +9,14 @@ body {
   font-family: "Roboto Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+h1 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 0;
+  font-size: 75px;
+}
+
 h2 {
   text-align: center;
   margin: 20px 0;
@@ -24,7 +32,7 @@ header {
 .navbar {
   display: flex;
   justify-content: space-around;
-  height: 14vh;
+  height: 17vh;
   width: 66%;
 }
 
@@ -98,27 +106,61 @@ header {
 
 .banner img {
   width: 100%;
-  height: auto;
+  height: 80vh;
+}
+
+.banner-content-h1 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.banner-content-p {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+  width: 45%;
+  margin-top: 1em;
 }
 
 .banner-content {
   position: absolute;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .shop-now-btn {
-  background-color: black;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
+  background-color: white;
+  color: black;
+  border-color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  line-height: 2;
+  font-weight: 400;
+  border: 2px solid white;
+  transition: all .5s ease-in-out;
+  padding: 12px 40px;
+  font-size: 14px;
 }
 
 .shop-now-btn:hover {
-  background-color: grey;
+  background-color: #92c5d9;
+  color: white;
+  border: #92c5d9;
 }
 
 /* Categories Section */
