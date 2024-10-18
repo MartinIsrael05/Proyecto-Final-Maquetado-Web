@@ -433,7 +433,8 @@ header {
 
 
 /* PORTFOLIO */
-#portfolio{
+/* Estilos generales del portfolio */
+#portfolio {
   margin-top: 8em;
 }
 
@@ -448,49 +449,100 @@ header {
 .parent {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 40px;
   grid-row-gap: 15px;
   padding: 0 160px;
+  margin-bottom: 50px;
 }
 
 .parent img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover; 
+  transition: all 0.4s ease; /* Transición para el efecto hover */
+  position: relative;
 }
 
-/* Agregar un poco de padding alrededor */
+/* Estilos para los artículos individuales */
+.article1 { grid-area: 1 / 1 / 2 / 2; }
+.article2 { grid-area: 1 / 2 / 3 / 3; }
+.article3 { grid-area: 1 / 3 / 2 / 4; }
+.article4 { grid-area: 1 / 4 / 2 / 5; }
+.article5 { grid-area: 2 / 1 / 3 / 2; }
+.article6 { grid-area: 2 / 3 / 4 / 5; }
+.article7 { grid-area: 3 / 1 / 4 / 3; }
 
-.article1 {
-  grid-area: 1 / 1 / 2 / 2;
+/* Efecto hover */
+.parent article {
+  position: relative;
 }
 
-.article2 {
-  grid-area: 1 / 2 / 3 / 3;
+.parent article .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  flex-direction: column;
 }
 
-.article3 {
-  grid-area: 1 / 3 / 2 / 4;
+.parent article:hover .overlay {
+  opacity: 1;
 }
 
-.article4 {
-  grid-area: 1 / 4 / 2 / 5;
+/* Estilos del contenido en el hover */
+.overlay h3 {
+  font-size: 1.2em;
+  margin: 10px 0 5px;
+}
+.overlay h3:hover{
+  color: #92c5d9;
 }
 
-.article5 {
-  grid-area: 2 / 1 / 3 / 2;
+.overlay h4 {
+  font-size: 0.9em;
+  margin: 5px 0;
+  color: #92c5d9;
 }
 
-.article6 {
-  grid-area: 2 / 3 / 4 / 5;
+.overlay .icon-circle {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.4s ease; /* Transición para el cambio de color */
+  cursor: pointer; /* Estilo de cursor para indicar que es un botón */
+  overflow: hidden;
+  margin-top: 15px;
 }
 
-.article7 {
-  grid-area: 3 / 1 / 4 / 3;
+.overlay .icon-circle img {
+  width: 40%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Efecto hover para cambiar el color de fondo del botón */
+.overlay .icon-circle:hover {
+  background-color: #92c5d9; /* Cambia el color al pasar el mouse (personaliza el color) */
 }
 
 
+/* Zoom en la imagen */
+.parent article:hover img {
+  filter: grayscale(50%);
+}
 
 /* Blog */
 
