@@ -1,4 +1,4 @@
-/* General Styles */
+/* ESTILOS GENERALES */
 * {
   margin: 0;
   padding: 0;
@@ -23,6 +23,7 @@ h2 {
   text-transform: uppercase;
 }
 
+/* CLASES UTILES */
 .flex-center,
 .flex-end-h {
   display: flex;
@@ -38,7 +39,7 @@ h2 {
   justify-content: flex-end;
 }
 
-/* Navbar */
+/* NAVBAR */
 header {
   display: flex;
   justify-content: space-around;
@@ -117,7 +118,7 @@ header {
   width: 15vh;
 }
 
-/* Banner */
+/* BANNER */
 .banner {
   position: relative;
   text-align: center;
@@ -182,7 +183,7 @@ header {
   border: #92c5d9;
 }
 
-/* Categories Section */
+/* CATEGORIES */
 .categories {
   padding: 80px 20px;
   margin-top: -4px;
@@ -214,17 +215,13 @@ header {
   border: 1px solid #FFF;
   padding: 25px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  /* border-radius: 8px; */
   text-align: center;
 }
-
-
 
 .category-card img {
   width: 50px;
   height: auto;
   margin-bottom: 20px;
-  /* Añadir espacio entre la imagen y el texto */
 }
 
 .category-card h3 a {
@@ -253,8 +250,7 @@ header {
 }
 
 
-/* Trending Products */
-
+/* TRENDING PRODUCTS */
 .trending-products {
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -270,11 +266,8 @@ header {
 
 .container {
   max-width: 1200px;
-  /* Ajusta este valor según el ancho que desees */
   margin: 0 auto;
-  /* Para centrar el contenido */
   padding: 0 15px;
-  /* Espaciado interno para evitar que las cards toquen los bordes */
 }
 
 .product-grid {
@@ -328,7 +321,7 @@ header {
 }
 
 
-/* Founder */
+/* FOUNDER */
 #founder {
   background-color: #f4f5f5;
   padding: 6em 0;
@@ -357,7 +350,6 @@ header {
   font-weight: 400;
   font-family: "Roboto Condensed", sans-serif;
   color: #151515;
-  /* text-align: justify; */
 }
 
 .text-founder {
@@ -374,7 +366,6 @@ header {
   display: flex;
   align-items: center;
   gap: 2.5em;
-  /*modificar aca   */
 }
 
 
@@ -383,28 +374,20 @@ header {
   justify-content: center;
   align-items: center;
   width: 3em;
-  /* Ajusta el tamaño del botón */
   height: 3em;
-  /* Mantén la misma proporción para que sea circular */
   background-color: #92c5d9;
-  /* Color azul del botón */
   border-radius: 50%;
-  /* Hace que sea un botón redondo */
   text-align: center;
   line-height: 1.5em;
-  /* Centra verticalmente */
   transition: background-color 0.3s ease;
-  /* Transición para efectos hover */
 }
 
 .arrow-link:hover {
   background-color: #e9da5d;
-  /* Un color más oscuro en hover */
 }
 
 .arrow-link img {
   width: 40%;
-  /* Ajuste del tamaño de la imagen dentro del botón */
 }
 
 .founder-name {
@@ -433,7 +416,6 @@ header {
 
 
 /* PORTFOLIO */
-/* Estilos generales del portfolio */
 #portfolio {
   margin-top: 8em;
 }
@@ -459,21 +441,39 @@ header {
 .parent img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
-  transition: all 0.4s ease; /* Transición para el efecto hover */
+  object-fit: cover;
+  transition: all 0.4s ease;
   position: relative;
 }
 
-/* Estilos para los artículos individuales */
-.article1 { grid-area: 1 / 1 / 2 / 2; }
-.article2 { grid-area: 1 / 2 / 3 / 3; }
-.article3 { grid-area: 1 / 3 / 2 / 4; }
-.article4 { grid-area: 1 / 4 / 2 / 5; }
-.article5 { grid-area: 2 / 1 / 3 / 2; }
-.article6 { grid-area: 2 / 3 / 4 / 5; }
-.article7 { grid-area: 3 / 1 / 4 / 3; }
+.article1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
 
-/* Efecto hover */
+.article2 {
+  grid-area: 1 / 2 / 3 / 3;
+}
+
+.article3 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.article4 {
+  grid-area: 1 / 4 / 2 / 5;
+}
+
+.article5 {
+  grid-area: 2 / 1 / 3 / 2;
+}
+
+.article6 {
+  grid-area: 2 / 3 / 4 / 5;
+}
+
+.article7 {
+  grid-area: 3 / 1 / 4 / 3;
+}
+
 .parent article {
   position: relative;
 }
@@ -484,7 +484,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen */
+  background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: opacity 0.4s ease;
   display: flex;
@@ -498,12 +498,12 @@ header {
   opacity: 1;
 }
 
-/* Estilos del contenido en el hover */
 .overlay h3 {
   font-size: 1.2em;
   margin: 10px 0 5px;
 }
-.overlay h3:hover{
+
+.overlay h3:hover {
   color: #92c5d9;
 }
 
@@ -521,8 +521,8 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.4s ease; /* Transición para el cambio de color */
-  cursor: pointer; /* Estilo de cursor para indicar que es un botón */
+  transition: background-color 0.4s ease;
+  cursor: pointer;
   overflow: hidden;
   margin-top: 15px;
 }
@@ -533,22 +533,18 @@ header {
   object-fit: contain;
 }
 
-/* Efecto hover para cambiar el color de fondo del botón */
 .overlay .icon-circle:hover {
-  background-color: #92c5d9; /* Cambia el color al pasar el mouse (personaliza el color) */
+  background-color: #92c5d9;
 }
 
-
-/* Zoom en la imagen */
 .parent article:hover img {
   filter: grayscale(50%);
 }
 
-/* Blog */
-
+/* BLOG */
 .blog-section {
   text-align: center;
-  padding: 50px 0;
+  padding: 130px 0;
   background-color: #f4f3f3;
 }
 
@@ -595,14 +591,6 @@ header {
   color: #888;
 }
 
-
-
-
-
-
-
-
-
 /* Footer */
 footer {
   background-color: #454648;
@@ -619,7 +607,6 @@ footer {
 .row {
   display: flex;
   align-items: center;
-  /* Centra verticalmente las columnas */
 }
 
 .col-md-4 {
@@ -627,13 +614,11 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  /* Asegura que el contenido dentro de cada columna esté alineado al inicio */
 }
 
 footer img {
   max-width: 100px;
   margin-bottom: 0;
-  /* Quitamos el margen inferior para que el logo esté alineado con los títulos */
 }
 
 footer p {
@@ -651,7 +636,6 @@ footer form {
   display: flex;
   align-items: center;
   margin-top: 20px;
-  /* Aseguramos que el formulario esté alineado correctamente */
 }
 
 footer input[type="email"] {
