@@ -14,12 +14,12 @@ h1 {
   text-transform: uppercase;
   font-weight: 300;
   letter-spacing: 0;
-  font-size: 75px;
+  font-size: 4.688em;
 }
 
 h2 {
   text-align: center;
-  margin: 20px 0;
+  margin: 1.25em 0;
   text-transform: uppercase;
 }
 
@@ -98,8 +98,8 @@ header {
   position: relative;
   width: 25px;
   height: 25px;
-  font-size: 24px;
-  line-height: 30px;
+  font-size: 1.5em;
+  line-height: 1.875em;
   text-align: center;
   cursor: pointer;
   background: none;
@@ -150,7 +150,7 @@ header {
   transform: translate(-50%, -50%);
   z-index: 1;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 18px;
+  font-size: 1.125em;
   width: 45%;
   margin-top: 1em;
 }
@@ -171,10 +171,10 @@ header {
   letter-spacing: 0.1em;
   line-height: 2;
   font-weight: 400;
-  border: 2px solid white;
+  border: 0.125em solid white;
   transition: all .5s ease-in-out;
-  padding: 12px 40px;
-  font-size: 14px;
+  padding: 1em 2.5em;
+  font-size: 0.875em;
 }
 
 .shop-now-btn:hover {
@@ -185,9 +185,10 @@ header {
 
 /* CATEGORIES */
 .categories {
-  padding: 80px 20px;
-  margin-top: -4px;
+  padding: 5em 1.25em;
+  margin-top: -0.25em; /*era la unica forma de que se arregle*/
   background-color: #454648;
+  overflow: hidden;
 }
 
 .categories h2 {
@@ -195,14 +196,14 @@ header {
   font-size: 2.938em;
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
-  margin-bottom: 40px;
+  margin-bottom: 1.5em;
 }
 
 .category-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 1200px;
+  gap: 1.875em;
+  max-width: 75em;
   margin: 0 auto;
 }
 
@@ -212,22 +213,22 @@ header {
   justify-content: center;
   align-items: center;
   background-color: #454648;
-  border: 1px solid #FFF;
-  padding: 25px;
+  border: 0.063em solid #FFF;
+  padding: 1.563em;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
 }
 
 .category-card img {
-  width: 50px;
+  width: 3.125em;
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 1.25em;
 }
 
 .category-card h3 a {
   margin: 0;
-  font-size: 18px;
-  letter-spacing: 1px;
+  font-size: 1.125em;
+  letter-spacing: 0.063em;
   color: #fff;
   text-transform: uppercase;
   transition: all .25s ease-in-out;
@@ -239,8 +240,8 @@ header {
 }
 
 .category-card p {
-  margin: 10px 0 0;
-  font-size: 14px;
+  margin: 0.625em 0;
+  font-size: 0.875em;
   color: #bbb;
 }
 
@@ -252,8 +253,8 @@ header {
 
 /* TRENDING PRODUCTS */
 .trending-products {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
+  margin-top: 5em;
+  margin-bottom: 5em;
 }
 
 .trending-products h2 {
@@ -261,34 +262,33 @@ header {
   font-size: 2.938em;
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
-  margin-bottom: 40px;
+  margin-bottom: 1.4em;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 75em;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 0.938em;
 }
 
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   /* 4 columnas */
-  grid-gap: 30px;
-  /* Reduce el espacio entre las tarjetas */
+  grid-gap: 1.875em;
 }
 
 .product-card {
-  padding: 20px;
+  padding: 1.5em;
   text-align: center;
   background-color: #f5f5f5;
-  border-radius: 5px;
+  border-radius: 0.313em;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-0.313em);
+  box-shadow: 0 0.25em 1.25em rgba(0, 0, 0, 0.3);
 }
 
 .product-card img {
@@ -297,27 +297,28 @@ header {
 }
 
 .product-card h4 {
-  margin-top: 10px;
-  font-size: 18px;
+  margin-top: 0.625em;
+  font-size: 1.125em;
   font-weight: 400;
   text-transform: uppercase;
 }
 
 .product-card p {
-  margin-top: 5px;
-  font-size: 16px;
+  margin-top: 0.313em;
+  font-size: 1em;
   color: #9bd1e6;
   font-weight: bold;
 }
 
+/* agregar despues */
 .sale,
 .new {
   display: inline-block;
   background-color: #f00;
   color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin-top: 10px;
+  padding: 0.313em 0.625em;
+  border-radius: 313em;
+  margin-top: 0.625em;
 }
 
 
@@ -425,17 +426,17 @@ header {
   font-size: 2.938em;
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
-  margin-bottom: 40px;
+  margin-bottom: 1.3em;
 }
 
 .parent {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 40px;
-  grid-row-gap: 15px;
-  padding: 0 160px;
-  margin-bottom: 50px;
+  grid-column-gap: 2.5em;
+  grid-row-gap: 2.5em;
+  padding: 0 10em;
+  margin-bottom: 3.125em;
 }
 
 .parent img {
@@ -500,7 +501,7 @@ header {
 
 .overlay h3 {
   font-size: 1.2em;
-  margin: 10px 0 5px;
+  margin: 0.625em 0 0.313em;
 }
 
 .overlay h3:hover {
@@ -509,13 +510,13 @@ header {
 
 .overlay h4 {
   font-size: 0.9em;
-  margin: 5px 0;
+  margin: 0.313em 0;
   color: #92c5d9;
 }
 
 .overlay .icon-circle {
-  width: 50px;
-  height: 50px;
+  width: 3.125em;
+  height: 3.125em;
   background-color: white;
   border-radius: 50%;
   display: flex;
@@ -524,7 +525,7 @@ header {
   transition: background-color 0.4s ease;
   cursor: pointer;
   overflow: hidden;
-  margin-top: 15px;
+  margin-top: 0.938em;
 }
 
 .overlay .icon-circle img {
@@ -544,13 +545,13 @@ header {
 /* BLOG */
 .blog-section {
   text-align: center;
-  padding: 130px 0;
+  padding: 5.125em 0;
   background-color: #f4f3f3;
 }
 
 .blog-section h2 {
   font-size: 2.938em;
-  margin-bottom: 40px;
+  margin-bottom: 1.3em;
   font-weight: 400;
   font-family: "Roboto Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   line-height: 1.38298;
@@ -561,25 +562,25 @@ header {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 0 40px;
+  padding: 0 1.3em;
 }
 
 .blog-card {
   width: 23%;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 1.25em;
 }
 
 .blog-card img {
   width: 100%;
   height: auto;
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 0.938em;
 }
 
 .blog-card h3 {
   font-size: 1.2rem;
-  margin: 10px 0;
+  margin: 0.625em 0;
   font-family: "Roboto Condensed", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   text-transform: uppercase;
   color: #151515;
@@ -595,7 +596,7 @@ header {
 footer {
   background-color: #454648;
   color: #fff;
-  padding: 40px;
+  padding: 2em;
   display: flex;
   justify-content: space-between;
 }
@@ -617,40 +618,40 @@ footer {
 }
 
 footer img {
-  max-width: 100px;
+  max-width: 6.25em;
   margin-bottom: 0;
 }
 
 footer p {
-  margin-bottom: 10px;
+  margin-bottom: 0.625em;
   color: rgba(255, 255, 255, 0.5);
 }
 
 footer a {
   color: #fff;
   text-decoration: none;
-  margin-right: 10px;
+  margin-right: 0.625em;
 }
 
 footer form {
   display: flex;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 1.25em;
 }
 
 footer input[type="email"] {
   width: 100%;
-  padding: 10px;
+  padding: 0.625em;
   border: none;
-  border-radius: 5px;
-  margin-right: 10px;
+  border-radius: 0.313em;
+  margin-right: 0.625em;
 }
 
 footer button[type="submit"] {
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
+  border-radius: 0.313em;
+  padding: 0.625em 1.25em;
   cursor: pointer;
 }
