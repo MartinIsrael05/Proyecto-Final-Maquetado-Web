@@ -105,6 +105,18 @@ const categoriesData = [
     }
 ];
 
+// single products
+const productos = [
+    { nombre: "Garden Table", imagen: "assets/images/producto1.png", precio: 23, precioAnterior: 30, etiqueta: "SALE" },
+    { nombre: "Club Chair", imagen: "assets/images/producto2.png", precio: 13, etiqueta: "NEW" },
+    { nombre: "Pendant Lamp", imagen: "assets/images/producto3.png", precio: 17 },
+    { nombre: "Dark Grey Club Chair", imagen: "assets/images/producto4.png", precio: 14, etiqueta: "NEW" },
+    { nombre: "Table Lamp", imagen: "assets/images/producto5.png", precio: 11, etiqueta: "NEW" },
+    { nombre: "Orange Stacking Chair", imagen: "assets/images/producto6.png", precio: 15 },
+    { nombre: "Floor Lamp", imagen: "assets/images/producto7.png", precio: 22, precioAnterior: 32, etiqueta: "SALE" },
+    { nombre: "White Chair", imagen: "assets/images/producto8.png", precio: 10 },
+];
+
 
 // FUNCIONES
 // carousel 
@@ -115,8 +127,8 @@ function carousel_section(carouselSelector, sectionsData) {
     // Generar contenido dinámicamente para cada sección
     sections.forEach((section, index) => {
         const data = sectionsData[index];
-        
-        
+
+
         if (data) {
             // Crear el título
             const titleElement = document.createElement('h1');
@@ -245,6 +257,114 @@ function createCategories(categories) {
     });
 }
 
+
+//trending products
+function trendingProducts() {
+    const section = document.querySelector(".trending-products-section");
+
+    const contenedorFila1 = document.createElement("article");
+    contenedorFila1.classList.add("cont-center", "contenedor-fila-trending-products");
+
+    const contenedorFila2 = document.createElement("article");
+    contenedorFila2.classList.add("cont-center", "contenedor-fila-trending-products");
+
+    productos.forEach((producto, index) => {
+        const article = document.createElement("article");
+        article.classList.add("articulo-trending-products", "bg-f5", "product-card");
+
+        if (producto.etiqueta) {
+            const etiquetaDiv = document.createElement("div");
+            etiquetaDiv.classList.add("flex", "right");
+
+            const etiquetaSpan = document.createElement("span");
+            etiquetaSpan.classList.add(producto.etiqueta.toLowerCase());
+            etiquetaSpan.textContent = producto.etiqueta;
+
+            etiquetaDiv.appendChild(etiquetaSpan);
+            article.appendChild(etiquetaDiv);
+        }
+
+        const figure = document.createElement("figure");
+        figure.classList.add("cont-center");
+
+        const img = document.createElement("img");
+        img.src = producto.imagen;
+        img.alt = producto.nombre;
+
+        figure.appendChild(img);
+        article.appendChild(figure);
+
+        const divInfo = document.createElement("div");
+
+        const h4 = document.createElement("h4");
+        h4.classList.add("text-center", "title-articulo-trending-products");
+        h4.textContent = producto.nombre;
+
+        divInfo.appendChild(h4);
+
+        if (producto.precioAnterior) {
+            const divPrecios = document.createElement("div");
+            divPrecios.classList.add("cont-center", "cont-precios");
+
+            const precioAnterior = document.createElement("p");
+            precioAnterior.classList.add("precio-tachado", "text-grey");
+            precioAnterior.textContent = `$${producto.precioAnterior}.00`;
+
+            const precio = document.createElement("p");
+            precio.classList.add("text-center", "text-blue");
+            precio.textContent = `$${producto.precio}.00`;
+
+            divPrecios.appendChild(precioAnterior);
+            divPrecios.appendChild(precio);
+            divInfo.appendChild(divPrecios);
+        } else {
+            const precio = document.createElement("p");
+            precio.classList.add("text-center", "text-blue");
+            precio.textContent = `$${producto.precio}.00`;
+            divInfo.appendChild(precio);
+        }
+
+        article.appendChild(divInfo);
+
+        const divHoverIcons = document.createElement("div");
+        divHoverIcons.classList.add("cont-center", "hover-icons");
+
+        const divIcon1 = document.createElement("div");
+        divIcon1.classList.add("bg-white", "text-center", "cont-center", "icon-circle-trendingProducts");
+        const a1 = document.createElement("a");
+        a1.href = "single-product.html";
+        const imgLupa = document.createElement("img");
+        imgLupa.src = "assets/images/lupa.png";
+        imgLupa.alt = "Lupa";
+        a1.appendChild(imgLupa);
+        divIcon1.appendChild(a1);
+
+        const divIcon2 = document.createElement("div");
+        divIcon2.classList.add("bg-white", "text-center", "cont-center", "icon-circle2-trendingProducts");
+        const a2 = document.createElement("a");
+        a2.href = "single-product.html";
+        const imgCarrito = document.createElement("img");
+        imgCarrito.src = "assets/images/cart.png";
+        imgCarrito.alt = "Carrito";
+        a2.appendChild(imgCarrito);
+        divIcon2.appendChild(a2);
+
+        divHoverIcons.appendChild(divIcon1);
+        divHoverIcons.appendChild(divIcon2);
+
+        article.appendChild(divHoverIcons);
+
+        if (index < 4) {
+            contenedorFila1.appendChild(article);
+        } else {
+            contenedorFila2.appendChild(article);
+        }
+    });
+
+    section.appendChild(contenedorFila1);
+    section.appendChild(contenedorFila2);
+}
+
 // LLAMADAS A LAS FUNCIONES
 //carousel
 document.addEventListener('DOMContentLoaded', () => {
@@ -254,7 +374,5 @@ document.addEventListener('DOMContentLoaded', () => {
 //categories
 createCategories(categoriesData);
 
-
-
-
-
+//trending prodcuts
+trendingProducts();

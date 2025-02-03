@@ -546,8 +546,9 @@ header {
 }
 
 .articulo-trending-products:hover {
-  transform: translateY(-0.313em);
   box-shadow: var(--box-shadow-lighter);
+  background-color: var(--colorBlanco);
+  height: 28em;
 }
 
 .articulo-trending-products figure {
@@ -576,6 +577,76 @@ header {
 
 .cont-precios {
   gap: 1em;
+}
+
+.sale {
+  background-color: #f96666;
+  color: var(--colorBlanco);
+  font-size: .8em;
+  padding: .3em 1em;
+  border-radius: .4em;
+}
+
+.new {
+  background-color: #93a6ab;
+  color: var(--colorBlanco);
+  font-size: .8em;
+  padding: .3em 1em;
+  border-radius: .4em;
+}
+
+.hover-icons {
+  margin: 1.5em 0;
+  gap: 1em;
+  opacity: 0;
+}
+
+.product-card:hover .hover-icons {
+  opacity: 1;
+}
+
+/* Estilo de los círculos para íconos */
+.icon-circle-trendingProducts {
+  background-color: #e9da5d;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  box-shadow: 0 0.125em 0.313em rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.icon-circle-trendingProducts img {
+  width: 1.5em;
+}
+
+.icon-circle2-trendingProducts {
+  background-color: var(--colorCeleste);
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+  box-shadow: 0 0.125em 0.313em rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.icon-circle2-trendingProducts img {
+  width: 1.5em;
+}
+
+.icon-circle-trendingProducts:hover {
+  background-color: var(--colorCeleste);
+  transform: scale(1.1);
+}
+
+.icon-circle2-trendingProducts:hover {
+  background-color: #e9da5d;
+  transform: scale(1.1);
+}
+
+.icon-circle-trendingProducts img {
+  max-width: 1.5em;
+  height: auto;
 }
 
 /* founder */
