@@ -118,6 +118,17 @@ const productos = [
 ];
 
 
+// portfolio
+const portfolioItems = [
+    { src: "assets/images/portfolio1.jpg", title: "SUNSHINE RESTAURANT", category: "DECOR" },
+    { src: "assets/images/portfolio2.jpg", title: "QUADRO HOTEL", category: "FURNITURE" },
+    { src: "assets/images/portfolio3.jpg", title: "U-STYLE FASHION HOUSE", category: "DECOR" },
+    { src: "assets/images/portfolio4.jpg", title: "FLASH CAFE", category: "FURNITURE" },
+    { src: "assets/images/portfolio5.jpg", title: "NEW YORK PUBLIC LIBRARY", category: "DECOR" },
+    { src: "assets/images/portfolio6.jpg", title: "Q-BIZ COWORKING", category: "FURNITURE" },
+    { src: "assets/images/portfolio7.jpg", title: "MONROE’S BAR", category: "DECOR" }
+];
+
 // FUNCIONES
 // carousel 
 function carousel_section(carouselSelector, sectionsData) {
@@ -365,6 +376,61 @@ function trendingProducts() {
     section.appendChild(contenedorFila2);
 }
 
+//portfolio
+function portfolio() {
+    const portfolioSection = document.querySelector(".portfolio");
+
+    const portfolioContainer = document.createElement("article");
+    portfolioContainer.classList.add("parent");
+
+    const fullScreenDialog = document.createElement("dialog");
+    const fullScreenImg = document.createElement("img");
+    fullScreenDialog.appendChild(fullScreenImg);
+    portfolioSection.appendChild(fullScreenDialog);
+
+    fullScreenDialog.addEventListener("click", () => fullScreenDialog.close());
+
+    // generar los artículos dinámicamente
+    portfolioItems.forEach((item, index) => {
+        const article = document.createElement("article");
+        article.classList.add(`article-portfolio-${index + 1}`);
+
+        const figure = document.createElement("figure");
+        const img = document.createElement("img");
+        img.src = item.src;
+        img.alt = `foto ${index + 1} - portfolio`;
+        figure.appendChild(img);
+
+        const overlay = document.createElement("div");
+        overlay.classList.add("cont-center", "text-white", "overlay");
+
+        const h3 = document.createElement("h3");
+        h3.textContent = item.title;
+
+        const h4 = document.createElement("h4");
+        h4.textContent = item.category;
+
+        const iconCircle = document.createElement("div");
+        iconCircle.classList.add("bg-white", "text-center", "icon-circle");
+        const lupa = document.createElement("img");
+        lupa.src = "assets/images/lupa.png";
+        lupa.alt = "Lupa";
+        iconCircle.appendChild(lupa);
+
+        // Evento para mostrar la imagen en pantalla completa
+        iconCircle.addEventListener("click", () => {
+            fullScreenImg.src = item.src;
+            fullScreenDialog.showModal();
+        });
+
+        overlay.append(h3, h4, iconCircle);
+        article.append(figure, overlay);
+        portfolioContainer.appendChild(article);
+    });
+
+    portfolioSection.appendChild(portfolioContainer);
+}
+
 // LLAMADAS A LAS FUNCIONES
 //carousel
 document.addEventListener('DOMContentLoaded', () => {
@@ -376,3 +442,6 @@ createCategories(categoriesData);
 
 //trending prodcuts
 trendingProducts();
+
+//portfolio
+portfolio()
