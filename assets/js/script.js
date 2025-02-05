@@ -304,7 +304,7 @@ function createCategories(categories) { // categories
     });
 }
 
-function trendingProducts() { // trending products
+function trendingProducts() {
     const section = document.querySelector(".trending-products-section");
 
     const contenedorFila1 = document.createElement("article");
@@ -409,6 +409,11 @@ function trendingProducts() { // trending products
     section.appendChild(contenedorFila1);
     section.appendChild(contenedorFila2);
 }
+document.addEventListener('DOMContentLoaded', () => { // Llamar a la función trendingProducts en index.html y grid-shop.html
+    if (document.querySelector(".trending-products-section")) {
+        trendingProducts();
+    }
+});
 
 function portfolio() { // portfolio
     const portfolioSection = document.querySelector(".portfolio");
@@ -529,7 +534,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // LLAMADAS A LAS FUNCIONES
-
 document.addEventListener('DOMContentLoaded', () => { // carousel
     carousel_section('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
 });

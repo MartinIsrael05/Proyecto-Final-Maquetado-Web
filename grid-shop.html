@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="es-Es">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sofá - Inicio</title>
+    <title>Sofá - Grid Shop</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="https://kit.fontawesome.com/dba7accec9.js" crossorigin="anonymous" defer></script>
     <script src="assets/js/script.js" defer></script>
 </head>
-
 <body>
     <header class="bg-white cont-center">
         <div class="contenedorGeneral-header">
@@ -26,8 +24,7 @@
                 <ul class="cont-center contenedor-icons-navbar lista-sin-estilo">
                     <li><a href="#"><img class="img-icons-navbar" src="assets/images/lupa.png" alt="Buscador"></a></li>
                     <li><a href="#"><img class="img-icons-navbar" src="assets/images/cart.png" alt="Carrito"></a></li>
-                    <li><a href="#" class="menu-toggle"><img class="img-icons-navbar" src="assets/images/menu.png"
-                                alt="Menu hamburguesa"></a></li>
+                    <li><a href="#" class="menu-toggle"><img class="img-icons-navbar" src="assets/images/menu.png" alt="Menu hamburguesa"></a></li>
                 </ul>
             </nav>
         </div>
@@ -41,7 +38,7 @@
             </div>
         </section>
 
-        <!-- recorrido -->
+        <!-- Breadcrumb Navigation -->
         <section>
             <div class="bg-f5 cont-center ubicacion contenedor-ubicacion">
                 <a href="index.html" class="text-grey">Home</a>
@@ -50,101 +47,25 @@
                 <span>➔</span>
                 <a href="grid-shop.html" class="text-black">Grid Shop</a>
             </div>
-            </div>
         </section>
 
-        <!-- Trending Products Section -->
-        <section class="trending-products-section">
-            <h2>trending products</h2>
-            <article class="cont-center contenedor-fila-trending-products">
-                <article class="articulo-trending-products bg-f5">
-                    <figure class="cont-center">
-                        <img src="assets/images/producto1.png" alt="Garden Table">
-                    </figure>
-                    <div class="">
-                        <h4 class="text-center title-articulo-trending-products">Garden Table</h4>
-                        <div class="cont-center cont-precios">
-                            <p class="precio-tachado text-grey">$30.00</p>
-                            <p class="text-center text-blue">$23.00</p>
-                        </div>
-                    </div>
-                </article>
+        <!-- Main Content Section -->
+        <section class="main-content">
+            <aside class="filters">
+                <h3>Filter by Category</h3>
+                <ul>
+                    <li><a href="#">Living Room</a></li>
+                    <li><a href="#">Bedroom</a></li>
+                    <li><a href="#">Dining Room</a></li>
+                    <li><a href="#">Bathroom</a></li>
+                    <li><a href="#">Decor & Furniture</a></li>
+                    <li><a href="#">Kids Room</a></li>
+                </ul>
+            </aside>
 
-                <article class="articulo-trending-products bg-f5">
-                    <figure class="cont-center">
-                        <img src="assets/images/producto2.png" alt="Club Chair">
-                    </figure>
-                    <div class="">
-                        <h4 class="text-center title-articulo-trending-products">Club Chair</h4>
-                        <p class="text-center text-blue">$13.00</p>
-                    </div>
-                </article>
-
-                <article class="articulo-trending-products bg-f5">
-                    <figure class="cont-center">
-                        <img src="assets/images/producto3.png" alt="Pendant Lamp">
-                    </figure>
-                    <div class="">
-                        <h4 class="text-center title-articulo-trending-products">Pendant Lamp</h4>
-                        <p class="text-center text-blue">$17.00</p>
-                    </div>
-                </article>
-
-                <article class="articulo-trending-products bg-f5">
-                    <figure class="cont-center">
-                        <img src="assets/images/producto4.png" alt="Dark Grey Club Chair">
-                    </figure>
-                    <div class="">
-                        <h4 class="text-center title-articulo-trending-products">Dark Grey Club Chair</h4>
-                        <p class="text-center text-blue">$14.00</p>
-                    </div>
-                </article>
-            </article>
-
-            <article class="cont-center contenedor-fila-trending-products">
-                <article class="articulo-trending-products bg-f5">
-                    <figure class="cont-center">
-                        <img src="assets/images/producto5.png" alt="Table Lamp">
-                    </figure>
-                    <div class="">
-                        <h4 class="text-center title-articulo-trending-products">Table Lamp</h4>
-                        <p class="text-center text-blue">$11.00</p>
-                    </div>
-                </article>
-
-                <article class="articulo-trending-products bg-f5">
-                    <figure class="cont-center">
-                        <img src="assets/images/producto6.png" alt="Orange Stacking Chair">
-                    </figure>
-                    <div class="">
-                        <h4 class="text-center title-articulo-trending-products">Orange Stacking Chair</h4>
-                        <p class="text-center text-blue">$15.00</p>
-                    </div>
-                </article>
-
-                <article class="articulo-trending-products bg-f5">
-                    <figure class="cont-center">
-                        <img src="assets/images/producto7.png" alt="Floor Lamp">
-                    </figure>
-                    <div class="">
-                        <h4 class="text-center title-articulo-trending-products">Floor Lamp</h4>
-                        <div class="cont-center cont-precios">
-                            <p class="precio-tachado text-grey">$32.00</p>
-                            <p class="text-center text-blue">$22.00</p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="articulo-trending-products bg-f5">
-                    <figure class="cont-center">
-                        <img src="assets/images/producto8.png" alt="White Chair">
-                    </figure>
-                    <div class="">
-                        <h4 class="text-center title-articulo-trending-products">White Chair</h4>
-                        <p class="text-center text-blue">$10.00</p>
-                    </div>
-                </article>
-            </article>
+            <section class="trending-products-section" id="trending-products">
+                <h2>trending products</h2>
+            </section>
         </section>
     </main>
 
@@ -166,20 +87,16 @@
                         <li><a href="https://www.facebook.com/"><i class="fa fa-facebook text-white"></i></a></li>
                         <li><a href="https://x.com/"><i class="fa fa-twitter text-white"></i></a></li>
                         <li><a href="https://www.instagram.com/"><i class="fa fa-instagram text-white"></i></a></li>
-                        <li><a href="https://mail.google.com/mail/u/0/#inbox"><i
-                                    class="fa fa-google-plus text-white"></i></a></li>
+                        <li><a href="https://mail.google.com/mail/u/0/#inbox"><i class="fa fa-google-plus text-white"></i></a></li>
                     </ul>
                 </div>
             </article>
 
             <article class="footer-column contacts-footer">
                 <h3 class="text-white">Contacts</h3>
-                <p class="align-items-center"><i class="fa fa-map-marker text-blue"></i> 523 Sylvan Ave,
-                    5th Floor Mountain View, CA 94041 USA</p>
-                <p class="align-items-center"><i class="fa fa-phone text-blue"></i> +1 (844) 123 456 78
-                </p>
-                <p class="align-items-center"><i class="fa fa-envelope text-blue"></i> info@demolink.org
-                </p>
+                <p class="align-items-center"><i class="fa fa-map-marker text-blue"></i> 523 Sylvan Ave, 5th Floor Mountain View, CA 94041 USA</p>
+                <p class="align-items-center"><i class="fa fa-phone text-blue"></i> +1 (844) 123 456 78</p>
+                <p class="align-items-center"><i class="fa fa-envelope text-blue"></i> info@demolink.org</p>
             </article>
 
             <article class="footer-column">
@@ -187,8 +104,7 @@
                 <p class="p-newsletter-footer">Subscribe to our newsletter to receive weekly news, updates, special offers, and exclusive discounts.</p>
                 <form class="flex align-items-center separacion-tituloTexto-footer">
                     <input type="email" placeholder="Enter your e-mail">
-                    <button class="cont-center" type="submit"><i
-                            class="fa-regular fa-paper-plane send-form-footer"></i></button>
+                    <button class="cont-center" type="submit"><i class="fa-regular fa-paper-plane send-form-footer"></i></button>
                 </form>
             </article>
         </div>
