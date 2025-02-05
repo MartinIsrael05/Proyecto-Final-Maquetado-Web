@@ -996,6 +996,10 @@ footer img {
   gap: 0.8em;
 }
 
+.p-newsletter-footer {
+  margin: 2em 0;
+}
+
 .contacts-footer p {
   margin-top: 2em;
 }
@@ -1613,6 +1617,255 @@ hr {
   font-weight: bold;
 }
 
+
+
+
+/* CHECKOUT */
+.checkout-form {
+  padding: 4em;
+  background-color: var(--colorBlanco);
+}
+
+.form-container {
+  gap: 3em;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.form-section {
+  width: 50%;
+}
+
+.form-section h3 {
+  margin-bottom: 1em;
+  font-size: 2.2em;
+  color: var(--colorNegro);
+  font-weight: 400;
+  letter-spacing: .025em;
+}
+
+.form-row {
+  gap: 2rem;
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 2em;
+}
+
+.form-group label {
+  display: block;
+  font-size: var(--font-size-small);
+  color: #333;
+  margin-bottom: 0.5em;
+}
+
+.form-group input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 0.5em 0;
+  font-size: var(--font-size-medium);
+  color: #333;
+  background: transparent;
+}
+
+.form-group input::placeholder {
+  color: var(--colorNegro);
+  font-size: var(--font-size-medium);
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.form-group input:focus::placeholder {
+  color: transparent;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+input[type="checkbox"] {
+  margin-right: 0.5em;
+}
+
+label[for="same-address"] {
+  font-size: var(--font-size-small);
+  color: #666;
+}
+
+.checkbox-container {
+  gap: 0.5em;
+  margin-top: 1em;
+}
+
+.checkbox-container input[type="checkbox"] {
+  margin: 0;
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.checkbox-container label {
+  font-size: 1em;
+  color: #666;
+}
+
+.shopping-cart-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.shopping-cart-container h2 {
+  font-size: 2.2em;
+  font-weight: 400;
+  color: #000;
+}
+
+.shopping-cart-box {
+  background-color: var(--colorBlanco);
+  border: 1px solid #e1e1e1;
+  padding: 1.2em;
+  margin-bottom: 1.9em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead th {
+  text-transform: uppercase;
+  font-size: 1.1em;
+  color: #777777;
+  font-weight: 500;
+  padding-bottom: .6em;
+  border-bottom: 2px solid #eaeaea;
+}
+
+tbody td {
+  padding: 1.2em 0;
+  font-size: 1.5em;
+  color: var(--colorNegro);
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+}
+
+.product-info img {
+  width: 7em;
+  height: 7em;
+  object-fit: cover;
+  margin-right: 1em;
+  background: var(--fondoGrisClaro);
+}
+
+.product-info span {
+  font-size: 1em;
+  color: var(--colorNegro);
+  text-transform: uppercase;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-control button {
+  width: 2em;
+  height: 2em;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: .8em;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.quantity-control button:hover {
+  background-color: #f5f5f5;
+}
+
+.quantity-control input {
+  width: 3em;
+  margin: 0 .6em;
+  pointer-events: none;
+  border: transparent;
+}
+
+.checkout-section {
+  gap: 2em;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em 0;
+  margin-bottom: 1.8em;
+}
+
+.section-title {
+  font-size: var(--font-size-xl);
+  font-weight: 400;
+}
+
+.payment-methods-container,
+.cart-total-container {
+  flex: 1;
+}
+
+.payment-box,
+.cart-box {
+  background: var(--colorBlanco);
+  border: 1px solid #eaeaea;
+}
+
+.payment-box {
+  padding: 1em 0;
+}
+
+.payment-box label {
+  display: block;
+  margin-bottom: 2em;
+  margin-left: 1em;
+}
+
+.payment-box input[type="checkbox"] {
+  margin-right: .6em;
+}
+
+.method-title {
+  font-size: var(--font-size-medium);
+  color: #151515;
+  font-weight: 500;
+}
+
+.method-description {
+  color: #888;
+  font-size: var(--font-size-small);
+  margin: 1em 0 0;
+}
+
+.cart-box .cart-row {
+  padding: 1.5em 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.summary-title {
+  font-size: var(--font-size-medium);
+  color: #151515;
+  margin-left: 1.5em;
+}
+
+.summary-value {
+  font-size: var(--font-size-medium);
+  color: #151515;
+  margin-right: 1.5em;
+}
 
 
 /* Media query for celular devices (max-width: 767px) */

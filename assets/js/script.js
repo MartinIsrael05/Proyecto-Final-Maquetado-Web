@@ -1,32 +1,5 @@
-// transiciones
-document.addEventListener("DOMContentLoaded", () => {
-    const observerOptions = {
-        root: null, // Observa en el viewport
-        rootMargin: "0px", // Sin márgenes adicionales
-        threshold: 0.1, // Activa cuando el 10% del elemento sea visible
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show"); // Agrega la clase 'show'
-                observer.unobserve(entry.target); // Deja de observar el elemento
-            }
-        });
-    }, observerOptions);
-
-    // Seleccionamos las filas y el footer que necesitan la animación
-    const elementosAnimados = document.querySelectorAll(
-        ".contenedor-fila-categories, .contenedor-fila-trending-products, .cont-article-founder-section, .footer"
-    );
-
-    // Observa cada elemento animado
-    elementosAnimados.forEach((elemento) => observer.observe(elemento));
-});
-
-// HOME 
-// carousel 
-const carouselData = [
+// DATOS
+const carouselData = [  // carousel
     {
         containerClass: 'cont-center column',
         titleClass: 'text-white',
@@ -59,8 +32,7 @@ const carouselData = [
     }
 ];
 
-// categories 
-const categoriesData = [
+const categoriesData = [ // categories 
     {
         image: "assets/images/sillon.png",
         altText: "Sillón",
@@ -105,8 +77,7 @@ const categoriesData = [
     }
 ];
 
-// single products
-const productos = [
+const productos = [ // trending products
     { nombre: "Garden Table", imagen: "assets/images/producto1.png", precio: 23, precioAnterior: 30, etiqueta: "SALE" },
     { nombre: "Club Chair", imagen: "assets/images/producto2.png", precio: 13, etiqueta: "NEW" },
     { nombre: "Pendant Lamp", imagen: "assets/images/producto3.png", precio: 17 },
@@ -117,9 +88,7 @@ const productos = [
     { nombre: "White Chair", imagen: "assets/images/producto8.png", precio: 10 },
 ];
 
-
-// portfolio
-const portfolioItems = [
+const portfolioItems = [ // portfolio
     { src: "assets/images/portfolio1.jpg", title: "SUNSHINE RESTAURANT", category: "DECOR" },
     { src: "assets/images/portfolio2.jpg", title: "QUADRO HOTEL", category: "FURNITURE" },
     { src: "assets/images/portfolio3.jpg", title: "U-STYLE FASHION HOUSE", category: "DECOR" },
@@ -129,9 +98,77 @@ const portfolioItems = [
     { src: "assets/images/portfolio7.jpg", title: "MONROE’S BAR", category: "DECOR" }
 ];
 
-// FUNCIONES
-// carousel 
-function carousel_section(carouselSelector, sectionsData) {
+const blogs = [ // blog
+    {
+        imgSrc: 'assets/images/blog1.jpg',
+        title: 'LED Lighting and Its Benefits for Homeowners',
+        date: 'August 9, 2021'
+    },
+    {
+        imgSrc: 'assets/images/blog2.jpg',
+        title: 'What to Look for When Shopping for Chairs Online',
+        date: 'August 9, 2021'
+    },
+    {
+        imgSrc: 'assets/images/blog3.jpg',
+        title: 'Ways to Decorate Your Home with the Color Red',
+        date: 'August 9, 2021'
+    },
+    {
+        imgSrc: 'assets/images/blog4.jpg',
+        title: 'Top 20 Interior Home Decor Trends of 2021',
+        date: 'August 9, 2021'
+    },
+    {
+        imgSrc: 'assets/images/blog5.jpg',
+        title: 'HOW TO CHOOSE FURNITURE FOR YOUR HOME',
+        date: 'August 9, 2021'
+    }
+
+];
+
+
+// FUNCIONES REUTILIZABLES
+function renderItems(container, items, currentIndex, itemsPerPage, renderItem) { // Función genérica para renderizar elementos en un contenedor
+    container.innerHTML = ''; // Limpiar el contenido anterior
+    // Iterar sobre el número de elementos que se deben mostrar por página
+    for (let i = 0; i < itemsPerPage; i++) {
+        // Calcular el índice del elemento actual en el array de items
+        const itemIndex = (currentIndex + i) % items.length;
+        // Obtener el elemento actual del array de items
+        const item = items[itemIndex];
+        // Llamar a la función renderItem para renderizar el elemento en el contenedor
+        renderItem(container, item);
+    }
+}
+
+function prevSlide(container, items, currentIndex, itemsPerPage, renderItem) { // Función genérica para mostrar el slide anterior
+    // Calcular el nuevo índice actual restando el número de elementos por página
+    // y asegurarse de que el índice sea positivo usando el operador módulo
+    currentIndex = (currentIndex - itemsPerPage + items.length) % items.length;
+
+    // Renderizar los elementos en el contenedor usando el nuevo índice actual
+    renderItems(container, items, currentIndex, itemsPerPage, renderItem);
+
+    // Devolver el nuevo índice actual
+    return currentIndex;
+}
+
+function nextSlide(container, items, currentIndex, itemsPerPage, renderItem) { // Función genérica para mostrar el siguiente slide
+    // Calcular el nuevo índice actual sumando el número de elementos por página
+    // y asegurarse de que el índice esté dentro del rango del array usando el operador módulo
+    currentIndex = (currentIndex + itemsPerPage) % items.length;
+
+    // Renderizar los elementos en el contenedor usando el nuevo índice actual
+    renderItems(container, items, currentIndex, itemsPerPage, renderItem);
+
+    // Devolver el nuevo índice actual
+    return currentIndex;
+}
+
+
+// FUNCIONES ESPECIFICAS
+function carousel_section(carouselSelector, sectionsData) { // carousel 
     const sections = document.querySelectorAll(carouselSelector);
     let currentIndex = 0;
 
@@ -215,8 +252,7 @@ function carousel_section(carouselSelector, sectionsData) {
     updateCarousel();
 }
 
-//categories
-function createCategories(categories) {
+function createCategories(categories) { // categories
     // Contenedores de filas
     const fila1 = document.getElementById("fila1-categories");
     const fila2 = document.getElementById("fila2-categories");
@@ -268,9 +304,7 @@ function createCategories(categories) {
     });
 }
 
-
-//trending products
-function trendingProducts() {
+function trendingProducts() { // trending products
     const section = document.querySelector(".trending-products-section");
 
     const contenedorFila1 = document.createElement("article");
@@ -376,8 +410,7 @@ function trendingProducts() {
     section.appendChild(contenedorFila2);
 }
 
-//portfolio
-function portfolio() {
+function portfolio() { // portfolio
     const portfolioSection = document.querySelector(".portfolio");
 
     const portfolioContainer = document.createElement("article");
@@ -431,17 +464,80 @@ function portfolio() {
     portfolioSection.appendChild(portfolioContainer);
 }
 
+function renderBlog(container, blog) { // blog
+    const blogCard = document.createElement('article');
+    blogCard.className = 'blog-card';
+
+    const figure = document.createElement('figure');
+    const img = document.createElement('img');
+    img.src = blog.imgSrc;
+    img.alt = 'Blog Image';
+    figure.appendChild(img);
+
+    const h3 = document.createElement('h3');
+    h3.textContent = blog.title;
+
+    const p = document.createElement('p');
+    p.textContent = blog.date;
+
+    blogCard.appendChild(figure);
+    blogCard.appendChild(h3);
+    blogCard.appendChild(p);
+
+    container.appendChild(blogCard);
+}
+// Inicializar el slider de blogs
+let blogCurrentIndex = 0;
+const blogContainer = document.getElementById('blog-container');
+const blogsPerPage = 4;
+
+document.querySelector('.prev').addEventListener('click', () => {
+    blogCurrentIndex = prevSlide(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog);
+});
+document.querySelector('.next').addEventListener('click', () => {
+    blogCurrentIndex = nextSlide(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog);
+});
+// Inicializar el contenido de blogs
+renderItems(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog);
+
+
+// TRANSICIONES
+document.addEventListener("DOMContentLoaded", () => {
+    const observerOptions = {
+        root: null, // Observa en el viewport
+        rootMargin: "0px", // Sin márgenes adicionales
+        threshold: 0.1, // Activa cuando el 10% del elemento sea visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show"); // Agrega la clase 'show'
+                observer.unobserve(entry.target); // Deja de observar el elemento
+            }
+        });
+    }, observerOptions);
+
+    // Seleccionamos las filas y el footer que necesitan la animación
+    const elementosAnimados = document.querySelectorAll(
+        ".contenedor-fila-categories, .contenedor-fila-trending-products, .cont-article-founder-section, .footer"
+    );
+
+    // Observa cada elemento animado
+    elementosAnimados.forEach((elemento) => observer.observe(elemento));
+});
+
+
 // LLAMADAS A LAS FUNCIONES
-//carousel
-document.addEventListener('DOMContentLoaded', () => {
+
+document.addEventListener('DOMContentLoaded', () => { // carousel
     carousel_section('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
 });
 
-//categories
-createCategories(categoriesData);
+createCategories(categoriesData); // categories
 
-//trending prodcuts
-trendingProducts();
+trendingProducts(); // trending prodcuts
 
-//portfolio
-portfolio()
+portfolio(); // portfolio
+
+renderItems(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog); // blog
