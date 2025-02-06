@@ -530,11 +530,6 @@ header {
   transition: var(--transition-transform-slow-ease-out);
 }
 
-.contenedor-fila-trending-products.show {
-  visibility: visible;
-  opacity: 1;
-}
-
 .articulo-trending-products {
   padding: 1.5em;
   width: 18em;

@@ -127,10 +127,49 @@ const blogs = [ // blog
 
 ];
 
+const blogs_gridBlog = [ // blog (grid-blog)
+    {
+        imgSrc: 'assets/images/grid blog 1.jpg',
+        date: 'August 9, 2021',
+        title: 'Top 20 Interior Home Decor Trends of 2021',
+        description: 'Est velox nuptia, cesaris. Est dexter turpis, cesaris. Cum nixus persuadere, omnes fluctuies promissio flavum'
+    },
+    {
+        imgSrc: 'assets/images/grid blog 2.jpg',
+        date: 'August 9, 2021',
+        title: 'How to Choose Furniture for Your Home',
+        description: 'Sensorems peregrinatione in rugensis civitas! Ubi est bi-color byssus? Velox, teres ollas recte aperto de castus'
+    },
+    {
+        imgSrc: 'assets/images/grid blog 3.jpg',
+        date: 'August 9, 2021',
+        title: 'LED Lighting and Its Benefits for Homeowners',
+        description: 'Talis tus acceleratrix contactuss lixa est. Pol, a bene equiso. Cum nuptia peregrinatione, omnes adgiumes visum'
+    },
+    {
+        imgSrc: 'assets/images/grid blog 4.jpg',
+        date: 'August 9, 2021',
+        title: 'What to Look for When Shopping for Chairs Online',
+        description: 'Cum zeta experimentum, omnes scutumes fallere domesticus, salvus lapsuses. Neuter, teres calcarias unus'
+    },
+    {
+        imgSrc: 'assets/images/grid blog 5.jpg',
+        date: 'August 9, 2021',
+        title: 'Ways to Decorate Your Home with the Color Red',
+        description: 'Orgia, nixus, et zirbus. Vortexs volare in hafnia! Domesticus, dexter pess inciviliter desiderium de fortis'
+    },
+    {
+        imgSrc: 'assets/images/grid blog 6.jpg',
+        date: 'August 9, 2021',
+        title: '6 Ideas To Design the Perfect Guest Bedroom',
+        description: 'Cur contencio studere? Finis mirabilis buxum est. Ferox lumen grauiter resuscitabos hydra est. Magnum byssus'
+    }
+];
+
 
 // FUNCIONES REUTILIZABLES
 function renderItems(container, items, currentIndex, itemsPerPage, renderItem) { // Función genérica para renderizar elementos en un contenedor
-    container.innerHTML = ''; // Limpiar el contenido anterior
+    container.innerHTML = ""; // Limpiar el contenido anterior
     // Iterar sobre el número de elementos que se deben mostrar por página
     for (let i = 0; i < itemsPerPage; i++) {
         // Calcular el índice del elemento actual en el array de items
@@ -172,10 +211,14 @@ function carousel_section(carouselSelector, sectionsData) { // carousel
     const sections = document.querySelectorAll(carouselSelector);
     let currentIndex = 0;
 
+    if (sections.length === 0) {
+        console.error(`No se encontraron elementos con el selector: ${carouselSelector}`);
+        return;
+    }
+
     // Generar contenido dinámicamente para cada sección
     sections.forEach((section, index) => {
         const data = sectionsData[index];
-
 
         if (data) {
             // Crear el título
@@ -254,8 +297,8 @@ function carousel_section(carouselSelector, sectionsData) { // carousel
 
 function createCategories(categories) { // categories
     // Contenedores de filas
-    const fila1 = document.getElementById("fila1-categories");
-    const fila2 = document.getElementById("fila2-categories");
+    const fila1 = document.querySelector("#fila1-categories");
+    const fila2 = document.querySelector("#fila2-categories");
 
     categories.forEach((category, index) => {
         // Crear el contenedor del artículo
@@ -304,7 +347,7 @@ function createCategories(categories) { // categories
     });
 }
 
-function trendingProducts() {
+function trendingProducts() { // trending products
     const section = document.querySelector(".trending-products-section");
 
     const contenedorFila1 = document.createElement("article");
@@ -409,13 +452,8 @@ function trendingProducts() {
     section.appendChild(contenedorFila1);
     section.appendChild(contenedorFila2);
 }
-document.addEventListener('DOMContentLoaded', () => { // Llamar a la función trendingProducts en index.html y grid-shop.html
-    if (document.querySelector(".trending-products-section")) {
-        trendingProducts();
-    }
-});
 
-function portfolio() { // portfolio
+function portfolio() { // portfolio (home)
     const portfolioSection = document.querySelector(".portfolio");
 
     const portfolioContainer = document.createElement("article");
@@ -469,7 +507,7 @@ function portfolio() { // portfolio
     portfolioSection.appendChild(portfolioContainer);
 }
 
-function renderBlog(container, blog) { // blog
+function renderBlog(container, blog) { // blog (home)
     const blogCard = document.createElement('article');
     blogCard.className = 'blog-card';
 
@@ -493,17 +531,18 @@ function renderBlog(container, blog) { // blog
 }
 // Inicializar el slider de blogs
 let blogCurrentIndex = 0;
-const blogContainer = document.getElementById('blog-container');
+const blogContainer = document.querySelector('#blog-contenedor');
 const blogsPerPage = 4;
-
-document.querySelector('.prev').addEventListener('click', () => {
-    blogCurrentIndex = prevSlide(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog);
-});
-document.querySelector('.next').addEventListener('click', () => {
-    blogCurrentIndex = nextSlide(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog);
-});
-// Inicializar el contenido de blogs
-renderItems(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog);
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+if (prev && next) {
+    prev.addEventListener('click', () => {
+        blogCurrentIndex = prevSlide(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog);
+    });
+    next.addEventListener('click', () => {
+        blogCurrentIndex = nextSlide(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog);
+    });
+}
 
 
 // TRANSICIONES
@@ -525,7 +564,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Seleccionamos las filas y el footer que necesitan la animación
     const elementosAnimados = document.querySelectorAll(
-        ".contenedor-fila-categories, .contenedor-fila-trending-products, .cont-article-founder-section, .footer"
+        ".contenedor-fila-categories, .cont-article-founder-section, .footer"
     );
 
     // Observa cada elemento animado
@@ -535,13 +574,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // LLAMADAS A LAS FUNCIONES
 document.addEventListener('DOMContentLoaded', () => { // carousel
-    carousel_section('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
+    if (document.querySelector("#carousel-section")) {
+        carousel_section('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
+    }
+    
+    if (document.querySelector("#fila1-categories") && document.querySelector("#fila2-categories")) {
+        createCategories(categoriesData); // categories
+    }
+    
+    if (document.querySelector("#trending-products-section")) {
+        trendingProducts(); // trending products
+    }
+
+    if (document.querySelector(".portfolio")) {
+        portfolio(); // portfolio
+    }
+
+    if (document.querySelector("#blog-contenedor")) {
+        renderItems(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog); // Inicializar el contenido de blogs
+    }
 });
 
-createCategories(categoriesData); // categories
 
-trendingProducts(); // trending prodcuts
-
-portfolio(); // portfolio
-
-renderItems(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog); // blog
+// VALIDACIONES
+//formulario footer
+//formularios checkout
