@@ -2773,6 +2773,9 @@ ul.flex.social-icons-blog-post:hover {
 
   .nav-lista-links.active {
     display: flex;
+    align-items: center;
+    padding-left: 3.5em;
+    padding-bottom: 1em;
   }
 
   .menu-toggle {
@@ -2908,9 +2911,11 @@ ul.flex.social-icons-blog-post:hover {
 
   ul.tabs.flex.align-items-center.between {
     width: 100%;
-    justify-content: space-around;
   }
 
+  .tab-item {
+    margin: -.38em;
+  }
 
   .cont-title-fewWords {
     width: 100%;
@@ -2940,8 +2945,6 @@ ul.flex.social-icons-blog-post:hover {
 
   .shop-now-aboutUs {
     width: 100%;
-    display: block;
-    padding: 1em 0;
   }
 
   /* Sección "Our History" */
@@ -2980,6 +2983,10 @@ ul.flex.social-icons-blog-post:hover {
 
   .team-member {
     flex: 1 1 100%;
+  }
+
+  .contenedorOurTeam {
+    display: block;
   }
 
   /* Sección de estadísticas */
@@ -3339,10 +3346,11 @@ ul.flex.social-icons-blog-post:hover {
   .method-description {
     font-size: 1em;
   }
+
   /*ACA TERMINA CHECKOUT RESPONSIVE*/
 
-   /*BLOG POST RESPONSIVE*/
-   .containerBlogPost {
+  /*BLOG POST RESPONSIVE*/
+  .containerBlogPost {
     max-width: 100%;
     flex-direction: column;
     align-items: center;
@@ -3377,7 +3385,7 @@ ul.flex.social-icons-blog-post:hover {
     max-width: 100%;
   }
 
-  .posts-container{
+  .posts-container {
     display: block;
   }
 
@@ -3439,10 +3447,10 @@ ul.flex.social-icons-blog-post:hover {
 
   .links-popular-tags {
     flex-wrap: wrap;
-        gap: 2em;
-        max-width: 100%;
-        text-align: center;
-        justify-content: center;
+    gap: 2em;
+    max-width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 
   .archive-blog-post h4 {
@@ -3454,33 +3462,229 @@ ul.flex.social-icons-blog-post:hover {
     font-size: 1em;
   }
 
-  .reply-comment{
+  .reply-comment {
     margin-left: 0em;
   }
-  
-  .comment{
+
+  .comment {
     display: block;
   }
 
   p.comment-text {
     margin-bottom: 2em;
-}
+  }
 
-.submit-button-blogPost{
-  width: 100%;
-}
+  .submit-button-blogPost {
+    width: 100%;
+  }
 
-.categories-blog-post h4{
-  text-align: center;
-}
+  .categories-blog-post h4 {
+    text-align: center;
+  }
 
 
-ul.archive-list {
-  margin-top: 1em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+  ul.archive-list {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   /*ACA TERMINA BLOG POST RESPONSIVE*/
+
+  /* GRID SHOP RESPONSIVE */
+
+  .filtro-grid-shop h4 {
+    text-align: center;
+  }
+
+  .grid-shop-container {
+    flex-direction: column;
+    padding: 3em 1em;
+    gap: 1.5em;
+  }
+
+  .grid-shop-aside {
+    width: 100%;
+  }
+
+  .grid-shop-aside h3 {
+    font-size: 1em;
+    margin-bottom: 1em;
+  }
+
+  /* Categories */
+  .categories-grid-shop {
+    width: 100%;
+  }
+
+  .categories-grid-shop ul {
+    margin-top: 1em;
+  }
+
+  .categories-grid-shop li {
+    font-size: 1em;
+  }
+
+  /* Price Filter */
+  .price-filter {
+    width: 100%;
+    max-width: none;
+  }
+
+  .slider {
+    width: 100%;
+  }
+
+  .filter-footer {
+    display: flex;
+        text-align: center;
+        margin-top: 1em;
+        width: 100%;
+        flex-direction: row;
+        align-content: center;
+  }
+
+  .filter-button {
+    padding: 0.5em 2em;
+  }
+
+  /* Search Form */
+  .search-form-blog-post {
+    width: 100%;
+  }
+
+  .search-blog-post {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .search-input-blog-post {
+    width: 75%;
+    margin-right: 10px;
+  }
+
+  .search-button-blog-post {
+    display: inline-block;
+    width: 3em;
+  }
+
+  /* Popular Products */
+
+  .categories-grid-shop h4{
+    text-align: center;
+  }
+  .container-latest-posts {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .popular-products {
+    width: 100%;
+    margin-bottom: 1em;
+    display: block;
+  }
+
+  .popular-products img {
+    width: 8em;
+    height: 8em;
+  }
+  .post-content{
+    text-align: center;
+  }
+
+  /* Product Header */
+  .product-header {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2em;
+  }
+
+  .results-text {
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .filter-options {
+    justify-content: center;
+    gap: 1em;
+    width: 100%;
+  }
+
+  #sort-by {
+    font-size: 1em;
+    padding: 0.5em;
+  }
+
+  .view-options {
+    justify-content: center;
+  }
+
+  .view-options button {
+    font-size: 1.2em;
+  }
+
+  /* Product Items */
+  .product-items {
+    display: grid;
+    grid-template-columns: 1fr; 
+    justify-items: center; 
+    gap: 1.5em;
+    padding: 0 1em; 
+  }
+
+  .product-card {
+    width: 100%; 
+    max-width: 300px; 
+    padding: 1.5em;
+    margin: 0 auto; 
+    box-sizing: border-box;
+  }
+
+  .trending-products-section{
+    width: 100%;
+  }
+
+  .product-card img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .icon-circle-trendingProducts img {
+    max-width: 1.5em;
+    height: auto;
+}
+  .icon-circle2-trendingProducts img {
+    max-width: 1.5em;
+    height: auto;
+}
+
+  .title-articulo-trending-products {
+    font-size: 1em;
+  }
+
+  .text-blue {
+    font-size: 1.1em;
+  }
+
+  .hover-icons {
+    margin-top: 1em;
+    justify-content: space-around;
+  }
+
+  /* NEW and SALE labels */
+  .new, .sale {
+    font-size: 0.9em;
+    padding: 0.5em;
+  }
+
+  .precio-tachado {
+    font-size: 0.9em;
+    text-decoration: line-through;
+    margin-right: 5px;
+  }
+
+  /* /ACA TERMINA GRID SHOP RESPONSIVE */
 }
