@@ -46,42 +46,66 @@
 
         <!-- recorrido -->
         <section>
-            <div class="bg-f5 cont-center ubicacion contenedor-ubicacion">
+            <nav class="bg-f5 cont-center ubicacion contenedor-ubicacion">
                 <a href="index.html" class="text-grey">Home</a>
                 <span>➔</span>
                 <a href="about-us.html" class="text-grey">Pages</a>
                 <span>➔</span>
                 <a href="about-us.html" class="text-black">About Us</a>
-            </div>
-            </div>
+            </nav>
         </section>
 
         <section class="few-words-aboutUs">
-            <div class="text-content cont-center">
+            <div class="cont-center text-content w-80">
                 <div class="info-few-words">
                     <div class="column cont-title-fewWords">
                         <h2 class="text-left">A Few Words About Us</h2>
                     </div>
-                    <nav>
-                        <ul class="tabs flex align-items-center between ">
-                            <li class="tab-item active">ABOUT</a></li>
-                            <li class="tab-item">OUR MISSION</a></li>
-                            <li class="tab-item">OUR GOALS</a></li>
+                    <nav class="navegador-tabs-fewWords">
+                        <ul class="tabs flex align-items-center between">
+                            <li class="text-a3a3a3 tab-item active" data-tab="about">ABOUT</li>
+                            <li class="text-a3a3a3 tab-item" data-tab="mission">OUR MISSION</li>
+                            <li class="text-a3a3a3 tab-item" data-tab="goals">OUR GOALS</li>
                         </ul>
                     </nav>
                     <div class="flex column tab-content">
-                        <p>
-                            Cum nomen prarere, omnes peses amor pius, rusticus racanaes. Ubi est mirabilis gemna? Cum
-                            gabalium velum, omnes fugaes
-                        </p>
-                        <p>
-                            Ubi est peritus devatio? A falsis, adelphis peritus apolloniates. Est raptus clabulare,
-                            cesaris. Cum pulchritudine manducare, omnes genetrixes captis bassus
-                        </p>
-                        <a href="grid-shop.html" class="shop-now-aboutUs text-center">SHOP NOW</a>
+                        <div class="tab-pane active" id="about">
+                            <p>
+                                Cum nomen prarere, omnes peses amor pius, rusticus racanaes. Ubi est mirabilis gemna?
+                                Cum
+                                gabalium velum, omnes fugaes
+                            </p>
+                            <p>
+                                Ubi est peritus devatio? A falsis, adelphis peritus apolloniates. Est raptus clabulare,
+                                cesaris. Cum pulchritudine manducare, omnes genetrixes captis bassus
+                            </p>
+                        </div>
+
+                        <div class="tab-pane" id="mission">
+                            <p>
+                                Vae. Dexter fiscina aliquando vitares animalis est. Nunquam convertam bulla. Cum pars
+                                prarere, omnes seculaes
+                            </p>
+                            <p>
+                                Navis dexter historia est. Luba, homo, et indictio. Emeritis eposs ducunt ad animalis.
+                                Cum solem assimilant, omnes byssuses vitare clemens, secundus nixuses.
+                            </p>
+                        </div>
+
+                        <div class="tab-pane" id="goals">
+                            <p>
+                                A falsis, historia primus gallus. Est bassus tabes, cesaris. Gallus de mirabilis
+                                agripeta, locus mens! Primus ratione
+                            </p>
+                            <p>
+                                Cur eleates accelerare? Heu. Ecce, superbus onus! Demolitione secundus homo est. Cum
+                                cacula congregabo, omnes coordinataees acquirere dexter, flavum galataees.
+                            </p>
+                        </div>
                     </div>
+                    <a href="grid-shop.html" class="shop-now-aboutUs text-center">SHOP NOW</a>
                 </div>
-                <div class="image-content">
+                <div class="image-content img-few-words">
                     <img src="./assets/images/desk-aFewWords-aboutUs.jpg" alt="Office desk">
                 </div>
             </div>
@@ -90,174 +114,81 @@
         <section class="our-history-aboutUs">
             <h2 class="text-black">Our History</h2>
             <article class="flex between history-cards">
-                <article class="card">
-                    <h3 class="text-center text-black">First Success</h3>
-                    <p class="text-center">
-                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin
-                        facilisis, velit non fringilla pharetra, elit odio.
-                    </p>
-                </article>
-                <article class="card">
-                    <h3 class="text-center text-black">New Products</h3>
-                    <p class="text-center">
-                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin
-                        facilisis, velit non fringilla pharetra, elit odio.
-                    </p>
-                </article>
-                <article class="card">
-                    <h3 class="text-center text-black">National Recognition</h3>
-                    <p class="text-center">
-                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin
-                        facilisis, velit non fringilla pharetra, elit odio.
-                    </p>
-                </article>
-                <article class="card">
-                    <h3 class="text-center text-black">Market Leaders</h3>
-                    <p class="text-center">
-                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin
-                        facilisis, velit non fringilla pharetra, elit odio.
-                    </p>
-                </article>
             </article>
         </section>
+        <div class="flex between cont-flechas-ourHistory">
+            <div class="cont-button-prev-ourHistory">
+                <button class="prev-ourHistory">prev</button>
+            </div>
 
-        <section class="our-team-aboutUs">
-            <h2>our team</h2>
-            <div class="flex justify-content-center">
-                <article class="team-member">
-                    <div class="cont-team-photo">
-                        <img src="./assets/images/kateFerrand-aboutUs.jpg" alt="Kate Ferrand" class="team-photo">
-                    </div>
-                    <h3 class="text-center">
-                        <a class="text-black" href="#">
-                            <span>KATE FERRAND</span>
-                        </a>
-                    </h3>
-                    <p class="text-center text-grey">Cum exsul crescere, omnes lanistaes experientia gratis, castus
-                        detriuses.</p>
-                    <div class="social-links flex justify-content-center">
-                        <a href="https://www.facebook.com/">&#xf09a;</a>
-                        <a href="https://x.com/">&#xf099;</a>
-                        <a href="https://www.instagram.com/">&#xf16d;</a>
-                        <a href="https://mail.google.com/mail/u/0/#inbox">&#xf0d5;</a>
-                    </div>
-                </article>
-                <article class="team-member">
-                    <div class="cont-team-photo">
-                        <img src="./assets/images/rickMartinez-aboutUs.jpg" alt="Rick Martinez" class="team-photo">
-                    </div>
-                    <h3 class="text-center">
-                        <a class="text-black" href="#">
-                            <span>RICK MARTINEZ</span>
-                        </a>
-                    </h3>
-                    <p class="text-center text-grey">Cum zelus mori, omnes repressores desiderium magnum, rusticus
-                        medicinaes.</p>
-                    <div class="social-links flex justify-content-center">
-                        <a href="https://www.facebook.com/">&#xf09a;</a>
-                        <a href="https://x.com/">&#xf099;</a>
-                        <a href="https://www.instagram.com/">&#xf16d;</a>
-                        <a href="https://mail.google.com/mail/u/0/#inbox">&#xf0d5;</a>
-                    </div>
-                </article>
-                <article class="team-member">
-                    <div class="cont-team-photo">
-                        <img src="./assets/images/samanthaWilliams-aboutUs.jpg" alt="Samantha Williams"
-                            class="team-photo">
-                    </div>
-                    <h3 class="text-center">
-                        <a class="text-black" href="#">
-                            <span>SAMANTHA WILLIAMS</span>
-                        </a>
-                    </h3>
-                    <p class="text-center text-grey">Cum compater resistere, omnes menses fallere placidus, germanus
-                        gemnaes.</p>
-                    <div class="social-links flex justify-content-center">
-                        <a href="https://www.facebook.com/">&#xf09a;</a>
-                        <a href="https://x.com/">&#xf099;</a>
-                        <a href="https://www.instagram.com/">&#xf16d;</a>
-                        <a href="https://mail.google.com/mail/u/0/#inbox">&#xf0d5;</a>
-                    </div>
-                </article>
+            <div class="cont-button-next-ourHistory">
+                <button class="next-ourHistory">next</button>
+            </div>
+        </div>
+
+        <section class="our-team-aboutUs cont-center">
+            <div class="w-80">
+                <h2>our team</h2>
+
+                <div class="flex justify-content-center">
+                </div>
+
+                <div class="flex justify-content-center pagination">
+                    <span class="prev-ourTeam"></span>
+                    <span class="next-ourTeam"></span>
+                </div>
             </div>
         </section>
 
         <section class="bannerTiempo-aboutUs">
             <div class="flex align-items-center between stats-container">
                 <article class="stat-item text-white text-center">
-                    <h3 class="stat-number">245</h3>
+                    <h3 class="stat-number stat-number-1">0</h3>
                     <hr class="stat-divider bg-white">
                     <p class="stat-description-long">New Furniture Products</p>
                 </article>
                 <article class="stat-item text-white text-center">
-                    <h3 class="stat-number">382</h3>
+                    <h3 class="stat-number stat-number-2">0</h3>
                     <hr class="stat-divider bg-white">
                     <p class="stat-description">Special Offers</p>
                 </article>
                 <article class="stat-item text-white text-center">
-                    <h3 class="stat-number">1267</h3>
+                    <h3 class="stat-number stat-number-3">0</h3>
                     <hr class="stat-divider bg-white">
                     <p class="stat-description">Satisfied Clients</p>
                 </article>
                 <article class="stat-item text-white text-center">
-                    <h3 class="stat-number">474</h3>
+                    <h3 class="stat-number stat-number-4">0</h3>
                     <hr class="stat-divider bg-white">
                     <p class="stat-description-long2">Partners Throughout the USA</p>
                 </article>
             </div>
         </section>
 
-        <section class="testimonials-aboutUs bg-f5">
-            <div class="container">
-                <h2>Testimonials</h2>
-                <div class="cont-center testimonials-wrapper">
-                    <article class="testimonial bg-white">
-                        <p class="quote"></p>
-                        <blockquote>
-                            <p class="text-center">
-                                Genetrix sunt urbs de flavum navis. Magnum paluss ducunt ad urbs. Cum secula favere,
-                                omnes assimilationes tractare regius, emeritis caculaes.
-                            </p>
-                        </blockquote>
-                        <div class="author cont-center">
-                            <img src="./assets/images/janeLee-aboutUs.jpg" alt="Jane Lee">
-                            <div class="author-info">
-                                <p class="name">Jane Lee</p>
-                                <p class="role">Client</p>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="testimonial bg-white">
-                        <p class="quote"></p>
-                        <blockquote>
-                            <p class="text-center">
-                                Zirbus velums, tanquam camerarius byssus. Pol, extum! Abactus varius ausus est. Cum
-                                elogium ortum, omnes ignigenaes acquirere altus, pius.
-                            </p>
-                        </blockquote>
-                        <div class="author cont-center">
-                            <img src="./assets/images/jamesPeterson-aboutUs.jpg" alt="James Peterson">
-                            <div class="author-info">
-                                <p class="name">James Peterson</p>
-                                <p class="role">Client</p>
-                            </div>
-                        </div>
-                    </article>
+        <section class="testimonials-aboutUs bg-f5 cont-center">
+            <div class="w-80">
+                <div class="container">
+                    <h2>Testimonials</h2>
+                    <div class="cont-center testimonials-wrapper">
+                    </div>
+                </div>
+                <div class="flex justify-content-center pagination-testimonials">
+                    <span class="prev-testimonials"></span>
+                    <span class="next-testimonials"></span>
                 </div>
             </div>
         </section>
 
         <section class="flex align-items-center between sponsors-aboutUs">
-            <img src="assets/images/francoisRedblade.png" alt="Francois Redblade">
-            <img src="assets/images/rickMeyers.png" alt="Rick Meyers">
-            <img src="assets/images/stalLion.png" alt="Stal Lion">
-            <img src="assets/images/neuton.png" alt="Neuton">
+            <a href="#"><img src="assets/images/francoisRedblade.png" alt="Francois Redblade"></a>
+            <a href="#"><img src="assets/images/rickMeyers.png" alt="Rick Meyers"></a>
+            <a href="#"><img src="assets/images/stalLion.png" alt="Stal Lion"></a>
+            <a href="#"><img src="assets/images/neuton.png" alt="Neuton"></a>
         </section>
-
     </main>
 
     <footer class="footer bg-grey justify-content-center">
-        <div class="footer-container between">
+        <div class="footer-container between w-80">
             <article class="footer-column">
                 <figure class="footer-logo">
                     <a href="index.html">
@@ -292,7 +223,8 @@
 
             <article class="footer-column">
                 <h3 class="text-white newsletter">Newsletter</h3>
-                <p class="p-newsletter-footer">Subscribe to our newsletter to receive weekly news, updates, special offers, and exclusive discounts.</p>
+                <p class="p-newsletter-footer">Subscribe to our newsletter to receive weekly news, updates, special
+                    offers, and exclusive discounts.</p>
                 <form class="flex align-items-center separacion-tituloTexto-footer">
                     <input type="email" placeholder="Enter your e-mail">
                     <button class="cont-center" type="submit"><i

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-Es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="https://kit.fontawesome.com/dba7accec9.js" crossorigin="anonymous" defer></script>
     <script src="assets/js/script.js" defer></script>
 </head>
+
 <body>
     <header class="bg-white cont-center">
         <div class="contenedorGeneral-header">
@@ -23,8 +25,10 @@
                 </ul>
                 <ul class="cont-center contenedor-icons-navbar lista-sin-estilo">
                     <li><a href="#"><img class="img-icons-navbar" src="assets/images/lupa.png" alt="Buscador"></a></li>
-                    <li><a href="#"><img class="img-icons-navbar" src="assets/images/cart.png" alt="Carrito"></a></li>
-                    <li><a href="#" class="menu-toggle"><img class="img-icons-navbar" src="assets/images/menu.png" alt="Menu hamburguesa"></a></li>
+                    <li><a href="checkout.html"><img class="img-icons-navbar" src="assets/images/cart.png"
+                                alt="Carrito"></a></li>
+                    <li><a href="#" class="menu-toggle"><img class="img-icons-navbar" src="assets/images/menu.png"
+                                alt="Menu hamburguesa"></a></li>
                 </ul>
             </nav>
         </div>
@@ -38,39 +42,288 @@
             </div>
         </section>
 
-        <!-- Breadcrumb Navigation -->
+        <!-- recorrido -->
         <section>
-            <div class="bg-f5 cont-center ubicacion contenedor-ubicacion">
+            <nav class="bg-f5 cont-center ubicacion contenedor-ubicacion">
                 <a href="index.html" class="text-grey">Home</a>
                 <span>➔</span>
                 <a href="grid-shop.html" class="text-grey">Shop</a>
                 <span>➔</span>
                 <a href="grid-shop.html" class="text-black">Grid Shop</a>
-            </div>
+            </nav>
         </section>
 
-        <!-- Main Content Section -->
-        <section class="main-content">
-            <aside class="filters">
-                <h3>Filter by Category</h3>
-                <ul>
-                    <li><a href="#">Living Room</a></li>
-                    <li><a href="#">Bedroom</a></li>
-                    <li><a href="#">Dining Room</a></li>
-                    <li><a href="#">Bathroom</a></li>
-                    <li><a href="#">Decor & Furniture</a></li>
-                    <li><a href="#">Kids Room</a></li>
-                </ul>
-            </aside>
+        <section class="cont-center">
+            <div class="flex grid-shop-container w-80">
+                <!-- Sidebar -->
+                <aside class="grid-shop-aside">
+                    <div class="filtro-grid-shop">
+                        <h4>Filter by price</h4>
+                        <div class="price-filter">
+                            <input type="range" id="min-price" min="0" max="1000" value="66" class="slider">
+                            <div class="filter-footer">
+                                <button class="filter-button">FILTER</button>
+                                <p class="price-text">Price: $<span id="price-min">66</span> — $<span
+                                        id="price-max">635</span></p>
+                            </div>
+                        </div>
+                    </div>
 
-            <section class="trending-products-section" id="trending-products-section">
-                <h2>trending products</h2>
-            </section>
+                    <div class="categories-grid-shop">
+                        <h4>Categories</h4>
+                        <ul>
+                            <li class="flex between">
+                                <label for="category-all" class="category-name">
+                                    <input type="checkbox" id="category-all" name="category">
+                                    All
+                                </label>
+                                <span class="category-count">(18)</span>
+                            </li>
+
+                            <li class="flex between">
+                                <label for="category-news" class="category-name">
+                                    <input type="checkbox" id="category-news" name="category">
+                                    News
+                                </label>
+                                <span class="category-count">(9)</span>
+                            </li>
+
+                            <li class="flex between">
+                                <label for="category-tips" class="category-name">
+                                    <input type="checkbox" id="category-tips" name="category">
+                                    Tips
+                                </label>
+                                <span class="category-count">(5)</span>
+                            </li>
+
+                            <li class="flex between">
+                                <label for="category-furniture" class="category-name">
+                                    <input type="checkbox" id="category-furniture" name="category">
+                                    Furniture
+                                </label>
+                                <span class="category-count">(8)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <form class="search-form-blog-post">
+                        <div class="search-blog-post">
+                            <input type="text" class="search-input-blog-post" placeholder="Search..."
+                                aria-label="Search">
+                            <button class="search-button-blog-post">
+                                <img src="assets/images/lupa.png" alt="Buscar">
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="categories-grid-shop">
+                        <h4>Popular Products</h4>
+                        <div class="container-latest-posts">
+                            <div class="popular-products">
+                                <a href="single-product.html"><img src="assets/images/producto5.png"
+                                        alt="Shopping for Chairs Online"></a>
+                                <div class="post-content">
+                                    <p>Table Lamp</p>
+                                    <p class="post-date">$25.00</p>
+                                </div>
+                            </div>
+                            <div class="popular-products">
+                                <a href="single-product.html"><img src="assets/images/producto6.png"
+                                        alt="Ways to Decorate Your Home"></a>
+                                <div class="post-content">
+                                    <p>Stacking Chair</p>
+                                    <p class="post-date">$30.00</p>
+                                </div>
+                            </div>
+                            <div class="popular-products">
+                                <a href="single-product.html"><img src="assets/images/producto4.png"
+                                        alt="Ways to Decorate Your Home"></a>
+                                <div class="post-content">
+                                    <p>Grey Club Chair</p>
+                                    <p class="post-date">$20.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Products Section -->
+                <section class="trending-products-section cont-center">
+                    <div class="grid-shop-products">
+                        <div class="product-header">
+                            <p class="results-text">Showing 1 – 8 of 28 results</p>
+                            <div class="filter-options">
+                                <select id="sort-by">
+                                    <option value="newness">Sort by newness</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                </select>
+                                <div class="view-options">
+                                    <a href="grid-shop.html"><button class="grid-view active">⬜</button></a>
+                                    <a href="grid-shop.html"><button class="list-view">☰</button></a>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product Items -->
+                        <div class="product-items">
+
+                            <article class="articulo-trending-products bg-f5 product-card">
+                                <div class="flex right"><span class="new">NEW</span></div>
+                                <figure class="cont-center"><img src="assets/images/producto2.png" alt="Club Chair">
+                                </figure>
+                                <div>
+                                    <h4 class="text-center title-articulo-trending-products">Club Chair</h4>
+                                    <p class="text-center text-blue">$13.00</p>
+                                </div>
+                                <div class="cont-center hover-icons">
+                                    <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/lupa.png" alt="Lupa"></a>
+                                    </div>
+                                    <div class="bg-white text-center cont-center icon-circle2-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/cart.png"
+                                                alt="Carrito"></a></div>
+                                </div>
+                            </article>
+
+                            <article class="articulo-trending-products bg-f5 product-card">
+                                <figure class="cont-center"><img src="assets/images/producto3.png" alt="Pendant Lamp">
+                                </figure>
+                                <div>
+                                    <h4 class="text-center title-articulo-trending-products">Pendant Lamp</h4>
+                                    <p class="text-center text-blue">$17.00</p>
+                                </div>
+                                <div class="cont-center hover-icons">
+                                    <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/lupa.png" alt="Lupa"></a>
+                                    </div>
+                                    <div class="bg-white text-center cont-center icon-circle2-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/cart.png"
+                                                alt="Carrito"></a></div>
+                                </div>
+                            </article>
+
+                            <article class="articulo-trending-products bg-f5 product-card">
+                                <div class="flex right"><span class="new">NEW</span></div>
+                                <figure class="cont-center"><img src="assets/images/producto4.png"
+                                        alt="Dark Grey Club Chair"></figure>
+                                <div>
+                                    <h4 class="text-center title-articulo-trending-products">Dark Grey Club Chair</h4>
+                                    <p class="text-center text-blue">$14.00</p>
+                                </div>
+                                <div class="cont-center hover-icons">
+                                    <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/lupa.png" alt="Lupa"></a>
+                                    </div>
+                                    <div class="bg-white text-center cont-center icon-circle2-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/cart.png"
+                                                alt="Carrito"></a></div>
+                                </div>
+                            </article>
+
+                            <article class="articulo-trending-products bg-f5 product-card">
+                                <figure class="cont-center"><img src="assets/images/producto6.png"
+                                        alt="Orange Stacking Chair"></figure>
+                                <div>
+                                    <h4 class="text-center title-articulo-trending-products">Orange Stacking Chair</h4>
+                                    <p class="text-center text-blue">$15.00</p>
+                                </div>
+                                <div class="cont-center hover-icons">
+                                    <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/lupa.png" alt="Lupa"></a>
+                                    </div>
+                                    <div class="bg-white text-center cont-center icon-circle2-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/cart.png"
+                                                alt="Carrito"></a></div>
+                                </div>
+                            </article>
+
+                            <article class="articulo-trending-products bg-f5 product-card">
+                                <div class="flex right"><span class="sale">SALE</span></div>
+                                <figure class="cont-center"><img src="assets/images/producto7.png" alt="Floor Lamp">
+                                </figure>
+                                <div>
+                                    <h4 class="text-center title-articulo-trending-products">Floor Lamp</h4>
+                                    <div class="cont-center cont-precios">
+                                        <p class="precio-tachado text-grey">$32.00</p>
+                                        <p class="text-center text-blue">$22.00</p>
+                                    </div>
+                                </div>
+                                <div class="cont-center hover-icons">
+                                    <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/lupa.png" alt="Lupa"></a>
+                                    </div>
+                                    <div class="bg-white text-center cont-center icon-circle2-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/cart.png"
+                                                alt="Carrito"></a></div>
+                                </div>
+                            </article>
+
+                            <article class="articulo-trending-products bg-f5 product-card">
+                                <figure class="cont-center"><img src="assets/images/producto8.png" alt="White Chair">
+                                </figure>
+                                <div>
+                                    <h4 class="text-center title-articulo-trending-products">White Chair</h4>
+                                    <p class="text-center text-blue">$10.00</p>
+                                </div>
+                                <div class="cont-center hover-icons">
+                                    <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/lupa.png" alt="Lupa"></a>
+                                    </div>
+                                    <div class="bg-white text-center cont-center icon-circle2-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/cart.png"
+                                                alt="Carrito"></a></div>
+                                </div>
+                            </article>
+
+                            <article class="articulo-trending-products bg-f5 product-card">
+                                <div class="flex right"><span class="new">NEW</span></div>
+                                <figure class="cont-center"><img src="assets/images/producto5.png" alt="Table Lamp">
+                                </figure>
+                                <div>
+                                    <h4 class="text-center title-articulo-trending-products">Table Lamp</h4>
+                                    <p class="text-center text-blue">$11.00</p>
+                                </div>
+                                <div class="cont-center hover-icons">
+                                    <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/lupa.png" alt="Lupa"></a>
+                                    </div>
+                                    <div class="bg-white text-center cont-center icon-circle2-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/cart.png"
+                                                alt="Carrito"></a></div>
+                                </div>
+                            </article>
+
+                            <article class="articulo-trending-products bg-f5 product-card">
+                                <div class="flex right"><span class="sale">SALE</span></div>
+                                <figure class="cont-center"><img src="assets/images/producto1.png" alt="Garden Table">
+                                </figure>
+                                <div>
+                                    <h4 class="text-center title-articulo-trending-products">Garden Table</h4>
+                                    <div class="cont-center cont-precios">
+                                        <p class="precio-tachado text-grey">$30.00</p>
+                                        <p class="text-center text-blue">$23.00</p>
+                                    </div>
+                                </div>
+                                <div class="cont-center hover-icons">
+                                    <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/lupa.png" alt="Lupa"></a>
+                                    </div>
+                                    <div class="bg-white text-center cont-center icon-circle2-trendingProducts"><a
+                                            href="single-product.html"><img src="assets/images/cart.png"
+                                                alt="Carrito"></a></div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </section>
     </main>
 
+
     <footer class="footer bg-grey justify-content-center">
-        <div class="footer-container between">
+        <div class="footer-container between w-80">
             <article class="footer-column">
                 <figure class="footer-logo">
                     <a href="index.html">
@@ -87,27 +340,34 @@
                         <li><a href="https://www.facebook.com/"><i class="fa fa-facebook text-white"></i></a></li>
                         <li><a href="https://x.com/"><i class="fa fa-twitter text-white"></i></a></li>
                         <li><a href="https://www.instagram.com/"><i class="fa fa-instagram text-white"></i></a></li>
-                        <li><a href="https://mail.google.com/mail/u/0/#inbox"><i class="fa fa-google-plus text-white"></i></a></li>
+                        <li><a href="https://mail.google.com/mail/u/0/#inbox"><i
+                                    class="fa fa-google-plus text-white"></i></a></li>
                     </ul>
                 </div>
             </article>
 
             <article class="footer-column contacts-footer">
                 <h3 class="text-white">Contacts</h3>
-                <p class="align-items-center"><i class="fa fa-map-marker text-blue"></i> 523 Sylvan Ave, 5th Floor Mountain View, CA 94041 USA</p>
-                <p class="align-items-center"><i class="fa fa-phone text-blue"></i> +1 (844) 123 456 78</p>
-                <p class="align-items-center"><i class="fa fa-envelope text-blue"></i> info@demolink.org</p>
+                <p class="align-items-center"><i class="fa fa-map-marker text-blue"></i> 523 Sylvan Ave,
+                    5th Floor Mountain View, CA 94041 USA</p>
+                <p class="align-items-center"><i class="fa fa-phone text-blue"></i> +1 (844) 123 456 78
+                </p>
+                <p class="align-items-center"><i class="fa fa-envelope text-blue"></i> info@demolink.org
+                </p>
             </article>
 
             <article class="footer-column">
                 <h3 class="text-white newsletter">Newsletter</h3>
-                <p class="p-newsletter-footer">Subscribe to our newsletter to receive weekly news, updates, special offers, and exclusive discounts.</p>
+                <p class="p-newsletter-footer">Subscribe to our newsletter to receive weekly news, updates, special
+                    offers, and exclusive discounts.</p>
                 <form class="flex align-items-center separacion-tituloTexto-footer">
                     <input type="email" placeholder="Enter your e-mail">
-                    <button class="cont-center" type="submit"><i class="fa-regular fa-paper-plane send-form-footer"></i></button>
+                    <button class="cont-center" type="submit"><i
+                            class="fa-regular fa-paper-plane send-form-footer"></i></button>
                 </form>
             </article>
         </div>
     </footer>
 </body>
+
 </html>

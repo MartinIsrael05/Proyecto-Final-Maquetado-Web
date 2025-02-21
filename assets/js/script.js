@@ -1,4 +1,5 @@
 // DATOS
+// home
 const carouselData = [  // carousel
     {
         containerClass: 'cont-center column',
@@ -166,6 +167,126 @@ const blogs_gridBlog = [ // blog (grid-blog)
     }
 ];
 
+// about us 
+const historyCards = [ // our history
+    {
+        title: 'Establishment',
+        description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin facilisis, velit non fringilla pharetra, elit odio.'
+    },
+    {
+        title: 'First Success',
+        description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin facilisis, velit non fringilla pharetra, elit odio.'
+    },
+    {
+        title: 'New Products',
+        description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin facilisis, velit non fringilla pharetra, elit odio.'
+    },
+    {
+        title: 'National Recognition',
+        description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin facilisis, velit non fringilla pharetra, elit odio.'
+    },
+    {
+        title: 'Market Leaders',
+        description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin facilisis, velit non fringilla pharetra, elit odio.'
+    }
+];
+
+const teamMembers = [ // our team
+    {
+        name: 'KATE FERRAND',
+        image: './assets/images/kateFerrand-aboutUs.jpg',
+        description: 'Cum exsul crescere, omnes lanistaes experientia gratis, castus detriuses.',
+        socialLinks: {
+            facebook: 'https://www.facebook.com/',
+            twitter: 'https://x.com/',
+            instagram: 'https://www.instagram.com/',
+            email: 'https://mail.google.com/mail/u/0/#inbox'
+        }
+    },
+    {
+        name: 'RICK MARTINEZ',
+        image: './assets/images/rickMartinez-aboutUs.jpg',
+        description: 'Cum zelus mori, omnes repressores desiderium magnum, rusticus medicinaes.',
+        socialLinks: {
+            facebook: 'https://www.facebook.com/',
+            twitter: 'https://x.com/',
+            instagram: 'https://www.instagram.com/',
+            email: 'https://mail.google.com/mail/u/0/#inbox'
+        }
+    },
+    {
+        name: 'SAMANTHA WILLIAMS',
+        image: './assets/images/samanthaWilliams-aboutUs.jpg',
+        description: 'Cum compater resistere, omnes menses fallere placidus, germanus gemnaes.',
+        socialLinks: {
+            facebook: 'https://www.facebook.com/',
+            twitter: 'https://x.com/',
+            instagram: 'https://www.instagram.com/',
+            email: 'https://mail.google.com/mail/u/0/#inbox'
+        }
+    },
+    {
+        name: 'PETER SMITH',
+        image: './assets/images/peterSmith-aboutUs.jpg',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.',
+        socialLinks: {
+            facebook: 'https://www.facebook.com/',
+            twitter: 'https://x.com/',
+            instagram: 'https://www.instagram.com/',
+            email: 'https://mail.google.com/mail/u/0/#inbox'
+        }
+    },
+    {
+        name: 'CAROLINE LOPEZ',
+        image: './assets/images/carolineLopez-aboutUs.jpg',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.',
+        socialLinks: {
+            facebook: 'https://www.facebook.com/',
+            twitter: 'https://x.com/',
+            instagram: 'https://www.instagram.com/',
+            email: 'https://mail.google.com/mail/u/0/#inbox'
+        }
+    },
+    {
+        name: 'WILL MCMILLAN',
+        image: './assets/images/willMcmillan-aboutUs.jpg',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.',
+        socialLinks: {
+            facebook: 'https://www.facebook.com/',
+            twitter: 'https://x.com/',
+            instagram: 'https://www.instagram.com/',
+            email: 'https://mail.google.com/mail/u/0/#inbox'
+        }
+    }
+];
+
+const testimonials = [ // testimonials
+    {
+        quote: "Genetrix sunt urbs de flavum navis. Magnum paluss ducunt ad urbs. Cum secula favere, omnes assimilationes tractare regius, emeritis caculaes.",
+        author: "JANE LEE",
+        role: "Client",
+        image: "./assets/images/janeLee-aboutUs.jpg"
+    },
+    {
+        quote: "Zirbus velums, tanquam camerarius byssus. Pol, extum! Abactus varius ausus est. Cum elogium ortum, omnes ignigenaes acquirere altus, pius.",
+        author: "JAMES PETERSON",
+        role: "Client",
+        image: "./assets/images/jamesPeterson-aboutUs.jpg"
+    },
+    {
+        quote: "Caculas ortum in peritus virundum! Congregabo callide ducunt ad flavum glos. Cum pes mori, omnes caculaes attrahendam rusticus, bi-color.",
+        author: "ANN MCMILLAN",
+        role: "Client",
+        image: "./assets/images/janeLee-aboutUs.jpg"
+    },
+    {
+        quote: "Classis de salvus cursus, convertam galatae! Terror peregrinationes, tanquam audax cedrium. Cum luna prarere, omnes cannabises resuscitabo.",
+        author: "PATRICK GOODMAN",
+        role: "Client",
+        image: "./assets/images/jamesPeterson-aboutUs.jpg"
+    }
+];
+
 
 // FUNCIONES REUTILIZABLES
 function renderItems(container, items, currentIndex, itemsPerPage, renderItem) { // Función genérica para renderizar elementos en un contenedor
@@ -207,6 +328,7 @@ function nextSlide(container, items, currentIndex, itemsPerPage, renderItem) { /
 
 
 // FUNCIONES ESPECIFICAS
+// home
 function carousel_section(carouselSelector, sectionsData) { // carousel 
     const sections = document.querySelectorAll(carouselSelector);
     let currentIndex = 0;
@@ -350,6 +472,13 @@ function createCategories(categories) { // categories
 function trendingProducts() { // trending products
     const section = document.querySelector(".trending-products-section");
 
+    const contenedorGeneralFilas = document.createElement("div");
+    contenedorGeneralFilas.classList.add("column", "w-80");
+
+    const titulo = document.createElement("h2");
+    titulo.textContent = "Trending Products";
+    contenedorGeneralFilas.prepend(titulo);
+
     const contenedorFila1 = document.createElement("article");
     contenedorFila1.classList.add("cont-center", "contenedor-fila-trending-products");
 
@@ -449,15 +578,20 @@ function trendingProducts() { // trending products
         }
     });
 
-    section.appendChild(contenedorFila1);
-    section.appendChild(contenedorFila2);
+    contenedorGeneralFilas.appendChild(contenedorFila1);
+    contenedorGeneralFilas.appendChild(contenedorFila2);
+
+    section.appendChild(contenedorGeneralFilas);
 }
 
 function portfolio() { // portfolio (home)
     const portfolioSection = document.querySelector(".portfolio");
 
+    const cont_flexible_portfolio = document.createElement("div");
+    cont_flexible_portfolio.classList.add("cont-center");
+
     const portfolioContainer = document.createElement("article");
-    portfolioContainer.classList.add("parent");
+    portfolioContainer.classList.add("parent", "w-80");
 
     const fullScreenDialog = document.createElement("dialog");
     const fullScreenImg = document.createElement("img");
@@ -503,8 +637,8 @@ function portfolio() { // portfolio (home)
         article.append(figure, overlay);
         portfolioContainer.appendChild(article);
     });
-
-    portfolioSection.appendChild(portfolioContainer);
+    cont_flexible_portfolio.appendChild(portfolioContainer);
+    portfolioSection.appendChild(cont_flexible_portfolio);
 }
 
 function renderBlog(container, blog) { // blog (home)
@@ -512,30 +646,37 @@ function renderBlog(container, blog) { // blog (home)
     blogCard.className = 'blog-card';
 
     const figure = document.createElement('figure');
+    const link = document.createElement('a');
+    link.href = 'blog-post.html';
     const img = document.createElement('img');
     img.src = blog.imgSrc;
     img.alt = 'Blog Image';
-    figure.appendChild(img);
+    link.appendChild(img);
+    figure.appendChild(link);
 
+    const link_title = document.createElement('a');
+    link_title.href = 'blog-post.html';
+    link_title.classList.add('text-black');
+    link_title.style.textDecoration = 'none';
     const h3 = document.createElement('h3');
     h3.textContent = blog.title;
+    link_title.appendChild(h3);
 
     const p = document.createElement('p');
     p.textContent = blog.date;
 
     blogCard.appendChild(figure);
-    blogCard.appendChild(h3);
+    blogCard.appendChild(link_title);
     blogCard.appendChild(p);
 
     container.appendChild(blogCard);
 }
-// Inicializar el slider de blogs
 let blogCurrentIndex = 0;
 const blogContainer = document.querySelector('#blog-contenedor');
 const blogsPerPage = 4;
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
-if (prev && next) {
+if (prev && next) { // si le saco el if no me funciona. Me va a decir que en las demas paginas no exste y por eso me va a tirar error en la consola
     prev.addEventListener('click', () => {
         blogCurrentIndex = prevSlide(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog);
     });
@@ -544,58 +685,313 @@ if (prev && next) {
     });
 }
 
-
-// TRANSICIONES
-document.addEventListener("DOMContentLoaded", () => {
-    const observerOptions = {
-        root: null, // Observa en el viewport
-        rootMargin: "0px", // Sin márgenes adicionales
-        threshold: 0.1, // Activa cuando el 10% del elemento sea visible
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show"); // Agrega la clase 'show'
-                observer.unobserve(entry.target); // Deja de observar el elemento
-            }
+// about us
+function navFewWords() { // few words
+    const tabs = document.querySelectorAll('.tabs .tab-item');
+    const tabPanes = document.querySelectorAll('.tab-content .tab-pane');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            // Add active class to the clicked tab
+            tab.classList.add('active');
+    
+            // Hide all tab panes
+            tabPanes.forEach(pane => pane.classList.remove('active'));
+            // Show the corresponding tab pane
+            const tabPane = document.getElementById(tab.getAttribute('data-tab'));
+            tabPane.classList.add('active');
         });
-    }, observerOptions);
+    });
+}
 
-    // Seleccionamos las filas y el footer que necesitan la animación
-    const elementosAnimados = document.querySelectorAll(
-        ".contenedor-fila-categories, .cont-article-founder-section, .footer"
-    );
+function renderHistoryCard(container, card) { // our history
+    const article = document.createElement('article');
+    article.classList.add('card');
 
-    // Observa cada elemento animado
-    elementosAnimados.forEach((elemento) => observer.observe(elemento));
-});
+    const h3 = document.createElement('h3');
+    h3.classList.add('text-center', 'text-black');
+    h3.textContent = card.title;
+
+    const p = document.createElement('p');
+    p.classList.add('text-center');
+    p.textContent = card.description;
+
+    article.appendChild(h3);
+    article.appendChild(p);
+    container.appendChild(article);
+}
+const historyContainer = document.querySelector('.history-cards');
+const prevButton = document.querySelector('.prev-ourHistory');
+const nextButton = document.querySelector('.next-ourHistory');
+const cardsPerPage = 4;
+let currentIndex = 0;
+if (historyContainer && prevButton && nextButton) {  // si le saco el if no me funciona. Me va a decir que en las demas paginas no exste y por eso me va a tirar error en la consola
+    prevButton.addEventListener('click', () => {
+        currentIndex = prevSlide(historyContainer, historyCards, currentIndex, cardsPerPage, renderHistoryCard);
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentIndex = nextSlide(historyContainer, historyCards, currentIndex, cardsPerPage, renderHistoryCard);
+    });
+}
+
+function renderTeamMember(container, member) { // our team
+    const article = document.createElement('article');
+    article.classList.add('team-member');
+
+    const photoDiv = document.createElement('div');
+    photoDiv.classList.add('cont-team-photo');
+    const img = document.createElement('img');
+    img.src = member.image;
+    img.alt = member.name;
+    img.classList.add('team-photo');
+    photoDiv.appendChild(img);
+
+    const h3 = document.createElement('h3');
+    h3.classList.add('team-member-name', 'text-center');
+    const link = document.createElement('a');
+    link.classList.add('text-black');
+    link.href = '#';
+    const span = document.createElement('span');
+    span.classList.add('team-member-name-span');
+    span.textContent = member.name;
+    link.appendChild(span);
+    h3.appendChild(link);
+
+    const p = document.createElement('p');
+    p.classList.add('text-center', 'text-grey');
+    p.textContent = member.description;
+
+    const socialLinksDiv = document.createElement('div');
+    socialLinksDiv.classList.add('social-links', 'flex', 'justify-content-center');
+    for (const [platform, url] of Object.entries(member.socialLinks)) { // Object.entries() devuelve un array con los pares clave-valor de un objeto. Es decr que convierte al objeto en un array
+        const a = document.createElement('a');
+        a.href = url;
+        switch (platform) {
+            case 'facebook':
+                a.innerHTML = '&#xf09a;'; // FontAwesome icon for Facebook
+                break;
+            case 'twitter':
+                a.innerHTML = '&#xf099;'; // FontAwesome icon for Twitter
+                break;
+            case 'instagram':
+                a.innerHTML = '&#xf16d;'; // FontAwesome icon for Instagram
+                break;
+            case 'email':
+                a.innerHTML = '&#xf0e0;'; // FontAwesome icon for Email
+                break;
+        }
+        socialLinksDiv.appendChild(a);
+    }
+
+    article.appendChild(photoDiv);
+    article.appendChild(h3);
+    article.appendChild(p);
+    article.appendChild(socialLinksDiv);
+    container.appendChild(article);
+}
+const teamContainer = document.querySelector('.our-team-aboutUs .flex');
+const prevButtonTeam = document.querySelector('.prev-ourTeam');
+const nextButtonTeam = document.querySelector('.next-ourTeam');
+const membersPerPage = 3;
+let currentTeamIndex = 0;
+if (teamContainer && prevButtonTeam && nextButtonTeam) {
+    prevButtonTeam.addEventListener('click', () => {
+        currentTeamIndex = prevSlide(teamContainer, teamMembers, currentTeamIndex, membersPerPage, renderTeamMember);
+    });
+
+    nextButtonTeam.addEventListener('click', () => {
+        currentTeamIndex = nextSlide(teamContainer, teamMembers, currentTeamIndex, membersPerPage, renderTeamMember);
+    });
+}
+
+function animateNumbers(element, start, end, duration) { // animate numbers
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const progress = currentTime - startTime;
+        const increment = Math.min(progress / duration, 1);
+        element.textContent = Math.floor(increment * (end - start) + start);
+        if (progress < duration) {
+            requestAnimationFrame(animation);
+        } else {
+            element.textContent = end;
+        }
+    }
+
+    requestAnimationFrame(animation);
+}
+
+function renderTestimonial(container, testimonial) { // testimonials
+    const article = document.createElement('article');
+    article.classList.add('testimonial', 'bg-white');
+
+    const quoteP = document.createElement('p');
+    quoteP.classList.add('quote');
+    article.appendChild(quoteP);
+
+    const blockquote = document.createElement('blockquote');
+    const textP = document.createElement('p');
+    textP.classList.add('text-center');
+    textP.textContent = testimonial.quote;
+    blockquote.appendChild(textP);
+    article.appendChild(blockquote);
+
+    const authorDiv = document.createElement('div');
+    authorDiv.classList.add('author', 'cont-center');
+    const img = document.createElement('img');
+    img.src = testimonial.image;
+    img.alt = testimonial.author;
+    authorDiv.appendChild(img);
+
+    const authorInfoDiv = document.createElement('div');
+    authorInfoDiv.classList.add('author-info');
+    const nameP = document.createElement('p');
+    nameP.classList.add('name');
+    nameP.textContent = testimonial.author;
+    const roleP = document.createElement('p');
+    roleP.classList.add('role');
+    roleP.textContent = testimonial.role;
+    authorInfoDiv.appendChild(nameP);
+    authorInfoDiv.appendChild(roleP);
+
+    authorDiv.appendChild(authorInfoDiv);
+    article.appendChild(authorDiv);
+
+    container.appendChild(article);
+}
+const testimonialsContainer = document.querySelector('.testimonials-wrapper');
+const prevButtonTestimonials = document.querySelector('.prev-testimonials');
+const nextButtonTestimonials = document.querySelector('.next-testimonials');
+const testimonialsPerPage = 2;
+let currentTestimonialIndex = 0;
+if (testimonialsContainer && prevButtonTestimonials && nextButtonTestimonials) {
+    prevButtonTestimonials.addEventListener('click', () => {
+        currentTestimonialIndex = prevSlide(testimonialsContainer, testimonials, currentTestimonialIndex, testimonialsPerPage, renderTestimonial);
+    });
+
+    nextButtonTestimonials.addEventListener('click', () => {
+        currentTestimonialIndex = nextSlide(testimonialsContainer, testimonials, currentTestimonialIndex, testimonialsPerPage, renderTestimonial);
+    });
+}
 
 
 // LLAMADAS A LAS FUNCIONES
-document.addEventListener('DOMContentLoaded', () => { // carousel
-    if (document.querySelector("#carousel-section")) {
+document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-lista-links');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    }); //todo esto es para el menu deplegable del navbar en responsive
+
+    if (document.querySelector("#carousel-section")) { // carousel
         carousel_section('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
     }
-    
-    if (document.querySelector("#fila1-categories") && document.querySelector("#fila2-categories")) {
-        createCategories(categoriesData); // categories
-    }
-    
-    if (document.querySelector("#trending-products-section")) {
-        trendingProducts(); // trending products
+
+    if (document.querySelector("#fila1-categories") && document.querySelector("#fila2-categories")) { // categories
+        createCategories(categoriesData);
     }
 
-    if (document.querySelector(".portfolio")) {
-        portfolio(); // portfolio
+    if (document.querySelector("#trending-products-section")) { // trending products
+        trendingProducts();
     }
 
-    if (document.querySelector("#blog-contenedor")) {
-        renderItems(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog); // Inicializar el contenido de blogs
+    if (document.querySelector(".portfolio")) { // portfolio
+        portfolio();
+    }
+
+    if (document.querySelector("#blog-contenedor")) { // contenido de blogs
+        renderItems(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog);
+    }
+
+    if (document.querySelector('.tabs')) { // few words
+        navFewWords(); 
+    }
+
+    if (document.querySelector('.history-cards')) { // our history
+        renderItems(historyContainer, historyCards, currentIndex, cardsPerPage, renderHistoryCard);
+
+    }
+
+    if (document.querySelector('.our-team-aboutUs .flex')) { // our team
+        renderItems(teamContainer, teamMembers, currentTeamIndex, membersPerPage, renderTeamMember);
+    }
+
+    if (document.querySelector('.stat-number-1')) { // animate numbers
+        const stats = [
+            { selector: '.stat-number-1', end: 245 },
+            { selector: '.stat-number-2', end: 382 },
+            { selector: '.stat-number-3', end: 1267 },
+            { selector: '.stat-number-4', end: 474 }
+        ];
+
+        stats.forEach(stat => {
+            const element = document.querySelector(stat.selector);
+            if (element) {
+                animateNumbers(element, 0, stat.end, 1000);
+            }
+        });
+    }
+
+    if (document.querySelector('.testimonials-wrapper')) { // testimonials
+        renderItems(testimonialsContainer, testimonials, currentTestimonialIndex, testimonialsPerPage, renderTestimonial);
     }
 });
 
 
 // VALIDACIONES
-//formulario footer
+// FOOTER
+const emailInput = document.querySelector('form input[type="email"]');
+const form = emailInput.closest('form');
+const errorMessage = document.createElement('span');
+errorMessage.classList.add('error-message');
+form.appendChild(errorMessage);
+
+const successMessage = document.createElement('div');
+successMessage.classList.add('success-message');
+successMessage.textContent = 'Successfully sent!';
+form.appendChild(successMessage);
+
+emailInput.addEventListener('focus', () => {
+    emailInput.placeholder = '';
+    emailInput.setCustomValidity('');
+    form.classList.remove('invalid');
+});
+
+emailInput.addEventListener('blur', () => {
+    emailInput.placeholder = 'Enter your e-mail';
+    validateEmail();
+});
+
+form.addEventListener('submit', (event) => {
+    if (!validateEmail()) {
+        event.preventDefault();
+    } else {
+        form.classList.add('success');
+    }
+});
+
+function validateEmail() {
+    const emailValue = emailInput.value;
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailValue === '') {
+        emailInput.setCustomValidity('The text field is required.');
+        errorMessage.textContent = 'The text field is required.';
+        form.classList.add('invalid');
+        return false;
+    } else if (!emailPattern.test(emailValue)) {
+        emailInput.setCustomValidity('The email is not a valid email.');
+        errorMessage.textContent = 'The email is not a valid email.';
+        form.classList.add('invalid');
+        return false;
+    } else {
+        emailInput.setCustomValidity('');
+        form.classList.remove('invalid');
+        return true;
+    }
+}
 //formularios checkout
