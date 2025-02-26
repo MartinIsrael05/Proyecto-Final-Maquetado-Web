@@ -583,6 +583,7 @@ header {
 }
 
 .sale {
+  position: absolute;
   background-color: #f96666;
   color: var(--colorBlanco);
   font-size: var(--font-size-small);
@@ -591,6 +592,7 @@ header {
 }
 
 .new {
+  position: absolute;
   background-color: #93a6ab;
   color: var(--colorBlanco);
   font-size: var(--font-size-small);
@@ -619,7 +621,7 @@ header {
 }
 
 .icon-circle-trendingProducts img {
-  width: 1.5em;
+  width: 1em;
 }
 
 .icon-circle2-trendingProducts {
@@ -633,8 +635,14 @@ header {
 }
 
 .icon-circle2-trendingProducts img {
-  width: 1.5em;
+  width: 1em;
+  filter: invert(1);
 }
+
+/* .icon-circle2-trendingProducts img:hover {
+  filter: invert(0);
+} */
+
 
 .icon-circle-trendingProducts:hover {
   background-color: var(--colorCeleste);
@@ -739,6 +747,7 @@ header {
 /* portfolio */
 .portfolio {
   margin-top: 8em;
+  position: relative;
 }
 
 .title-portfolio {
@@ -849,6 +858,17 @@ header {
 
 .overlay .icon-circle:hover {
   background-color: var(--bg-celeste);
+}
+
+
+dialog {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 
@@ -1021,10 +1041,6 @@ form button {
 
 form button:hover {
   background-color: var(--colorBlanco);
-
-  .send-form-footer {
-    color: var(--colorNegro);
-  }
 }
 
 .send-form-footer {
@@ -1056,8 +1072,8 @@ form .error-message {
   color: var(--colorBlanco);
   font-size: .5em;
   position: absolute;
-  bottom: 1.5em;
-  left: 24em;
+  bottom: 1;
+  left: 1;
   transform: translateY(100%);
   display: none;
 }
@@ -1073,9 +1089,8 @@ form .success-message {
   font-size: 1em;
   padding: 0.5em;
   position: absolute;
-  top: -2em;
-  left: 0;
-  right: 0;
+  top: 1;
+  right: 1;
   text-align: center;
   display: none;
 }
@@ -1856,8 +1871,8 @@ textarea::placeholder {
 .form-section h3 {
   margin-bottom: 1em;
   font-size: 2.2em;
-  color: var(--colorNegro);
-  font-weight: 500;
+  color: #151515;
+  font-weight: 400;
   letter-spacing: .025em;
   text-transform: uppercase;
 }
@@ -2773,8 +2788,8 @@ ul.flex.social-icons-blog-post:hover {
 
   .nav-lista-links.active {
     display: flex;
-    align-items: center;
-    padding-left: 3.5em;
+    align-items: flex-end;
+    padding-right: 3.5em;
     padding-bottom: 1em;
   }
 
@@ -2801,7 +2816,7 @@ ul.flex.social-icons-blog-post:hover {
   }
 
   .categories-section {
-    height: 175vh;
+    height: auto;
   }
 
   .articulos-categories {
@@ -2870,10 +2885,6 @@ ul.flex.social-icons-blog-post:hover {
 
   .parent article .overlay {
     height: 99%;
-  }
-
-  .footer {
-    text-align: center;
   }
 
   .footer-container,
@@ -3538,11 +3549,11 @@ ul.flex.social-icons-blog-post:hover {
 
   .filter-footer {
     display: flex;
-        text-align: center;
-        margin-top: 1em;
-        width: 100%;
-        flex-direction: row;
-        align-content: center;
+    text-align: center;
+    margin-top: 1em;
+    width: 100%;
+    flex-direction: row;
+    align-content: center;
   }
 
   .filter-button {
@@ -3571,13 +3582,13 @@ ul.flex.social-icons-blog-post:hover {
 
   /* Popular Products */
 
-  .categories-grid-shop h4{
+  .categories-grid-shop h4 {
     text-align: center;
   }
+
   .container-latest-posts {
     margin-top: 2em;
-    display: flex;
-    flex-direction: row;
+    display: block;
   }
 
   .popular-products {
@@ -3590,7 +3601,8 @@ ul.flex.social-icons-blog-post:hover {
     width: 8em;
     height: 8em;
   }
-  .post-content{
+
+  .post-content {
     text-align: center;
   }
 
@@ -3629,21 +3641,21 @@ ul.flex.social-icons-blog-post:hover {
   /* Product Items */
   .product-items {
     display: grid;
-    grid-template-columns: 1fr; 
-    justify-items: center; 
+    grid-template-columns: 1fr;
+    justify-items: center;
     gap: 1.5em;
-    padding: 0 1em; 
+    padding: 0 1em;
   }
 
   .product-card {
-    width: 100%; 
-    max-width: 300px; 
+    width: 100%;
+    max-width: 300px;
     padding: 1.5em;
-    margin: 0 auto; 
+    margin: 0 auto;
     box-sizing: border-box;
   }
 
-  .trending-products-section{
+  .trending-products-section {
     width: 100%;
   }
 
@@ -3655,11 +3667,12 @@ ul.flex.social-icons-blog-post:hover {
   .icon-circle-trendingProducts img {
     max-width: 1.5em;
     height: auto;
-}
+  }
+
   .icon-circle2-trendingProducts img {
     max-width: 1.5em;
     height: auto;
-}
+  }
 
   .title-articulo-trending-products {
     font-size: 1em;
@@ -3675,7 +3688,8 @@ ul.flex.social-icons-blog-post:hover {
   }
 
   /* NEW and SALE labels */
-  .new, .sale {
+  .new,
+  .sale {
     font-size: 0.9em;
     padding: 0.5em;
   }

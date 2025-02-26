@@ -549,6 +549,7 @@ function trendingProducts() { // trending products
         const divIcon1 = document.createElement("div");
         divIcon1.classList.add("bg-white", "text-center", "cont-center", "icon-circle-trendingProducts");
         const a1 = document.createElement("a");
+        a1.classList.add("cont-center");
         a1.href = "single-product.html";
         const imgLupa = document.createElement("img");
         imgLupa.src = "assets/images/lupa.png";
@@ -559,6 +560,7 @@ function trendingProducts() { // trending products
         const divIcon2 = document.createElement("div");
         divIcon2.classList.add("bg-white", "text-center", "cont-center", "icon-circle2-trendingProducts");
         const a2 = document.createElement("a");
+        a2.classList.add("cont-center");
         a2.href = "single-product.html";
         const imgCarrito = document.createElement("img");
         imgCarrito.src = "assets/images/cart.png";
@@ -689,14 +691,14 @@ if (prev && next) { // si le saco el if no me funciona. Me va a decir que en las
 function navFewWords() { // few words
     const tabs = document.querySelectorAll('.tabs .tab-item');
     const tabPanes = document.querySelectorAll('.tab-content .tab-pane');
-    
+
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
             // Remove active class from all tabs
             tabs.forEach(t => t.classList.remove('active'));
             // Add active class to the clicked tab
             tab.classList.add('active');
-    
+
             // Hide all tab panes
             tabPanes.forEach(pane => pane.classList.remove('active'));
             // Show the corresponding tab pane
@@ -886,7 +888,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
-    }); //todo esto es para el menu deplegable del navbar en responsive
+    }); // todo esto es para el menu deplegable del navbar en responsive
 
     if (document.querySelector("#carousel-section")) { // carousel
         carousel_section('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
@@ -909,7 +911,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (document.querySelector('.tabs')) { // few words
-        navFewWords(); 
+        navFewWords();
     }
 
     if (document.querySelector('.history-cards')) { // our history
@@ -945,6 +947,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // VALIDACIONES
 // FOOTER
+// Validación del formulario
 const emailInput = document.querySelector('form input[type="email"]');
 const form = emailInput.closest('form');
 const errorMessage = document.createElement('span');
