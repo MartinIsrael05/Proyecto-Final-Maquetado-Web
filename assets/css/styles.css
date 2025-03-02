@@ -1526,7 +1526,7 @@ blockquote p {
 
 /* GRID BLOG */
 .blog-section-gridBlog {
-  padding: 8em 12em;
+  padding: 8em 0em;
 }
 
 .blog-container-gridBlog {
@@ -1546,6 +1546,12 @@ blockquote p {
 .blog-card-Blog img {
   margin-bottom: 1em;
 }
+
+.blog-card-gridBlog figure a img {
+  width: 100%;
+}
+
+
 
 .blog-card-gridBlog img:hover {
   transform: scale(1.2);
@@ -2400,7 +2406,7 @@ tbody td {
 
 .content img {
   height: auto;
-  margin-bottom: 1.5em;
+  width: 100%;
 }
 
 /* /SIDEBAR/ */
@@ -2811,6 +2817,15 @@ ul.flex.social-icons-blog-post:hover {
     width: 70%;
   }
 
+  .tituloCarrousel {
+    font-size: var(--font-size-xxl);
+  }
+
+  .carousel-content-p {
+    font-size: var(--font-size-large);
+    width: 75%;
+  }
+
   .contenedor-fila-categories {
     flex-direction: column;
   }
@@ -3032,7 +3047,8 @@ ul.flex.social-icons-blog-post:hover {
   .sponsors-aboutUs {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1em;
+    gap: 4em;
+    padding: 6em;
   }
 
   .sponsors-aboutUs a {
@@ -3387,6 +3403,20 @@ ul.flex.social-icons-blog-post:hover {
     width: 100%;
   }
 
+  .links {
+    flex-direction: column;
+  }
+
+  ul.flex.social-icons-blog-post {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+
+  .news-interior-tips{
+    display: flex;
+    gap: 2em;
+  }
+
   .tituloPost {
     font-size: 1.8em;
   }
@@ -3425,8 +3455,11 @@ ul.flex.social-icons-blog-post:hover {
   .related-posts,
   .comments-section {
     margin-top: 2em;
-    padding: 1em;
     width: 100%;
+  }
+
+  article.blog-card-gridBlog{
+    margin-bottom: 2em;
   }
 
   .leave-a-comment form {
@@ -3582,13 +3615,16 @@ ul.flex.social-icons-blog-post:hover {
 
   /* Popular Products */
 
+
+
   .categories-grid-shop h4 {
     text-align: center;
   }
 
   .container-latest-posts {
     margin-top: 2em;
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   .popular-products {
@@ -3607,6 +3643,11 @@ ul.flex.social-icons-blog-post:hover {
   }
 
   /* Product Header */
+
+  header {
+    height: 10vh;
+  }
+
   .product-header {
     flex-direction: column;
     align-items: center;

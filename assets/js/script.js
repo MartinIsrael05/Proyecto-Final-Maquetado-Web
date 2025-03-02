@@ -3,7 +3,7 @@
 const carouselData = [  // carousel
     {
         containerClass: 'cont-center column',
-        titleClass: 'text-white',
+        titleClass: 'text-white tituloCarrousel ', 
         title: ['Top-notch Furniture'],
         paragraphClass: 'text-center carousel-content-p',
         paragraph: 'Sofa Store provides the best furniture and accessories for homes and offices.',
