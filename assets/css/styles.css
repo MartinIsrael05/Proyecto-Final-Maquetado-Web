@@ -2919,6 +2919,9 @@ ul.flex.social-icons-blog-post:hover {
   footer img {
     max-width: 30vw;
   }
+  p.p-newsletter-footer {
+    text-align: center;
+  }
 
   .footer-hours {
     width: 100%;
