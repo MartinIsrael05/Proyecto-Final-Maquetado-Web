@@ -2621,6 +2621,11 @@ blockquote {
   transition: color 0.3s;
 }
 
+.news-interior-tips{
+  display: flex;
+  gap: 2em;
+}
+
 .social-media {
   margin-top: 1em;
 }
