@@ -542,7 +542,7 @@ header {
   transition: var(--transition-transform-slow-ease-out);
 }
 
-.articulo-trending-products {
+/*.articulo-trending-products {
   padding: 1.5em;
   width: 18em;
   height: 23em;
@@ -554,6 +554,24 @@ header {
   box-shadow: var(--box-shadow-lighter);
   background-color: var(--colorBlanco);
   height: 28em;
+}
+*/
+
+.articulo-trending-products {
+  padding: 1.5em;
+  width: 18em;
+  height: 23em; /* Altura inicial */
+  border-radius: .3em;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.articulo-trending-products:hover {
+  padding-bottom: 3em; /* Aumenta espacio interno sin modificar la disposición */
+  height: 26em; /* Expande solo el fondo de la tarjeta */
+  box-shadow: var(--box-shadow-lighter);
+  background-color: var(--colorBlanco);
 }
 
 .articulo-trending-products figure {
@@ -602,11 +620,26 @@ header {
   border-radius: .4em;
 }
 
-.hover-icons {
+/*.hover-icons {
   margin: 1.5em 0;
   gap: 1em;
   opacity: 0;
 }
+*/
+.hover-icons {
+  position: absolute;
+  bottom: 1.5em;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1em;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.articulo-trending-products:hover .hover-icons {
+  opacity: 1;
+}
+
 
 .product-card:hover .hover-icons {
   opacity: 1;
