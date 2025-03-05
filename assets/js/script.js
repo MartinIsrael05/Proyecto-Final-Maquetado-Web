@@ -3,12 +3,12 @@
 const carouselData = [  // carousel
     {
         containerClass: 'cont-center column',
-        titleClass: 'text-white tituloCarrousel ', 
+        titleClass: 'text-white text-center tituloCarrousel', 
         title: ['Top-notch Furniture'],
         paragraphClass: 'text-center carousel-content-p',
         paragraph: 'Sofa Store provides the best furniture and accessories for homes and offices.',
         linkHref: 'grid-shop.html',
-        linkClass: 'bg-white text-black carousel-content-a',
+        linkClass: 'bg-white text-151515 carousel-content-a',
         linkText: 'Shop Now'
     },
     {
@@ -411,8 +411,8 @@ function carousel_section(carouselSelector, sectionsData) { // carousel
     nextButton.classList.add('carousel-button', 'next-button');
     nextButton.addEventListener('click', nextSlide);
 
-    sections[0].parentElement.appendChild(prevButton);
-    sections[0].parentElement.appendChild(nextButton);
+    sections[0].parentElement.prepend(prevButton);
+    sections[0].parentElement.prepend(nextButton);
 
     updateCarousel();
 }
@@ -476,6 +476,7 @@ function trendingProducts() { // trending products
     contenedorGeneralFilas.classList.add("column", "w-80");
 
     const titulo = document.createElement("h2");
+    titulo.classList.add("text-151515");
     titulo.textContent = "Trending Products";
     contenedorGeneralFilas.prepend(titulo);
 
@@ -514,7 +515,7 @@ function trendingProducts() { // trending products
         const divInfo = document.createElement("div");
 
         const h4 = document.createElement("h4");
-        h4.classList.add("text-center", "title-articulo-trending-products");
+        h4.classList.add("text-center","text-151515", "title-articulo-trending-products");
         h4.textContent = producto.nombre;
 
         divInfo.appendChild(h4);
@@ -524,11 +525,11 @@ function trendingProducts() { // trending products
             divPrecios.classList.add("cont-center", "cont-precios");
 
             const precioAnterior = document.createElement("p");
-            precioAnterior.classList.add("precio-tachado", "text-grey");
+            precioAnterior.classList.add("precio-tachado");
             precioAnterior.textContent = `$${producto.precioAnterior}.00`;
 
             const precio = document.createElement("p");
-            precio.classList.add("text-center", "text-blue");
+            precio.classList.add("text-center", "text-blue", "text-bold");
             precio.textContent = `$${producto.precio}.00`;
 
             divPrecios.appendChild(precioAnterior);
@@ -536,7 +537,7 @@ function trendingProducts() { // trending products
             divInfo.appendChild(divPrecios);
         } else {
             const precio = document.createElement("p");
-            precio.classList.add("text-center", "text-blue");
+            precio.classList.add("text-center", "text-blue", "text-bold");
             precio.textContent = `$${producto.precio}.00`;
             divInfo.appendChild(precio);
         }
@@ -658,7 +659,7 @@ function renderBlog(container, blog) { // blog (home)
 
     const link_title = document.createElement('a');
     link_title.href = 'blog-post.html';
-    link_title.classList.add('text-black');
+    link_title.classList.add('text-151515');
     link_title.style.textDecoration = 'none';
     const h3 = document.createElement('h3');
     h3.textContent = blog.title;
