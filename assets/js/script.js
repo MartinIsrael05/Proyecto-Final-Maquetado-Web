@@ -666,6 +666,7 @@ function renderBlog(container, blog) { // blog (home)
     link_title.appendChild(h3);
 
     const p = document.createElement('p');
+    p.classList.add('text-777777');
     p.textContent = blog.date;
 
     blogCard.appendChild(figure);
@@ -714,11 +715,11 @@ function renderHistoryCard(container, card) { // our history
     article.classList.add('card');
 
     const h3 = document.createElement('h3');
-    h3.classList.add('text-center', 'text-black');
+    h3.classList.add('text-center', 'text-151515');
     h3.textContent = card.title;
 
     const p = document.createElement('p');
-    p.classList.add('text-center');
+    p.classList.add('text-center', 'text-777777');
     p.textContent = card.description;
 
     article.appendChild(h3);
@@ -755,7 +756,7 @@ function renderTeamMember(container, member) { // our team
     const h3 = document.createElement('h3');
     h3.classList.add('team-member-name', 'text-center');
     const link = document.createElement('a');
-    link.classList.add('text-black');
+    link.classList.add('text-151515');
     link.href = '#';
     const span = document.createElement('span');
     span.classList.add('team-member-name-span');
@@ -764,7 +765,7 @@ function renderTeamMember(container, member) { // our team
     h3.appendChild(link);
 
     const p = document.createElement('p');
-    p.classList.add('text-center', 'text-grey');
+    p.classList.add('text-center', 'text-777777');
     p.textContent = member.description;
 
     const socialLinksDiv = document.createElement('div');
@@ -837,6 +838,7 @@ function renderTestimonial(container, testimonial) { // testimonials
     article.appendChild(quoteP);
 
     const blockquote = document.createElement('blockquote');
+    blockquote.classList.add('text-777777');
     const textP = document.createElement('p');
     textP.classList.add('text-center');
     textP.textContent = testimonial.quote;
@@ -853,7 +855,7 @@ function renderTestimonial(container, testimonial) { // testimonials
     const authorInfoDiv = document.createElement('div');
     authorInfoDiv.classList.add('author-info');
     const nameP = document.createElement('p');
-    nameP.classList.add('name');
+    nameP.classList.add('name', 'text-151515');
     nameP.textContent = testimonial.author;
     const roleP = document.createElement('p');
     roleP.classList.add('role');
