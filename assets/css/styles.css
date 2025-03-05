@@ -2996,6 +2996,16 @@ ul.flex.social-icons-blog-post:hover {
     max-width: 50vw;
   }
 
+  .separacion-tituloTexto-footer {
+    width: 100%;
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  .separacion-tituloTexto-footer input[type="email"] {
+    text-align: center;
+  }
+
   /*ABOUT US RESPONSIVE*/
   /* Sección "A Few Words About Us" */
   .few-words-aboutUs {
