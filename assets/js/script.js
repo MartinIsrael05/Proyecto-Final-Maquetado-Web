@@ -772,6 +772,7 @@ function renderTeamMember(container, member) { // our team
     socialLinksDiv.classList.add('social-links', 'flex', 'justify-content-center');
     for (const [platform, url] of Object.entries(member.socialLinks)) { // Object.entries() devuelve un array con los pares clave-valor de un objeto. Es decr que convierte al objeto en un array
         const a = document.createElement('a');
+        a.classList.add('text-151515');
         a.href = url;
         switch (platform) {
             case 'facebook':

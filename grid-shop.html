@@ -46,9 +46,9 @@
         <section>
             <nav class="cont-center ubicacion contenedor-ubicacion">
                 <a href="index.html" class="text-777777">Home</a>
-                <span>➔</span>
+                <span class="text-151515">➔</span>
                 <a href="grid-shop.html" class="text-777777">Shop</a>
-                <span>➔</span>
+                <span class="text-151515">➔</span>
                 <a href="grid-shop.html" class="text-151515">Grid Shop</a>
             </nav>
         </section>
@@ -58,22 +58,22 @@
                 <!-- Sidebar -->
                 <aside class="grid-shop-aside">
                     <div class="filtro-grid-shop">
-                        <h4>Filter by price</h4>
+                        <h4 class="text-151515">Filter by price</h4>
                         <div class="price-filter">
                             <input type="range" id="min-price" min="0" max="1000" value="66" class="slider">
                             <div class="filter-footer">
-                                <button class="filter-button">FILTER</button>
-                                <p class="price-text">Price: $<span id="price-min">66</span> — $<span
+                                <button class="filter-button text-151515">FILTER</button>
+                                <p class="price-text text-151515">Price: $<span id="price-min">66</span> — $<span
                                         id="price-max">635</span></p>
                             </div>
                         </div>
                     </div>
 
                     <div class="categories-grid-shop">
-                        <h4>Categories</h4>
+                        <h4 class="text-151515">Categories</h4>
                         <ul>
                             <li class="flex between">
-                                <label for="category-all" class="category-name">
+                                <label for="category-all" class="category-name text-151515">
                                     <input type="checkbox" id="category-all" name="category">
                                     All
                                 </label>
@@ -81,7 +81,7 @@
                             </li>
 
                             <li class="flex between">
-                                <label for="category-news" class="category-name">
+                                <label for="category-news" class="category-name text-151515">
                                     <input type="checkbox" id="category-news" name="category">
                                     News
                                 </label>
@@ -89,7 +89,7 @@
                             </li>
 
                             <li class="flex between">
-                                <label for="category-tips" class="category-name">
+                                <label for="category-tips" class="category-name text-151515">
                                     <input type="checkbox" id="category-tips" name="category">
                                     Tips
                                 </label>
@@ -97,7 +97,7 @@
                             </li>
 
                             <li class="flex between">
-                                <label for="category-furniture" class="category-name">
+                                <label for="category-furniture" class="category-name text-151515">
                                     <input type="checkbox" id="category-furniture" name="category">
                                     Furniture
                                 </label>
@@ -117,13 +117,13 @@
                     </form>
 
                     <div class="categories-grid-shop">
-                        <h4>Popular Products</h4>
+                        <h4 class="text-151515">Popular Products</h4>
                         <div class="container-latest-posts">
                             <div class="popular-products">
                                 <a href="single-product.html"><img src="assets/images/producto5.png"
                                         alt="Shopping for Chairs Online"></a>
                                 <div class="post-content">
-                                    <p>Table Lamp</p>
+                                    <p class="text-151515">Table Lamp</p>
                                     <p class="post-date">$25.00</p>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@
                                 <a href="single-product.html"><img src="assets/images/producto6.png"
                                         alt="Ways to Decorate Your Home"></a>
                                 <div class="post-content">
-                                    <p>Stacking Chair</p>
+                                    <p class="text-151515">Stacking Chair</p>
                                     <p class="post-date">$30.00</p>
                                 </div>
                             </div>
@@ -139,7 +139,7 @@
                                 <a href="single-product.html"><img src="assets/images/producto4.png"
                                         alt="Ways to Decorate Your Home"></a>
                                 <div class="post-content">
-                                    <p>Grey Club Chair</p>
+                                    <p class="text-151515">Grey Club Chair</p>
                                     <p class="post-date">$20.00</p>
                                 </div>
                             </div>
@@ -151,15 +151,15 @@
                 <section class="trending-products-section cont-center">
                     <div class="grid-shop-products">
                         <div class="product-header">
-                            <p class="results-text">Showing 1 – 8 of 28 results</p>
+                            <p class="results-text text-151515">Showing 1 – 8 of 28 results</p>
                             <div class="filter-options">
-                                <select id="sort-by">
-                                    <option value="newness">Sort by newness</option>
-                                    <option value="price-low">Price: Low to High</option>
-                                    <option value="price-high">Price: High to Low</option>
+                                <select id="sort-by" class="text-151515">
+                                    <option class="text-151515" value="newness">Sort by newness</option>
+                                    <option class="text-151515" value="price-low">Price: Low to High</option>
+                                    <option class="text-151515" value="price-high">Price: High to Low</option>
                                 </select>
                                 <div class="view-options">
-                                    <a href="grid-shop.html"><button class="grid-view active">⬜</button></a>
+                                    <a href="grid-shop.html"><button class="grid-view active">※</button></a>
                                     <a href="grid-shop.html"><button class="list-view">☰</button></a>
 
                                 </div>
@@ -169,12 +169,15 @@
                         <div class="product-items">
 
                             <article class="articulo-trending-products bg-f5 product-card">
-                                <div class="flex right"><span class="new">NEW</span></div>
+                                <div class="flex right"><span class="sale">SALE</span></div>
                                 <figure class="cont-center"><img src="assets/images/producto2.png" alt="Club Chair">
                                 </figure>
                                 <div>
                                     <h4 class="text-center title-articulo-trending-products">Club Chair</h4>
-                                    <p class="text-center text-blue">$13.00</p>
+                                    <div class="cont-center cont-precios">
+                                        <p class="precio-tachado text-grey">$30.00</p>
+                                        <p class="text-center text-blue text-bold">$23.00</p>
+                                    </div>
                                 </div>
                                 <div class="cont-center hover-icons">
                                     <div class="bg-white text-center cont-center icon-circle-trendingProducts">
@@ -187,11 +190,29 @@
                             </article>
 
                             <article class="articulo-trending-products bg-f5 product-card">
+                                <div class="flex right"><span class="new">NEW</span></div>
                                 <figure class="cont-center"><img src="assets/images/producto3.png" alt="Pendant Lamp">
                                 </figure>
                                 <div>
                                     <h4 class="text-center title-articulo-trending-products">Pendant Lamp</h4>
-                                    <p class="text-center text-blue">$17.00</p>
+                                    <p class="text-center text-blue text-bold">$13.00</p>
+                                </div>
+                                <div class="cont-center hover-icons">
+                                    <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
+                                            href="single-product.html" class="cont-center"><img src="assets/images/lupa.png" alt="Lupa"></a>
+                                    </div>
+                                    <div class="bg-white text-center cont-center icon-circle2-trendingProducts"><a
+                                            href="single-product.html" class="cont-center"><img src="assets/images/cart.png"
+                                                alt="Carrito"></a></div>
+                                </div>
+                            </article>
+
+                            <article class="articulo-trending-products bg-f5 product-card">
+                                <figure class="cont-center"><img src="assets/images/producto4.png"
+                                        alt="Dark Grey Club Chair"></figure>
+                                <div>
+                                    <h4 class="text-center title-articulo-trending-products">Dark Grey Club Chair</h4>
+                                    <p class="text-center text-blue text-bold">$17.00</p>
                                 </div>
                                 <div class="cont-center hover-icons">
                                     <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
@@ -205,11 +226,11 @@
 
                             <article class="articulo-trending-products bg-f5 product-card">
                                 <div class="flex right"><span class="new">NEW</span></div>
-                                <figure class="cont-center"><img src="assets/images/producto4.png"
-                                        alt="Dark Grey Club Chair"></figure>
+                                <figure class="cont-center"><img src="assets/images/producto6.png"
+                                        alt="Orange Stacking Chair"></figure>
                                 <div>
-                                    <h4 class="text-center title-articulo-trending-products">Dark Grey Club Chair</h4>
-                                    <p class="text-center text-blue">$14.00</p>
+                                    <h4 class="text-center title-articulo-trending-products">Orange Stacking Chair</h4>
+                                    <p class="text-center text-blue text-bold">$11.00</p>
                                 </div>
                                 <div class="cont-center hover-icons">
                                     <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
@@ -222,11 +243,11 @@
                             </article>
 
                             <article class="articulo-trending-products bg-f5 product-card">
-                                <figure class="cont-center"><img src="assets/images/producto6.png"
-                                        alt="Orange Stacking Chair"></figure>
+                                <figure class="cont-center"><img src="assets/images/producto7.png" alt="Floor Lamp">
+                                </figure>
                                 <div>
-                                    <h4 class="text-center title-articulo-trending-products">Orange Stacking Chair</h4>
-                                    <p class="text-center text-blue">$15.00</p>
+                                    <h4 class="text-center title-articulo-trending-products">Floor Lamp</h4>
+                                    <p class="text-center text-blue text-bold">$15.00</p>
                                 </div>
                                 <div class="cont-center hover-icons">
                                     <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
@@ -240,31 +261,14 @@
 
                             <article class="articulo-trending-products bg-f5 product-card">
                                 <div class="flex right"><span class="sale">SALE</span></div>
-                                <figure class="cont-center"><img src="assets/images/producto7.png" alt="Floor Lamp">
-                                </figure>
-                                <div>
-                                    <h4 class="text-center title-articulo-trending-products">Floor Lamp</h4>
-                                    <div class="cont-center cont-precios">
-                                        <p class="precio-tachado text-grey">$32.00</p>
-                                        <p class="text-center text-blue">$22.00</p>
-                                    </div>
-                                </div>
-                                <div class="cont-center hover-icons">
-                                    <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
-                                            href="single-product.html" class="cont-center"><img src="assets/images/lupa.png" alt="Lupa"></a>
-                                    </div>
-                                    <div class="bg-white text-center cont-center icon-circle2-trendingProducts"><a
-                                            href="single-product.html" class="cont-center"><img src="assets/images/cart.png"
-                                                alt="Carrito"></a></div>
-                                </div>
-                            </article>
-
-                            <article class="articulo-trending-products bg-f5 product-card">
                                 <figure class="cont-center"><img src="assets/images/producto8.png" alt="White Chair">
                                 </figure>
                                 <div>
                                     <h4 class="text-center title-articulo-trending-products">White Chair</h4>
-                                    <p class="text-center text-blue">$10.00</p>
+                                    <div class="cont-center cont-precios">
+                                        <p class="precio-tachado text-grey">$32.00</p>
+                                        <p class="text-center text-blue text-bold">$22.00</p>
+                                    </div>
                                 </div>
                                 <div class="cont-center hover-icons">
                                     <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
@@ -282,7 +286,7 @@
                                 </figure>
                                 <div>
                                     <h4 class="text-center title-articulo-trending-products">Table Lamp</h4>
-                                    <p class="text-center text-blue">$11.00</p>
+                                    <p class="text-center text-blue text-bold">$14.00</p>
                                 </div>
                                 <div class="cont-center hover-icons">
                                     <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
@@ -295,15 +299,11 @@
                             </article>
 
                             <article class="articulo-trending-products bg-f5 product-card">
-                                <div class="flex right"><span class="sale">SALE</span></div>
                                 <figure class="cont-center"><img src="assets/images/producto1.png" alt="Garden Table">
                                 </figure>
                                 <div>
                                     <h4 class="text-center title-articulo-trending-products">Garden Table</h4>
-                                    <div class="cont-center cont-precios">
-                                        <p class="precio-tachado text-grey">$30.00</p>
-                                        <p class="text-center text-blue">$23.00</p>
-                                    </div>
+                                    <p class="text-center text-blue text-bold">$10.00</p>
                                 </div>
                                 <div class="cont-center hover-icons">
                                     <div class="bg-white text-center cont-center icon-circle-trendingProducts"><a
