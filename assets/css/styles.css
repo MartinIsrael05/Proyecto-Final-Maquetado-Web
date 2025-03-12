@@ -23,6 +23,8 @@
   --colorebebeb: #ebebeb;
   --colore1e1e1: #e1e1e1;
   --coloreaeaea: #eaeaea;
+  --colorf4f3f3: #f4f3f3;
+  --colorbbbbbb: #bbbbbb;
   --fondoNegroTransparente: rgba(0, 0, 0, 0.5);
 
   /* Tamaños y estilos */
@@ -325,7 +327,7 @@ select {
 }
 
 .title-carousel-span2 {
-  color: #bbb;
+  color: var(--colorbbbbbb);
 }
 
 
@@ -922,7 +924,7 @@ dialog {
 /* blog */
 .blog-section {
   padding: 5.1em 0;
-  background-color: #f4f3f3;
+  background-color: var(--colorf4f3f3);
 }
 
 .next,
@@ -1123,8 +1125,8 @@ form.invalid .error-message {
 }
 
 form .success-message {
-  color: white;
-  background-color: black;
+  color: var(--colorBlanco);
+  background-color: var(--colorNegro);
   font-size: var(--font-size-medium);
   padding: 0.5em;
   position: absolute;
@@ -1959,20 +1961,13 @@ form.form-review {
   max-width: 28em;
 }
 
-.form-group label {
-  display: block;
-  font-size: var(--font-size-small);
-  color: #333;
-  margin-bottom: 0.5em;
-}
-
 .form-group input {
   width: 100%;
   border: none;
   border-bottom: 1px solid var(--colore1e1e1);
   padding: .8em 0;
   font-size: var(--font-size-medium);
-  color: #333;
+  color: var(--color151515);
   background: transparent;
 }
 
@@ -1997,12 +1992,12 @@ form.form-review {
   border-bottom: 1px solid var(--colore1e1e1);
   padding: 0.5em 0;
   font-size: var(--font-size-medium);
-  color: #333;
+  color: var(--color151515);
   background: transparent;
 }
 
 .form-group textarea::placeholder {
-  color: var(--colorNegro);
+  color: var(--color151515);
   font-size: var(--font-size-medium);
   transition: all 0.2s ease;
 }
@@ -2020,11 +2015,6 @@ input[type="checkbox"] {
   margin-right: 0.5em;
 }
 
-label[for="same-address"] {
-  font-size: var(--font-size-small);
-  color: #666;
-}
-
 .checkbox-container {
   gap: 0.5em;
   margin-top: 1em;
@@ -2038,7 +2028,7 @@ label[for="same-address"] {
 
 .checkbox-container label {
   font-size: var(--font-size-medium);
-  color: #666;
+  color: var(--color9b9b9b);
 }
 
 .shopping-cart-container {
@@ -2049,7 +2039,6 @@ label[for="same-address"] {
 .shopping-cart-container h2 {
   font-size: 2.2em;
   font-weight: var(--font-weight-regular);
-  color: var(--colorNegro);
 }
 
 .shopping-cart-box {
@@ -2068,34 +2057,31 @@ thead th {
   text-transform: uppercase;
   font-size: 1.1em;
   font-weight: var(--font-weight-bold);
-  padding-bottom: .6em;
+  padding-bottom: 1.5em;
   border-bottom: 2px solid var(--coloreaeaea);
 }
 
 tbody td {
   padding: 1.2em 0;
   font-size: var(--font-size-large);
-  color: var(--colorNegro);
 }
 
 .product-info {
-  width: 7em;
-  height: 7em;
-  object-fit: cover;
+  width: 6em;
+  height: 5.5em;
   margin-right: 1em;
   background: var(--colorf5f5f5);
 }
 
 .span-product-info {
   font-size: var(--font-size-medium);
-  color: var(--colorNegro);
   text-transform: uppercase;
 }
 
 .boton-quantity-control {
   width: 2em;
   height: 2em;
-  border: 1px solid #ccc;
+  border: 1px solid var(--colorcccccc);
   background-color: var(--colorBlanco);
   font-size: var(--font-size-small);
   cursor: pointer;
@@ -2156,13 +2142,18 @@ tbody td {
 .method-title {
   font-size: var(--font-size-medium);
   color: var(--color151515);
+  letter-spacing: .1em;
   font-weight: var(--font-weight-bold);
 }
 
 .method-description {
-  color: #888;
+  color: var(--color9b9b9b);
   font-size: var(--font-size-small);
   margin: 1em 0 0;
+}
+
+.inactive-payment-method {
+  display: none;
 }
 
 .cart-box .cart-row {
@@ -2280,12 +2271,6 @@ tbody td {
 
 .post-date {
   color: var(--colorCeleste);
-}
-
-.grid-shop-aside a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
 }
 
 .grid-shop-products {
@@ -3426,6 +3411,7 @@ ul.flex.social-icons-blog-post:hover {
 
   tbody td {
     font-size: 1.1em;
+    padding-right: 1em;
   }
 
   .shopping-cart-container h2 {
