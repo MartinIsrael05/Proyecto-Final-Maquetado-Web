@@ -835,7 +835,7 @@ function renderTestimonial(container, testimonial) { // testimonials
     article.classList.add('testimonial', 'bg-white');
 
     const quoteP = document.createElement('p');
-    quoteP.classList.add('quote');
+    quoteP.classList.add('cont-center', 'text-center', 'quote');
     article.appendChild(quoteP);
 
     const blockquote = document.createElement('blockquote');

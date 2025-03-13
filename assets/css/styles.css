@@ -636,18 +636,11 @@ header {
   border-radius: .4em;
 }
 
-/* .hover-icons {
-  margin: 1.5em 0;
-  gap: 1em;
-  opacity: 0;
-} */
-
 .hover-icons {
   position: absolute;
   bottom: 1.5em;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
   gap: 1em;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
@@ -1159,8 +1152,6 @@ form.success .success-message {
 .few-words-aboutUs {
   margin-bottom: 4em;
   padding: 2em 0;
-  display: flex;
-  justify-content: center;
 }
 
 .text-content h2 {
@@ -1489,10 +1480,6 @@ form.success .success-message {
 }
 
 .quote {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   position: relative;
   padding: 2em;
   font-family: 'Times New Roman', Times, serif;
@@ -2200,7 +2187,6 @@ tbody td {
 }
 
 .categories-grid-shop li {
-  display: flex;
   width: 100%;
   margin-bottom: 1em;
   font-size: var(--font-size-medium);
@@ -2233,8 +2219,6 @@ tbody td {
 }
 
 .search-blog-post {
-  display: flex;
-  align-items: center;
   background: var(--colorf9faf9);
   padding: 0.5em 0;
   width: 250px;
@@ -2255,9 +2239,6 @@ tbody td {
   background: transparent;
   border: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .img-lupa-blog-post {
@@ -2275,13 +2256,9 @@ tbody td {
 
 .grid-shop-products {
   flex: 1;
-  display: flex;
-  flex-direction: column;
 }
 
 .price-filter {
-  display: flex;
-  flex-direction: column;
   align-items: flex-start;
   gap: 1em;
   width: 100%;
@@ -2310,9 +2287,6 @@ tbody td {
 }
 
 .filter-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-top: 1em;
 }
 
@@ -2349,8 +2323,6 @@ tbody td {
 }
 
 .popular-products {
-  display: flex;
-  align-items: center;
   gap: 1em;
   margin-bottom: 1em;
 }
@@ -2363,9 +2335,6 @@ tbody td {
 }
 
 .product-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin-bottom: 2.5em;
 }
 
@@ -2374,8 +2343,6 @@ tbody td {
 }
 
 .filter-options {
-  display: flex;
-  align-items: center;
   gap: 1em;
 }
 
@@ -2387,7 +2354,6 @@ tbody td {
 }
 
 .view-options {
-  display: flex;
   gap: 5px;
 }
 
@@ -2656,7 +2622,6 @@ blockquote {
 }
 
 .news-interior-tips {
-  display: flex;
   gap: 2em;
 }
 
@@ -2670,11 +2635,8 @@ blockquote {
 }
 
 ul.flex.social-icons-blog-post {
-  display: flex;
   gap: 1.5em;
   margin-left: auto;
-  align-items: center;
-  justify-content: flex-end;
 }
 
 ul.flex.social-icons-blog-post:hover {

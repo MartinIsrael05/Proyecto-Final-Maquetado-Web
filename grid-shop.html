@@ -59,9 +59,9 @@
                 <aside class="grid-shop-aside">
                     <div class="filtro-grid-shop">
                         <h4 class="text-151515">Filter by price</h4>
-                        <div class="price-filter">
+                        <div class="flex column price-filter">
                             <input type="range" id="min-price" min="0" max="1000" value="66" class="slider">
-                            <div class="filter-footer">
+                            <div class="flex between align-items-center filter-footer">
                                 <button class="filter-button text-151515">FILTER</button>
                                 <p class="price-text text-151515">Price: $<span id="price-min">66</span> — $<span
                                         id="price-max">635</span></p>
@@ -107,10 +107,10 @@
                     </div>
 
                     <form class="search-form-blog-post">
-                        <div class="search-blog-post">
+                        <div class="flex align-items-center search-blog-post">
                             <input type="text" class="search-input-blog-post" placeholder="Search..."
                                 aria-label="Search">
-                            <button class="search-button-blog-post">
+                            <button class="cont-center search-button-blog-post">
                                 <img src="assets/images/lupa.png" alt="Buscar">
                             </button>
                         </div>
@@ -119,7 +119,7 @@
                     <div class="categories-grid-shop">
                         <h4 class="text-151515">Popular Products</h4>
                         <div class="container-latest-posts">
-                            <div class="popular-products">
+                            <div class="flex align-items-center popular-products">
                                 <a href="single-product.html"><img src="assets/images/producto5.png"
                                         alt="Shopping for Chairs Online"></a>
                                 <div class="post-content">
@@ -127,7 +127,7 @@
                                     <p class="post-date">$25.00</p>
                                 </div>
                             </div>
-                            <div class="popular-products">
+                            <div class="flex align-items-center popular-products">
                                 <a href="single-product.html"><img src="assets/images/producto6.png"
                                         alt="Ways to Decorate Your Home"></a>
                                 <div class="post-content">
@@ -135,7 +135,7 @@
                                     <p class="post-date">$30.00</p>
                                 </div>
                             </div>
-                            <div class="popular-products">
+                            <div class="flex align-items-center popular-products">
                                 <a href="single-product.html"><img src="assets/images/producto4.png"
                                         alt="Ways to Decorate Your Home"></a>
                                 <div class="post-content">
@@ -149,16 +149,16 @@
 
                 <!-- Products Section -->
                 <section class="trending-products-section cont-center">
-                    <div class="grid-shop-products">
-                        <div class="product-header">
+                    <div class="flex column grid-shop-products">
+                        <div class="flex between align-items-center product-header">
                             <p class="results-text text-151515">Showing 1 – 8 of 28 results</p>
-                            <div class="filter-options">
+                            <div class="flex align-items-center filter-options">
                                 <select id="sort-by" class="text-151515">
                                     <option class="text-151515" value="newness">Sort by newness</option>
                                     <option class="text-151515" value="price-low">Price: Low to High</option>
                                     <option class="text-151515" value="price-high">Price: High to Low</option>
                                 </select>
-                                <div class="view-options">
+                                <div class="flex view-options">
                                     <a href="grid-shop.html"><button class="grid-view active">※</button></a>
                                     <a href="grid-shop.html"><button class="list-view">☰</button></a>
 
