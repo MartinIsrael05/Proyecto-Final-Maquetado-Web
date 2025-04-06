@@ -3,7 +3,7 @@
 const carouselData = [  // carousel
     {
         containerClass: 'cont-center column',
-        titleClass: 'text-white text-center tituloCarrousel', 
+        titleClass: 'text-white text-center tituloCarrousel',
         title: ['Top-notch Furniture'],
         paragraphClass: 'text-center carousel-content-p',
         paragraph: 'Sofa Store provides the best furniture and accessories for homes and offices.',
@@ -326,6 +326,16 @@ function nextSlide(container, items, currentIndex, itemsPerPage, renderItem) { /
     return currentIndex;
 }
 
+function autoSlide(container, items, currentIndex, itemsPerPage, renderItem, intervalTime) {
+    // Renderizar los elementos iniciales
+    renderItems(container, items, currentIndex, itemsPerPage, renderItem);
+
+    // Configurar el intervalo para avanzar automáticamente
+    setInterval(() => {
+        currentIndex = nextSlide(container, items, currentIndex, itemsPerPage, renderItem);
+    }, intervalTime);
+}
+
 
 // FUNCIONES ESPECIFICAS
 // home
@@ -515,7 +525,7 @@ function trendingProducts() { // trending products
         const divInfo = document.createElement("div");
 
         const h4 = document.createElement("h4");
-        h4.classList.add("text-center","text-151515", "title-articulo-trending-products");
+        h4.classList.add("text-center", "text-151515", "title-articulo-trending-products");
         h4.textContent = producto.nombre;
 
         divInfo.appendChild(h4);
@@ -688,6 +698,9 @@ if (prev && next) { // si le saco el if no me funciona. Me va a decir que en las
         blogCurrentIndex = nextSlide(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog);
     });
 }
+if (blogContainer) {
+    autoSlide(blogContainer, blogs, blogCurrentIndex, blogsPerPage, renderBlog, 5000); // 5000 ms = 5 segundos
+}
 
 // about us
 function navFewWords() { // few words
@@ -797,20 +810,35 @@ function renderTeamMember(container, member) { // our team
     article.appendChild(socialLinksDiv);
     container.appendChild(article);
 }
-const teamContainer = document.querySelector('.our-team-aboutUs .flex');
-const prevButtonTeam = document.querySelector('.prev-ourTeam');
-const nextButtonTeam = document.querySelector('.next-ourTeam');
-const membersPerPage = 3;
-let currentTeamIndex = 0;
-if (teamContainer && prevButtonTeam && nextButtonTeam) {
-    prevButtonTeam.addEventListener('click', () => {
-        currentTeamIndex = prevSlide(teamContainer, teamMembers, currentTeamIndex, membersPerPage, renderTeamMember);
-    });
+const teamContainer = document.querySelector('.our-team-aboutUs .contenedorOurTeam');
+const prevSpan = document.querySelector('.prev-ourTeam');
+const nextSpan = document.querySelector('.next-ourTeam');
 
-    nextButtonTeam.addEventListener('click', () => {
-        currentTeamIndex = nextSlide(teamContainer, teamMembers, currentTeamIndex, membersPerPage, renderTeamMember);
+// Dividir los miembros del equipo en dos grupos
+const firstGroup = teamMembers.slice(0, 3); // Primeros 3 miembros
+const secondGroup = teamMembers.slice(3);  // Últimos 3 miembros
+
+// Función para renderizar un grupo de miembros
+function renderTeamMembers(container, members) {
+    container.innerHTML = ''; // Limpiar el contenedor
+    members.forEach(member => {
+        renderTeamMember(container, member); // Reutilizar la función renderTeamMember
     });
 }
+const membersPerPage = 3; // Mostrar siempre 3 miembros
+let currentTeamIndex = 0;
+
+if (teamContainer) {
+    prevSpan.addEventListener('click', () => {
+        renderTeamMembers(teamContainer, firstGroup);
+    });
+    
+    nextSpan.addEventListener('click', () => {
+        renderTeamMembers(teamContainer, secondGroup);
+    });
+    autoSlide(teamContainer, teamMembers, currentTeamIndex, membersPerPage, renderTeamMember, 5000);
+}
+
 
 function animateNumbers(element, start, end, duration) { // animate numbers
     let startTime = null;
@@ -923,9 +951,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    if (document.querySelector('.our-team-aboutUs .flex')) { // our team
-        renderItems(teamContainer, teamMembers, currentTeamIndex, membersPerPage, renderTeamMember);
+    if (document.querySelector('.our-team-aboutUs .contenedorOurTeam')) { // our team
+        // renderItems(teamContainer, teamMembers, currentTeamIndex, membersPerPage, renderTeamMember);
+        renderTeamMembers(teamContainer, firstGroup);
     }
+
+    
 
     if (document.querySelector('.stat-number-1')) { // animate numbers
         const stats = [
