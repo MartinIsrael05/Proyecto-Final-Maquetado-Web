@@ -162,6 +162,10 @@ select {
   width: 80%;
 }
 
+.h-100 {
+  height: 100%;
+}
+
 .banner-gridBlogYSingleProduct {
   background-image: url('../images/bannertopblog.jpg');
   background-repeat: no-repeat;
@@ -323,7 +327,7 @@ select {
 }
 
 .title-carousel2Y3 {
-  width: 55%;
+  width: 45%;
 }
 
 .title-carousel-span2 {
@@ -420,7 +424,7 @@ header {
   color: var(--color777777);
   font-size: var(--font-size-medium);
   font-weight: var(--font-weight-bold);
-  width: 55%;
+  width: 26%;
 }
 
 .carousel2-content-a {
@@ -431,7 +435,7 @@ header {
   line-height: 2;
   transition: var(--transition-easing-default-medium);
   padding: 1em 0;
-  width: 25%;
+  width: 15%;
   margin-top: 2em;
 }
 
@@ -452,7 +456,7 @@ header {
   color: var(--color777777);
   font-size: var(--font-size-medium);
   font-weight: var(--font-weight-bold);
-  width: 45%;
+  width: 27%;
 }
 
 .carousel3-content-a {

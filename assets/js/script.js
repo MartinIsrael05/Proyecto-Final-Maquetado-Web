@@ -12,7 +12,7 @@ const carouselData = [  // carousel
         linkText: 'Shop Now'
     },
     {
-        containerClass: 'flex left column cont-carousel',
+        containerClass: 'flex justify-content-center column cont-carousel',
         titleClass: 'text-grey title-carousel2Y3',
         title: ['<span>Quality</span>', '<span class="title-carousel-span2">Decor</span>'],
         paragraphClass: 'carousel2-content-p',
@@ -22,7 +22,7 @@ const carouselData = [  // carousel
         linkText: 'Shop Now'
     },
     {
-        containerClass: 'flex left column cont-carousel',
+        containerClass: 'flex justify-content-center column cont-carousel',
         titleClass: 'text-grey title-carousel2Y3',
         title: ['<span>Impressive</span>', '<span class="title-carousel-span2">Lighting</span>'],
         paragraphClass: 'carousel3-content-p',
@@ -91,7 +91,7 @@ class SingleItemSlider extends Slider {
             section.innerHTML = '';
 
             const container = document.createElement('div');
-            container.className = itemData.containerClass;
+            container.className = itemData.containerClass + ' h-100';
 
             const h1 = document.createElement('h1');
             h1.className = itemData.titleClass;
