@@ -33,6 +33,35 @@ const carouselData = [  // carousel
     }
 ];
 
+const blogs = [ // blog
+    {
+        imgSrc: 'assets/images/blog1.jpg',
+        title: 'LED Lighting and Its Benefits for Homeowners',
+        date: 'August 9, 2021'
+    },
+    {
+        imgSrc: 'assets/images/blog2.jpg',
+        title: 'What to Look for When Shopping for Chairs Online',
+        date: 'August 9, 2021'
+    },
+    {
+        imgSrc: 'assets/images/blog3.jpg',
+        title: 'Ways to Decorate Your Home with the Color Red',
+        date: 'August 9, 2021'
+    },
+    {
+        imgSrc: 'assets/images/blog4.jpg',
+        title: 'Top 20 Interior Home Decor Trends of 2021',
+        date: 'August 9, 2021'
+    },
+    {
+        imgSrc: 'assets/images/blog5.jpg',
+        title: 'HOW TO CHOOSE FURNITURE FOR YOUR HOME',
+        date: 'August 9, 2021'
+    }
+
+];
+
 
 class Slider {
     constructor(containerSelector, data, renderItem, itemsPerPage = 1) {
@@ -44,7 +73,6 @@ class Slider {
 
         if (!this.container || data.length === 0) return;
 
-        // ❌ Ya no llamamos a render() automáticamente aquí
         this.addNavigation();
     }
 
@@ -144,10 +172,77 @@ class SingleItemSlider extends Slider {
 }
 
 
+class MultiItemSlider extends Slider {
+    constructor(containerSelector, data, renderItem, itemsPerPage = 4, step = 1) {
+        super(containerSelector, data, renderItem, itemsPerPage);
+        this.step = step;
 
+        this.render();
+        this.conectarControladores();
+    }
+
+    render() {
+        if (!this.container) return;
+        this.container.innerHTML = '';
+
+        for (let i = 0; i < this.itemsPerPage; i++) {
+            const index = (this.currentIndex + i) % this.data.length;
+            this.renderItem(this.container, this.data[index], index);
+        }
+    }
+
+    next() {
+        this.currentIndex = (this.currentIndex + this.step) % this.data.length;
+        this.render();
+    }
+
+    prev() {
+        this.currentIndex = (this.currentIndex - this.step + this.data.length) % this.data.length;
+        this.render();
+    }
+
+    conectarControladores() {
+        const parent = this.container.closest('section') || this.container.parentElement;
+
+        const prevBtn = parent.querySelector('[data-prev]');
+        const nextBtn = parent.querySelector('[data-next]');
+
+        if (prevBtn) prevBtn.addEventListener('click', () => this.prev());
+        if (nextBtn) nextBtn.addEventListener('click', () => this.next());
+    }
+
+    // Evitamos botones automáticos
+    // addNavigation() {}  ver si esta bien (cuando lo comento sigue funcionando)
+}
+
+
+const renderBlogCard = (container, blog) => {
+    const card = document.createElement('div');
+    card.className = 'blog-card'; // asegurate de tener estilo para esto
+
+    const img = document.createElement('img');
+    img.src = blog.imgSrc;
+    img.alt = blog.title;
+
+    const h3 = document.createElement('h3');
+    h3.textContent = blog.title;
+
+    const p = document.createElement('p');
+    p.textContent = blog.date;
+
+    card.appendChild(img);
+    card.appendChild(h3);
+    card.appendChild(p);
+
+    container.appendChild(card);
+};
 
 
 
 if (document.querySelector("#carousel-section")) {
     new SingleItemSlider('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
+}
+
+if (document.querySelector(".blog-container")) {
+    new MultiItemSlider('.blog-container', blogs, renderBlogCard, 4, 1);
 }
