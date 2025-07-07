@@ -599,38 +599,6 @@ function renderTrendingProducts(prodArray, itemsPerRow = 4, sectionSel = '.trend
 
 
 
-/* -------------------------------------------------------------------
-   NAV DRAWER RESPONSIVE
-   ------------------------------------------------------------------- */
-function initResponsiveNav() {
-    const nav = document.querySelector('nav.navbar');
-    const toggle = nav?.querySelector('.menu-toggle');
-    const navLinks = nav?.querySelector('.nav-lista-links');
-    if (!toggle || !navLinks) return;
-
-    // Abrir / cerrar
-    toggle.addEventListener('click', e => {
-        e.preventDefault();
-        navLinks.classList.toggle('nav-lista-links--open');
-        toggle.classList.toggle('menu-toggle--active');
-    });
-
-    // Cerrar al clicar un enlace
-    navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => navLinks.classList.remove('nav-lista-links--open'));
-    });
-
-    // Cerrar al pulsar Esc
-    document.addEventListener('keydown', e => {
-        if (e.key === 'Escape') navLinks.classList.remove('nav-lista-links--open');
-    });
-}
-initHeaderShrink();      // ya lo tenías
-initResponsiveNav();     //  ← NUEVO
-
-
-
-
 // ==============================
 // EJECUCIONES INICIALES
 // ==============================
