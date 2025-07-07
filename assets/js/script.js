@@ -82,6 +82,18 @@ const categoriesData = [
     }
 ];
 
+// Trending Products (home)
+const productos = [
+    { nombre: "Garden Table", imagen: "assets/images/producto1.png", precio: 23, precioAnterior: 30, etiqueta: "SALE" },
+    { nombre: "Club Chair", imagen: "assets/images/producto2.png", precio: 13, etiqueta: "NEW" },
+    { nombre: "Pendant Lamp", imagen: "assets/images/producto3.png", precio: 17 },
+    { nombre: "Dark Grey Club Chair", imagen: "assets/images/producto4.png", precio: 14, etiqueta: "NEW" },
+    { nombre: "Table Lamp", imagen: "assets/images/producto5.png", precio: 11, etiqueta: "NEW" },
+    { nombre: "Orange Stacking Chair", imagen: "assets/images/producto6.png", precio: 15 },
+    { nombre: "Floor Lamp", imagen: "assets/images/producto7.png", precio: 22, precioAnterior: 32, etiqueta: "SALE" },
+    { nombre: "White Chair", imagen: "assets/images/producto8.png", precio: 10 }
+];
+
 // Blogs (home)
 const blogs = [
     {
@@ -115,30 +127,26 @@ const blogs = [
 // ==============================
 // CLASES BASE DE SLIDER
 // ==============================
-
 class Slider {
     constructor(containerSelector, data, renderItem, itemsPerPage = 1, autoTime = 5000) {
-        this.container     = document.querySelector(containerSelector);
-        this.data          = data;
-        this.renderItem    = renderItem;
-        this.itemsPerPage  = itemsPerPage;
-        this.currentIndex  = 0;
-        this.autoTime      = autoTime;
-        this.autoID        = null;
-        this.interacted    = false;
+        this.container = document.querySelector(containerSelector);
+        this.data = data;
+        this.renderItem = renderItem;
+        this.itemsPerPage = itemsPerPage;
+        this.currentIndex = 0;
+        this.autoTime = autoTime; // 0 ó null → sin autoplay
+        this.autoID = null;
 
         if (!this.container || data.length === 0) return;
 
         this.addNavigation();
-        this.startAutoSlide();
+        this.startAutoSlide();   // inicia al cargar
     }
 
-    // Auto-slide cada X milisegundos, solo si no hubo interacción del usuario
     startAutoSlide() {
+        if (!this.autoTime) return;
         clearInterval(this.autoID);
-        if (!this.interacted) {
-            this.autoID = setInterval(() => this.next(), this.autoTime);
-        }
+        this.autoID = setInterval(() => this.next(), this.autoTime);
     }
 
     stopAutoSlide() {
@@ -146,9 +154,10 @@ class Slider {
         this.autoID = null;
     }
 
+    // reinicia el temporizador tras cualquier interacción
     markInteraction() {
-        this.interacted = true;
         this.stopAutoSlide();
+        this.startAutoSlide();
     }
 
     render() {
@@ -160,43 +169,36 @@ class Slider {
     }
 
     next() {
+        this.markInteraction();                // ← reinicia espera
         this.currentIndex = (this.currentIndex + 1) % this.data.length;
         this.render();
     }
 
     prev() {
+        this.markInteraction();                // ← reinicia espera
         this.currentIndex = (this.currentIndex - 1 + this.data.length) % this.data.length;
         this.render();
     }
 
-    // Crea botones prev y next internos (usado en SingleItemSlider)
     addNavigation() {
         const prevButton = document.createElement('button');
         prevButton.textContent = '❮';
         prevButton.className = 'carousel-button prev-button';
-        prevButton.addEventListener('click', () => {
-            this.markInteraction();
-            this.prev();
-        });
+        prevButton.addEventListener('click', () => this.prev());
 
         const nextButton = document.createElement('button');
         nextButton.textContent = '❯';
         nextButton.className = 'carousel-button next-button';
-        nextButton.addEventListener('click', () => {
-            this.markInteraction();
-            this.next();
-        });
+        nextButton.addEventListener('click', () => this.next());
 
-        this.container?.parentElement?.prepend(nextButton);
-        this.container?.parentElement?.prepend(prevButton);
+        this.container?.parentElement?.prepend(nextButton, prevButton);
     }
 }
 
 
 // ==============================
-// SLIDER DE 1 ELEMENTO (HERO)
+// SLIDER DE 1 ELEMENTO
 // ==============================
-
 class SingleItemSlider extends Slider {
     constructor(sectionSelectors, data) {
         const sections = Array.from(document.querySelectorAll(sectionSelectors));
@@ -229,7 +231,7 @@ class SingleItemSlider extends Slider {
         const dummyDiv = document.createElement('div');
         document.body.appendChild(dummyDiv);
 
-        super(sectionSelectors.split(',')[0], data, () => {}, 1);
+        super(sectionSelectors.split(',')[0], data, () => { }, 1);
 
         this.sections = sections;
         this.data = data;
@@ -256,10 +258,10 @@ class SingleItemSlider extends Slider {
 }
 
 
-// ==============================
-// SLIDER DE MULTIPLES ELEMENTOS (PRODUCTOS, BLOG, ETC.)
-// ==============================
-
+/* ==============================
+    SLIDER DE MULTIPLES ELEMENTOS)
+    ==============================
+*/
 class MultiItemSlider extends Slider {
     constructor(containerSelector, data, renderItem, itemsPerPage = 4, step = 1) {
         super(containerSelector, data, renderItem, itemsPerPage);
@@ -299,35 +301,14 @@ class MultiItemSlider extends Slider {
     }
 
     // Este tipo de slider no genera botones internos
-    addNavigation() {}
+    addNavigation() { }
 }
 
 
-// ==============================
-// FUNCIONES DE RENDER
-// ==============================
-
-function renderBlogCard(container, blog) {
-    const card = document.createElement('div');
-    card.className = 'blog-card';
-
-    const img = document.createElement('img');
-    img.src = blog.imgSrc;
-    img.alt = blog.title;
-
-    const h3 = document.createElement('h3');
-    h3.textContent = blog.title;
-
-    const p = document.createElement('p');
-    p.textContent = blog.date;
-
-    card.appendChild(img);
-    card.appendChild(h3);
-    card.appendChild(p);
-
-    container.appendChild(card);
-}
-
+/* ===================================================================
+   BUILDERS · ELEMENTOS REUTILIZABLES
+   =================================================================== */
+/* ---------- Categories (home) ---------- */
 function createCategoryCard(category) {
     const article = document.createElement("article");
     article.classList.add("cont-center", "articulos-categories");
@@ -364,6 +345,112 @@ function createCategoryCard(category) {
     return article;
 }
 
+/* ---------- Blog (home) ---------- */
+function renderBlogCard(container, blog) {
+    const card = document.createElement('div');
+    card.className = 'blog-card';
+
+    const img = document.createElement('img');
+    img.src = blog.imgSrc;
+    img.alt = blog.title;
+
+    const h3 = document.createElement('h3');
+    h3.textContent = blog.title;
+
+    const p = document.createElement('p');
+    p.textContent = blog.date;
+
+    card.appendChild(img);
+    card.appendChild(h3);
+    card.appendChild(p);
+
+    container.appendChild(card);
+}
+
+/* ---------- Trending Products (home)---------- */
+function buildBadge(label) {
+    const span = document.createElement('span');
+    span.className = label.toLowerCase(); // sale / new
+    span.textContent = label;
+    return span;
+}
+function buildFigure(src, alt) {
+    const fig = document.createElement('figure');
+    fig.className = 'cont-center';
+    const img = new Image();
+    img.src = src; img.alt = alt;
+    fig.appendChild(img);
+    return fig;
+}
+function buildPrice(precio, anterior) {
+    const wrap = document.createElement('div');
+    if (anterior) wrap.className = 'cont-center cont-precios';
+
+    if (anterior) {
+        const oldP = document.createElement('p');
+        oldP.className = 'precio-tachado';
+        oldP.textContent = `$${anterior}.00`;
+        wrap.appendChild(oldP);
+    }
+    const newP = document.createElement('p');
+    newP.className = 'text-center text-blue text-bold';
+    newP.textContent = `$${precio}.00`;
+    wrap.appendChild(newP);
+
+    return wrap;
+}
+function buildHoverIcons() {
+    const wrap = document.createElement('div');
+    wrap.className = 'cont-center hover-icons';
+
+    const cfg = [
+        { cls: 'icon-circle-trendingProducts', src: 'assets/images/lupa.png', alt: 'Detalle', href: 'single-product.html' },
+        { cls: 'icon-circle2-trendingProducts', src: 'assets/images/cart.png', alt: 'Carrito', href: 'single-product.html' }
+    ];
+    cfg.forEach(({ cls, src, alt, href }) => {
+        const circle = document.createElement('div');
+        circle.className = `bg-white text-center cont-center ${cls}`;
+
+        const a = document.createElement('a');
+        a.href = href;
+        a.className = 'cont-center';
+
+        const img = new Image();
+        img.src = src; img.alt = alt;
+
+        a.appendChild(img);
+        circle.appendChild(a);
+        wrap.appendChild(circle);
+    });
+    return wrap;
+}
+function buildProductCard(p) {
+    const art = document.createElement('article');
+    art.className = 'articulo-trending-products bg-f5 product-card';
+
+    if (p.etiqueta) {
+        const badgeBox = document.createElement('div');
+        badgeBox.className = 'flex right';
+        badgeBox.appendChild(buildBadge(p.etiqueta));
+        art.appendChild(badgeBox);
+    }
+    art.appendChild(buildFigure(p.imagen, p.nombre));
+
+    const info = document.createElement('div');
+    const h4 = document.createElement('h4');
+    h4.className = 'text-center text-151515 title-articulo-trending-products';
+    h4.textContent = p.nombre;
+    info.appendChild(h4);
+    info.appendChild(buildPrice(p.precio, p.precioAnterior));
+
+    art.append(info, buildHoverIcons());
+    return art;
+}
+
+
+/* ===================================================================
+    RENDERERS DE SECCIÓN
+   =================================================================== */
 function createCategories(categories) {
     const fila1 = document.querySelector("#fila1-categories");
     const fila2 = document.querySelector("#fila2-categories");
@@ -377,6 +464,40 @@ function createCategories(categories) {
         }
     });
 }
+
+/**
+ * Render dinámico de Trending Products
+ * @param {Array}  prodArray    - productos a mostrar
+ * @param {Number} itemsPerRow  - cantidad de tarjetas por fila
+ * @param {String} sectionSel   - selector CSS de la sección destino
+ */
+function renderTrendingProducts(prodArray, itemsPerRow = 4, sectionSel = '.trending-products-section') {
+    const sec = document.querySelector(sectionSel);
+    if (!sec) return;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'column w-80';
+
+    const h2 = document.createElement('h2');
+    h2.className = 'text-151515';
+    h2.textContent = 'Trending Products';
+    wrap.appendChild(h2);
+
+    let row = null;
+    prodArray.forEach((p, i) => {
+        if (i % itemsPerRow === 0) {
+            row = document.createElement('article');
+            row.className = 'cont-center contenedor-fila-trending-products';
+            wrap.appendChild(row);
+        }
+        row.appendChild(buildProductCard(p));
+    });
+
+    sec.appendChild(wrap);
+}
+
+
+
 
 
 // ==============================
@@ -393,4 +514,9 @@ if (document.querySelector(".blog-container")) {
 
 if (document.querySelector("#fila1-categories") && document.querySelector("#fila2-categories")) {
     createCategories(categoriesData);
+}
+
+/* Home → 4 productos por fila */
+if (document.querySelector('.trending-products-section')) {
+    renderTrendingProducts(productos, 4, '.trending-products-section');
 }
