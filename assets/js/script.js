@@ -148,13 +148,13 @@ class Slider {
         this.renderItem = renderItem;
         this.itemsPerPage = itemsPerPage;
         this.currentIndex = 0;
-        this.autoTime = autoTime; // 0 ó null → sin autoplay
+        this.autoTime = autoTime;
         this.autoID = null;
 
         if (!this.container || data.length === 0) return;
 
         this.addNavigation();
-        this.startAutoSlide();   // inicia al cargar
+        this.startAutoSlide();
     }
 
     startAutoSlide() {
@@ -168,7 +168,6 @@ class Slider {
         this.autoID = null;
     }
 
-    // reinicia el temporizador tras cualquier interacción
     markInteraction() {
         this.stopAutoSlide();
         this.startAutoSlide();
@@ -183,13 +182,13 @@ class Slider {
     }
 
     next() {
-        this.markInteraction();                // ← reinicia espera
+        this.markInteraction();
         this.currentIndex = (this.currentIndex + 1) % this.data.length;
         this.render();
     }
 
     prev() {
-        this.markInteraction();                // ← reinicia espera
+        this.markInteraction();
         this.currentIndex = (this.currentIndex - 1 + this.data.length) % this.data.length;
         this.render();
     }
@@ -315,7 +314,6 @@ class MultiItemSlider extends Slider {
         if (nextBtn) nextBtn.addEventListener('click', () => this.next());
     }
 
-    // Este tipo de slider no genera botones internos
     addNavigation() { }
 }
 
@@ -476,7 +474,7 @@ function renderBlogCard(container, blog) {
 /* ---------- Trending Products (home)---------- */
 function buildBadge(label) {
     const span = document.createElement('span');
-    span.className = label.toLowerCase(); // sale / new
+    span.className = label.toLowerCase();
     span.textContent = label;
     return span;
 }
@@ -554,6 +552,8 @@ function buildProductCard(p) {
 }
 
 
+
+
 /* ===================================================================
     RENDERERS DE SECCIÓN
    =================================================================== */
@@ -597,9 +597,52 @@ function renderTrendingProducts(prodArray, itemsPerRow = 4, sectionSel = '.trend
 }
 
 
+
+
+/* -------------------------------------------------------------------
+   NAV DRAWER RESPONSIVE
+   ------------------------------------------------------------------- */
+function initResponsiveNav() {
+    const nav = document.querySelector('nav.navbar');
+    const toggle = nav?.querySelector('.menu-toggle');
+    const navLinks = nav?.querySelector('.nav-lista-links');
+    if (!toggle || !navLinks) return;
+
+    // Abrir / cerrar
+    toggle.addEventListener('click', e => {
+        e.preventDefault();
+        navLinks.classList.toggle('nav-lista-links--open');
+        toggle.classList.toggle('menu-toggle--active');
+    });
+
+    // Cerrar al clicar un enlace
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => navLinks.classList.remove('nav-lista-links--open'));
+    });
+
+    // Cerrar al pulsar Esc
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') navLinks.classList.remove('nav-lista-links--open');
+    });
+}
+initHeaderShrink();      // ya lo tenías
+initResponsiveNav();     //  ← NUEVO
+
+
+
+
 // ==============================
 // EJECUCIONES INICIALES
 // ==============================
+//menu hamburguesa para responsive
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.querySelector('.nav-lista-links');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+//carousel (home)
 if (document.querySelector("#carousel-section")) {
     new SingleItemSlider('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
 }
@@ -623,3 +666,31 @@ if (document.querySelector('.trending-products-section')) {
 if (document.querySelector('.portfolio')) {
     new PortfolioGallery('.portfolio', portfolioItems);
 }
+
+
+
+/* -------------------------------------------------------------------
+   HEADER SHRINK ON SCROLL (le tuve que preguntar a la IA porque nunca lo vimos)
+   ------------------------------------------------------------------- */
+function initHeaderShrink(thresholdPx = 80) {
+    const header = document.querySelector('header');
+    if (!header) return;
+
+    const shrinkCls = 'header--shrink';
+    let ticking = false;
+
+    function handleScroll() {
+        const mustShrink = window.scrollY > thresholdPx;
+        header.classList.toggle(shrinkCls, mustShrink);
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(handleScroll);
+            ticking = true;
+        }
+    });
+}
+
+initHeaderShrink();
