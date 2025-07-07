@@ -94,6 +94,17 @@ const productos = [
     { nombre: "White Chair", imagen: "assets/images/producto8.png", precio: 10 }
 ];
 
+// Portfolio (home)
+const portfolioItems = [ // portfolio
+    { src: "assets/images/portfolio1.jpg", title: "SUNSHINE RESTAURANT", category: "DECOR" },
+    { src: "assets/images/portfolio2.jpg", title: "QUADRO HOTEL", category: "FURNITURE" },
+    { src: "assets/images/portfolio3.jpg", title: "U-STYLE FASHION HOUSE", category: "DECOR" },
+    { src: "assets/images/portfolio4.jpg", title: "FLASH CAFE", category: "FURNITURE" },
+    { src: "assets/images/portfolio5.jpg", title: "NEW YORK PUBLIC LIBRARY", category: "DECOR" },
+    { src: "assets/images/portfolio6.jpg", title: "Q-BIZ COWORKING", category: "FURNITURE" },
+    { src: "assets/images/portfolio7.jpg", title: "MONROE’S BAR", category: "DECOR" }
+];
+
 // Blogs (home)
 const blogs = [
     {
@@ -124,9 +135,12 @@ const blogs = [
 ];
 
 
-// ==============================
-// CLASES BASE DE SLIDER
-// ==============================
+
+
+/* ==============================
+ CLASES BASE DE SLIDER
+ ==============================
+*/
 class Slider {
     constructor(containerSelector, data, renderItem, itemsPerPage = 1, autoTime = 5000) {
         this.container = document.querySelector(containerSelector);
@@ -196,9 +210,10 @@ class Slider {
 }
 
 
-// ==============================
-// SLIDER DE 1 ELEMENTO
-// ==============================
+/* ==============================
+ SLIDER DE 1 ELEMENTO
+ ==============================
+*/
 class SingleItemSlider extends Slider {
     constructor(sectionSelectors, data) {
         const sections = Array.from(document.querySelectorAll(sectionSelectors));
@@ -303,6 +318,97 @@ class MultiItemSlider extends Slider {
     // Este tipo de slider no genera botones internos
     addNavigation() { }
 }
+
+
+/* ===================================================================
+   BUILDERS · PORTFOLIO
+   =================================================================== 
+*/
+class PortfolioGallery {
+
+    constructor(sectionSel, items) {
+        this.section = document.querySelector(sectionSel);
+        if (!this.section || !items.length) return;
+
+        this.items = items;
+        this.buildModal();
+        this.buildGrid();
+    }
+
+    buildModal() {
+        this.dialog = document.createElement('dialog');
+        this.dialog.className = 'portfolio-modal';
+        this.imgBig = new Image();
+        this.dialog.appendChild(this.imgBig);
+
+        // cerrar al hacer clic en backdrop o ESC
+        this.dialog.addEventListener('click', () => this.dialog.close());
+        this.dialog.addEventListener('keydown', e => (e.key === 'Escape') && this.dialog.close());
+
+        this.section.appendChild(this.dialog);
+    }
+
+    openModal(src, alt) {
+        this.imgBig.src = src;
+        this.imgBig.alt = alt;
+        this.dialog.showModal();
+    }
+
+    buildGrid() {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'cont-center';
+
+        const grid = document.createElement('article');
+        grid.className = 'parent w-80';
+
+        this.items.forEach((item, idx) => {
+            grid.appendChild(this.buildCard(item, idx));
+        });
+
+        wrapper.appendChild(grid);
+        this.section.appendChild(wrapper);
+    }
+
+    buildCard(item, idx) {
+        const art = document.createElement('article');
+        art.className = `article-portfolio-${idx + 1}`;
+
+        /* imagen */
+        const fig = document.createElement('figure');
+        const img = new Image();
+        img.src = item.src;
+        img.alt = `Imagen ${idx + 1} – Portfolio`;
+        fig.appendChild(img);
+
+        /* overlay */
+        const overlay = document.createElement('div');
+        overlay.className = 'cont-center text-white overlay';
+
+        const h3 = document.createElement('h3');
+        h3.textContent = item.title;
+        const h4 = document.createElement('h4');
+        h4.textContent = item.category;
+
+        /* icono lupa */
+        const icon = document.createElement('div');
+        icon.className = 'bg-white text-center icon-circle';
+        const lupa = new Image();
+        lupa.src = 'assets/images/lupa.png';
+        lupa.alt = 'Abrir imagen';
+        icon.appendChild(lupa);
+
+        icon.addEventListener('click', e => {
+            e.stopPropagation(); // evita que el click burbujee al overlay
+            this.openModal(item.src, item.title);
+        });
+
+        overlay.append(h3, h4, icon);
+        art.append(fig, overlay);
+        return art;
+    }
+}
+
+
 
 
 /* ===================================================================
@@ -465,12 +571,6 @@ function createCategories(categories) {
     });
 }
 
-/**
- * Render dinámico de Trending Products
- * @param {Array}  prodArray    - productos a mostrar
- * @param {Number} itemsPerRow  - cantidad de tarjetas por fila
- * @param {String} sectionSel   - selector CSS de la sección destino
- */
 function renderTrendingProducts(prodArray, itemsPerRow = 4, sectionSel = '.trending-products-section') {
     const sec = document.querySelector(sectionSel);
     if (!sec) return;
@@ -497,26 +597,29 @@ function renderTrendingProducts(prodArray, itemsPerRow = 4, sectionSel = '.trend
 }
 
 
-
-
-
 // ==============================
 // EJECUCIONES INICIALES
 // ==============================
-
 if (document.querySelector("#carousel-section")) {
     new SingleItemSlider('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
 }
 
+//blog (home)
 if (document.querySelector(".blog-container")) {
     new MultiItemSlider('.blog-container', blogs, renderBlogCard, 4, 1);
 }
 
+//categories (home)
 if (document.querySelector("#fila1-categories") && document.querySelector("#fila2-categories")) {
     createCategories(categoriesData);
 }
 
-/* Home → 4 productos por fila */
+//trending products (home)
 if (document.querySelector('.trending-products-section')) {
     renderTrendingProducts(productos, 4, '.trending-products-section');
+}
+
+//portfolio (home)
+if (document.querySelector('.portfolio')) {
+    new PortfolioGallery('.portfolio', portfolioItems);
 }
