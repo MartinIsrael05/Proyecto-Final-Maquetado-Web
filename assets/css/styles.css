@@ -1130,7 +1130,7 @@ form .error-message {
 }
 
 form.invalid .error-message {
-  display: block;
+  display: block !important;
   width: auto;
 }
 

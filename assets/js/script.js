@@ -798,3 +798,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+console.log('Validando formularios...');
+
+document.querySelectorAll('.form-validate').forEach((form, index) => {
+  console.log(`Formulario ${index + 1}:`, form);
+});
