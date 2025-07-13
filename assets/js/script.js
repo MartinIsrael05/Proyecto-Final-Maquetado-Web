@@ -137,10 +137,9 @@ const blogs = [
 
 
 
-/* ==============================
- CLASES BASE DE SLIDER
- ==============================
-*/
+// ==============================
+// CLASES BASE SLIDER
+// ==============================
 class Slider {
     constructor(containerSelector, data, renderItem, itemsPerPage = 1, autoTime = 5000) {
         this.container = document.querySelector(containerSelector);
@@ -208,11 +207,6 @@ class Slider {
     }
 }
 
-
-/* ==============================
- SLIDER DE 1 ELEMENTO
- ==============================
-*/
 class SingleItemSlider extends Slider {
     constructor(sectionSelectors, data) {
         const sections = Array.from(document.querySelectorAll(sectionSelectors));
@@ -271,11 +265,6 @@ class SingleItemSlider extends Slider {
     }
 }
 
-
-/* ==============================
-    SLIDER DE MULTIPLES ELEMENTOS)
-    ==============================
-*/
 class MultiItemSlider extends Slider {
     constructor(containerSelector, data, renderItem, itemsPerPage = 4, step = 1) {
         super(containerSelector, data, renderItem, itemsPerPage);
@@ -318,10 +307,9 @@ class MultiItemSlider extends Slider {
 }
 
 
-/* ===================================================================
-   BUILDERS · PORTFOLIO
-   =================================================================== 
-*/
+// ==============================
+// PORTFOLIO BUILDER
+// ==============================
 class PortfolioGallery {
 
     constructor(sectionSel, items) {
@@ -409,9 +397,9 @@ class PortfolioGallery {
 
 
 
-/* ===================================================================
-   BUILDERS · ELEMENTOS REUTILIZABLES
-   =================================================================== */
+// ==============================
+// BUILDERS REUTILIZABLES
+// ==============================
 /* ---------- Categories (home) ---------- */
 function createCategoryCard(category) {
     const article = document.createElement("article");
@@ -454,9 +442,11 @@ function renderBlogCard(container, blog) {
     const card = document.createElement('div');
     card.className = 'blog-card';
 
+    const figure = document.createElement('figure');
     const img = document.createElement('img');
     img.src = blog.imgSrc;
     img.alt = blog.title;
+    figure.appendChild(img);
 
     const h3 = document.createElement('h3');
     h3.textContent = blog.title;
@@ -464,7 +454,7 @@ function renderBlogCard(container, blog) {
     const p = document.createElement('p');
     p.textContent = blog.date;
 
-    card.appendChild(img);
+    card.appendChild(figure);
     card.appendChild(h3);
     card.appendChild(p);
 
@@ -554,9 +544,9 @@ function buildProductCard(p) {
 
 
 
-/* ===================================================================
-    RENDERERS DE SECCIÓN
-   =================================================================== */
+// ==============================
+// RENDERERS DE SECCIÓN
+// ==============================
 function createCategories(categories) {
     const fila1 = document.querySelector("#fila1-categories");
     const fila2 = document.querySelector("#fila2-categories");
@@ -600,46 +590,150 @@ function renderTrendingProducts(prodArray, itemsPerRow = 4, sectionSel = '.trend
 
 
 // ==============================
+// BLOG SLIDER RESPONSIVE
+// ==============================
+let blogSliderInstance;
+function initBlogSlider() {
+    const containerSelector = '.blog-container';
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+
+    const itemsPerPage = window.matchMedia('(max-width: 768px)').matches ? 1 : 4;
+
+    // Limpiar instancia previa si existe
+    if (blogSliderInstance) {
+        container.innerHTML = '';
+        blogSliderInstance = null;
+    }
+
+    blogSliderInstance = new MultiItemSlider(containerSelector, blogs, renderBlogCard, itemsPerPage, 1);
+}
+
+
+
+
+// ==============================
+// VALIDACIÓN REUTILIZABLE DE FORMULARIOS
+// ==============================
+
+function isEmailValid(value) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(value.trim());
+}
+
+function isPhoneValid(value) {
+    const regex = /^\d+$/;
+    return regex.test(value.trim());
+}
+
+function showInputError(input, message) {
+    let container = input.closest('.form-group') || input.parentElement;
+
+    input.classList.add('input-invalid');
+
+    let error = container.querySelector('.error-message');
+    if (!error) {
+        error = document.createElement('small');
+        error.classList.add('error-message');
+        container.appendChild(error);
+    }
+    error.textContent = message;
+    error.style.display = 'block';
+}
+
+function clearInputError(input) {
+    input.classList.remove('input-invalid');
+
+    let container = input.closest('.form-group') || input.parentElement;
+
+    const error = container.querySelector('.error-message');
+    if (error) {
+        error.textContent = '';
+        error.style.display = 'none';
+    }
+}
+
+function validateInput(input) {
+    const value = input.value.trim();
+    const name = input.name.toLowerCase();
+
+    clearInputError(input);
+
+    if (!value) {
+        showInputError(input, 'The field is required.');
+        return false;
+    }
+
+    if (name.includes('email') && !isEmailValid(value)) {
+        showInputError(input, 'The email is not valid.');
+        return false;
+    }
+
+    if (name.includes('phone') && !isPhoneValid(value)) {
+        showInputError(input, 'The phone number must contain only digits.');
+        return false;
+    }
+
+    return true;
+}
+
+function validateFormFields(form) {
+    const inputs = form.querySelectorAll('input[type="text"], input[type="tel"]');
+    let valid = true;
+
+    inputs.forEach(input => {
+        if (!validateInput(input)) valid = false;
+    });
+
+    return valid;
+}
+
+function applyValidation(form) {
+    const inputs = form.querySelectorAll('input[type="text"], input[type="tel"]');
+
+    inputs.forEach(input => {
+        input.addEventListener('blur', () => validateInput(input));
+    });
+
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+
+        const isValid = validateFormFields(form);
+
+        if (isValid) {
+            const successEl = form.querySelector('.success-message');
+            if (successEl) {
+                successEl.style.display = 'block';
+                setTimeout(() => {
+                    successEl.style.display = 'none';
+                    form.reset();
+                }, 2000);
+            } else {
+                alert('Formulario válido. Aquí podrías enviar los datos.');
+                form.reset();
+            }
+        }
+    });
+}
+
+
+
+
+
+// ==============================
 // EJECUCIONES INICIALES
 // ==============================
 //menu hamburguesa para responsive
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-lista-links');
 
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
-//carousel (home)
-if (document.querySelector("#carousel-section")) {
-    new SingleItemSlider('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
 }
 
-//blog (home)
-if (document.querySelector(".blog-container")) {
-    new MultiItemSlider('.blog-container', blogs, renderBlogCard, 4, 1);
-}
-
-//categories (home)
-if (document.querySelector("#fila1-categories") && document.querySelector("#fila2-categories")) {
-    createCategories(categoriesData);
-}
-
-//trending products (home)
-if (document.querySelector('.trending-products-section')) {
-    renderTrendingProducts(productos, 4, '.trending-products-section');
-}
-
-//portfolio (home)
-if (document.querySelector('.portfolio')) {
-    new PortfolioGallery('.portfolio', portfolioItems);
-}
-
-
-
-/* -------------------------------------------------------------------
-   HEADER SHRINK ON SCROLL (le tuve que preguntar a la IA porque nunca lo vimos)
-   ------------------------------------------------------------------- */
+// HEADER SHRINK ON SCROLL (le tuve que preguntar a la IA porque nunca lo vimos)
 function initHeaderShrink(thresholdPx = 80) {
     const header = document.querySelector('header');
     if (!header) return;
@@ -660,5 +754,47 @@ function initHeaderShrink(thresholdPx = 80) {
         }
     });
 }
-
 initHeaderShrink();
+
+
+// RENDER SECCIONES
+//carousel (home)
+if (document.querySelector("#carousel-section")) {
+    new SingleItemSlider('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
+}
+
+//categories (home)
+if (document.querySelector("#fila1-categories") && document.querySelector("#fila2-categories")) {
+    createCategories(categoriesData);
+}
+
+//trending products (home)
+if (document.querySelector('.trending-products-section')) {
+    renderTrendingProducts(productos, 4, '.trending-products-section');
+}
+
+//portfolio (home)
+if (document.querySelector('.portfolio')) {
+    new PortfolioGallery('.portfolio', portfolioItems);
+}
+
+//blog (home)
+if (document.querySelector(".blog-container")) {
+    initBlogSlider();
+}
+const mediaQuery = window.matchMedia('(max-width: 768px)');
+mediaQuery.addEventListener('change', () => {
+    initBlogSlider();
+});
+
+
+
+
+// validar todos los formularios reutilizables (como el del footer)
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.form-validate').forEach(applyValidation);
+});
+
+
+
+

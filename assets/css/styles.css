@@ -560,39 +560,24 @@ header {
 }
 
 .contenedor-fila-trending-products {
-  margin-bottom: 4em;
+  margin-bottom: 3em;
   gap: 2em;
   transition: var(--transition-transform-slow-ease-out);
 }
 
-/* .articulo-trending-products {
-  padding: 1.5em;
-  width: 18em;
-  height: 23em;
-  border-radius: .3em;
-  transition: var(--transition-transform-ease);
-}
-
-.articulo-trending-products:hover {
-  box-shadow: var(--box-shadow-lighter);
-  background-color: var(--colorBlanco);
-  height: 28em;
-} */
-
 .articulo-trending-products {
   padding: 1.5em;
   width: 18em;
-  height: 23em;
+  height: 26em;
   border-radius: .3em;
-  transition: all 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .articulo-trending-products:hover {
-  padding-bottom: 3em;
-  height: 26em;
   box-shadow: var(--box-shadow-lighter);
+  transform: translateY(-0.5em);
   background-color: var(--colorBlanco);
 }
 
@@ -646,16 +631,19 @@ header {
 
 .hover-icons {
   position: absolute;
-  bottom: 1.5em;
+  bottom: 1.2em; /* separado del borde inferior */
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
   gap: 1em;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
 }
 
 .articulo-trending-products:hover .hover-icons {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .product-card:hover .hover-icons {
@@ -664,8 +652,8 @@ header {
 
 .icon-circle-trendingProducts {
   background-color: var(--colore9da5d);
-  width: 2.5em;
-  height: 2.5em;
+  width: 3.5em;
+  height: 3.5em;
   border-radius: 50%;
   box-shadow: 0 0.125em 0.313em rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -678,8 +666,8 @@ header {
 
 .icon-circle2-trendingProducts {
   background-color: var(--colorCeleste);
-  width: 2.5em;
-  height: 2.5em;
+  width: 3.5em;
+  height: 3.5em;
   border-radius: 50%;
   box-shadow: 0 0.125em 0.313em rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.3s ease;
@@ -690,11 +678,6 @@ header {
   width: 1em;
   filter: invert(1);
 }
-
-/* .icon-circle2-trendingProducts img:hover {
-  filter: invert(0);
-} */
-
 
 .icon-circle-trendingProducts:hover {
   background-color: var(--colorCeleste);
@@ -980,28 +963,33 @@ dialog.portfolio-modal::backdrop {
   margin-bottom: 2.5em;
 }
 
-.blog-card figure:hover {
+.blog-card figure {
   overflow: hidden;
-  transition: var(--transition-transform-ease);
+  margin: 0;
 }
 
 .blog-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
   cursor: pointer;
 }
 
-.blog-card img:hover {
+.blog-card:hover img {
   transform: scale(1.05);
-  transition: var(--transition-transform-ease);
 }
 
 .blog-card h3 {
   font-size: var(--font-size-medium);
   margin: 0.6em 0;
   font-weight: var(--font-weight-bold);
+  color: var(--color151515);
 }
 
 .blog-card p {
   font-size: var(--font-size-small);
+  color: var(--color777777);
 }
 
 /* footer */
@@ -1075,7 +1063,11 @@ footer img {
   color: var(--colorCeleste);
 }
 
-.separacion-tituloTexto-footer input[type="email"] {
+form {
+  position: relative;
+}
+
+.separacion-tituloTexto-footer input[type="text"] {
   width: 100%;
   padding: 1em 0;
   border: none;
@@ -1110,19 +1102,19 @@ form button:hover .send-form-footer {
   color: var(--colorCeleste);
 }
 
-form input[type="email"] {
+footer form input[type="text"] {
   color: var(--colorBlanco);
 }
 
-form input[type="email"]:focus {
+form input[type="text"]:focus {
   outline: none;
 }
 
-form input[type="email"]:focus::placeholder {
+form input[type="text"]:focus::placeholder {
   color: transparent;
 }
 
-form.invalid input[type="email"] {
+form.invalid input[type="text"] {
   border-bottom: 1px solid #f5543f;
 }
 
@@ -1987,6 +1979,10 @@ form.form-review {
   color: var(--colorNegro);
   font-size: var(--font-size-medium);
   transition: all 0.2s ease;
+}
+
+input::placeholder {
+  color: #666;
 }
 
 .form-group input:focus {

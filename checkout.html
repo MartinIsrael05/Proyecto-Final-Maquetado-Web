@@ -58,77 +58,89 @@
                 <!-- Billing Address -->
                 <div class="form-section">
                     <h3 class="text-151515">Billing Address</h3>
-                    <form>
+                    <form class="form-validate">
                         <div class="flex form-row">
                             <div class="form-group">
                                 <input type="text" id="billing-first-name" name="billing-first-name"
-                                    placeholder="First Name" required>
+                                    placeholder="First Name">
+                                <small class="error-message"></small>
                             </div>
                             <div class="form-group">
                                 <input type="text" id="billing-last-name" name="billing-last-name"
-                                    placeholder="Last Name" required>
+                                    placeholder="Last Name">
+                                <small class="error-message"></small>
                             </div>
                         </div>
                         <div class="form-group">
                             <input type="text" id="billing-company" name="billing-company" placeholder="Company">
+                            <small class="error-message"></small>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="billing-address" name="billing-address" placeholder="Address"
-                                required>
+                            <input type="text" id="billing-address" name="billing-address" placeholder="Address">
+                            <small class="error-message"></small>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="billing-city" name="billing-city" placeholder="City/Town" required>
+                            <input type="text" id="billing-city" name="billing-city" placeholder="City/Town">
+                            <small class="error-message"></small>
                         </div>
                         <div class="flex form-row">
                             <div class="form-group">
-                                <input type="email" id="billing-email" name="billing-email" placeholder="E-Mail"
-                                    required>
+                                <input type="text" id="billing-email" name="billing-email" placeholder="E-Mail">
+                                <small class="error-message"></small>
                             </div>
                             <div class="form-group">
-                                <input type="tel" id="billing-phone" name="billing-phone" placeholder="Phone" required>
+                                <input type="tel" id="billing-phone" name="billing-phone" placeholder="Phone">
+                                <small class="error-message"></small>
                             </div>
                         </div>
                         <div class="flex align-items-center checkbox-container">
                             <input type="checkbox" id="same-address" name="same-address">
                             <label for="same-address">My Billing Address And Shipping Address Are The Same</label>
                         </div>
+                        <button type="submit" class="checkout-submit-button">Continue</button>
+
                     </form>
                 </div>
 
                 <!-- Delivery Address -->
                 <div class="form-section">
                     <h3 class="text-151515">Delivery Address</h3>
-                    <form>
+                    <form class="form-validate">
                         <div class="flex form-row">
                             <div class="form-group">
                                 <input type="text" id="delivery-first-name" name="delivery-first-name"
-                                    placeholder="First Name" required>
+                                    placeholder="First Name">
+                                <small class="error-message"></small>
                             </div>
                             <div class="form-group">
                                 <input type="text" id="delivery-last-name" name="delivery-last-name"
-                                    placeholder="Last Name" required>
+                                    placeholder="Last Name">
+                                <small class="error-message"></small>
                             </div>
                         </div>
                         <div class="form-group">
                             <input type="text" id="delivery-company" name="delivery-company" placeholder="Company">
+                            <small class="error-message"></small>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="delivery-address" name="delivery-address" placeholder="Address"
-                                required>
+                            <input type="text" id="delivery-address" name="delivery-address" placeholder="Address">
+                            <small class="error-message"></small>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="delivery-city" name="delivery-city" placeholder="City/Town" required>
+                            <input type="text" id="delivery-city" name="delivery-city" placeholder="City/Town">
+                            <small class="error-message"></small>
                         </div>
                         <div class="flex form-row">
                             <div class="form-group">
-                                <input type="email" id="delivery-email" name="delivery-email" placeholder="E-Mail"
-                                    required>
+                                <input type="text" id="delivery-email" name="delivery-email" placeholder="E-Mail">
+                                <small class="error-message"></small>
                             </div>
                             <div class="form-group">
-                                <input type="tel" id="delivery-phone" name="delivery-phone" placeholder="Phone"
-                                    required>
+                                <input type="tel" id="delivery-phone" name="delivery-phone" placeholder="Phone">
+                                <small class="error-message"></small>
                             </div>
                         </div>
+                        <button type="submit" class="checkout-submit-button">Continue</button>
                     </form>
                 </div>
             </div>
@@ -160,7 +172,8 @@
                             <td>
                                 <div class="flex align-items-center">
                                     <button class="boton-quantity-control text-151515">-</button>
-                                    <input class="text-center input-quantity-control text-151515" type="number" value="1" readonly>
+                                    <input class="text-center input-quantity-control text-151515" type="number"
+                                        value="1" readonly>
                                     <button class="boton-quantity-control text-151515">+</button>
                                 </div>
                             </td>
@@ -177,7 +190,8 @@
                             <td>
                                 <div class="flex align-items-center">
                                     <button class="boton-quantity-control text-151515">-</button>
-                                    <input class="text-center input-quantity-control text-151515" type="number" value="1" readonly>
+                                    <input class="text-center input-quantity-control text-151515" type="number"
+                                        value="1" readonly>
                                     <button class="boton-quantity-control text-151515">+</button>
                                 </div>
                             </td>
@@ -204,13 +218,15 @@
                     <label>
                         <input type="checkbox" name="payment-method" />
                         <span class="method-title">PAYPAL</span>
-                        <p class="method-description inactive-payment-method">Pay via PayPal; you can pay with your credit card if you don’t
+                        <p class="method-description inactive-payment-method">Pay via PayPal; you can pay with your
+                            credit card if you don’t
                             have a PayPal account.</p>
                     </label>
                     <label>
                         <input type="checkbox" name="payment-method" />
                         <span class="method-title">CHEQUE PAYMENT</span>
-                        <p class="method-description inactive-payment-method">Please send a check to Store Name, Store Street, Store Town, Store
+                        <p class="method-description inactive-payment-method">Please send a check to Store Name, Store
+                            Street, Store Town, Store
                             State / County, Store Postcode.</p>
                     </label>
                 </div>
@@ -274,11 +290,17 @@
                 <h3 class="text-white newsletter">Newsletter</h3>
                 <p class="p-newsletter-footer">Subscribe to our newsletter to receive weekly news, updates, special
                     offers, and exclusive discounts.</p>
-                <form class="flex align-items-center separacion-tituloTexto-footer">
-                    <input type="email" placeholder="Enter your e-mail">
-                    <button class="cont-center" type="submit"><i
-                            class="fa-regular fa-paper-plane send-form-footer"></i></button>
+                <form class="form-validate flex align-items-center separacion-tituloTexto-footer">
+                    <div class="form-group" style="flex: 1;">
+                        <input type="text" name="email" placeholder="Enter your e-mail">
+                        <small class="error-message"></small>
+                        <small class="success-message">Successfully sent!</small>
+                    </div>
+                    <button class="cont-center" type="submit">
+                        <i class="fa-regular fa-paper-plane send-form-footer"></i>
+                    </button>
                 </form>
+
             </article>
         </div>
     </footer>
