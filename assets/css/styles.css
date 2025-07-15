@@ -1110,9 +1110,14 @@ form input[type="text"]:focus::placeholder {
   color: transparent;
 }
 
-form.invalid input[type="text"] {
+form.input-invalid input[type="text"] {
   border-bottom: 1px solid #f5543f;
 }
+
+.input-invalid {
+  border-bottom: 2px solid #f5543f !important;
+}
+
 
 form .error-message {
   width: 100%;
