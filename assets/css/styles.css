@@ -3014,6 +3014,14 @@ ul.flex.social-icons-blog-post:hover {
     align-items: center;
   }
 
+  .blog-container {
+    transition: opacity 0.3s;
+    opacity: 1;
+  }
+  .blog-container.fade {
+    opacity: 0;
+  }
+
   .cont-button-prev,
   .cont-button-next {
     margin: 0;
