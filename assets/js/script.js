@@ -615,22 +615,47 @@ function renderTrendingProducts(prodArray, itemsPerRow = 4, sectionSel = '.trend
 // BLOG SLIDER RESPONSIVE
 // ==============================
 let blogSliderInstance;
+let blogAutoSlide = null;
+
+function isMobileBlog() {
+    return window.matchMedia('(max-width: 768px)').matches;
+}
+
+function startBlogAutoSlide() {
+    if (!blogAutoSlide && isMobileBlog() && blogSliderInstance) {
+        blogAutoSlide = setInterval(() => {
+            blogSliderInstance.next();
+        }, 4000); // o el tiempo que prefieras
+    }
+}
+
+function stopBlogAutoSlide() {
+    if (blogAutoSlide) {
+        clearInterval(blogAutoSlide);
+        blogAutoSlide = null;
+    }
+}
+
 function initBlogSlider() {
     const containerSelector = '.blog-container';
     const container = document.querySelector(containerSelector);
     if (!container) return;
 
-    const itemsPerPage = window.matchMedia('(max-width: 768px)').matches ? 1 : 4;
+    const itemsPerPage = isMobileBlog() ? 1 : 4;
 
     // Limpiar instancia previa si existe
     if (blogSliderInstance) {
         container.innerHTML = '';
         blogSliderInstance = null;
     }
+    stopBlogAutoSlide();
 
     blogSliderInstance = new MultiItemSlider(containerSelector, blogs, renderBlogCard, itemsPerPage, 1);
-}
 
+    if (isMobileBlog()) {
+        startBlogAutoSlide();
+    }
+}
 
 
 
