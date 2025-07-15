@@ -1400,6 +1400,10 @@ form.success .success-message {
   margin-top: 2em;
 }
 
+.pagination-blog {
+  display: none;
+}
+
 .skip1-carousel,
 .skip2-carousel,
 .skip3-carousel {
@@ -2847,18 +2851,19 @@ ul.flex.social-icons-blog-post:hover {
     background-position: center;
     height: 40vh;
   }
-  .tituloCarrousel{
+
+  .tituloCarrousel {
     font-size: var(--font-size-xxl);
   }
 
-  .title-carousel2Y3{
+  .title-carousel2Y3 {
     font-size: var(--font-size-xxl);
     text-align: center;
     margin-bottom: .5em;
     width: 100%;
   }
 
-  .carousel-content-p{
+  .carousel-content-p {
     font-size: var(--font-size-large);
     width: 75%;
     text-align: center;
@@ -2873,16 +2878,16 @@ ul.flex.social-icons-blog-post:hover {
 
 
   .carousel2-content-a,
-  .carousel3-content-a{
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 0.1em;
-  line-height: 2;
-  transition: var(--transition-easing-default-medium);
-  padding: .6em 2.5em;
-  margin-top: 2em;
-  width: auto;
-}
+  .carousel3-content-a {
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    line-height: 2;
+    transition: var(--transition-easing-default-medium);
+    padding: .6em 2.5em;
+    margin-top: 2em;
+    width: auto;
+  }
 
   .carousel-button,
   .carousel2-button,
@@ -2978,6 +2983,88 @@ ul.flex.social-icons-blog-post:hover {
   .parent article .overlay {
     height: 99%;
   }
+
+
+
+  /*BLOG SECTION RESPONSIVE*/
+  .blog-section {
+    padding: 2em 0;
+  }
+
+  .blog-section h2 {
+    font-size: 2em;
+    margin-bottom: 1.5em;
+    text-align: center;
+  }
+
+  .blog-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .blog-card {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto 2em auto;
+  }
+
+  .cont-center.evenly.blog-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cont-button-prev,
+  .cont-button-next {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .cont-button-prev {
+    margin-right: 1em;
+  }
+
+  .cont-button-next {
+    margin-left: 1em;
+  }
+
+  .blog-section article.cont-center {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Puntos de paginación debajo de la tarjeta */
+  .pagination-blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .8em;
+    margin-top: 1.5em;
+  }
+
+  .pagination-blog span {
+    width: 1em;
+    height: 1em;
+    background-color: var(--colorBlanco);
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .pagination-blog span.active {
+    background-color: var(--colorCeleste);
+  }
+
+  .cont-button-prev,
+  .cont-button-next {
+    display: none !important;
+  }
+
 
   .footer-container,
   .footer-column {
