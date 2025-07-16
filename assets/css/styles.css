@@ -1110,24 +1110,23 @@ form input[type="text"]:focus::placeholder {
   color: transparent;
 }
 
-form.input-invalid input[type="text"] {
-  border-bottom: 1px solid #f5543f;
+form.invalid input[type="text"] {
+  border-bottom: 1px solid var(--colorf96666);
 }
 
 .input-invalid {
-  border-bottom: 2px solid #f5543f !important;
+  border-bottom: 2px solid var(--colorf96666) !important;
 }
 
 
 form .error-message {
-  width: 100%;
-  color: var(--colorBlanco);
-  font-size: .5em;
   position: absolute;
-  bottom: 1;
-  left: 1;
-  transform: translateY(100%);
+  bottom: 0;
+  right: 0;
+  font-size: 0.6em;
+  font-weight: 400;
   display: none;
+  z-index: 2;
 }
 
 form.invalid .error-message {
@@ -3023,6 +3022,7 @@ ul.flex.social-icons-blog-post:hover {
     transition: opacity 0.3s;
     opacity: 1;
   }
+
   .blog-container.fade {
     opacity: 0;
   }

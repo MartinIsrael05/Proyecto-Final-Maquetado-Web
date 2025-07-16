@@ -674,25 +674,30 @@ function isPhoneValid(value) {
 }
 
 function showInputError(input, message) {
-    let container = input.closest('.form-group') || input.parentElement;
-
+    const container = input.closest('.form-group') || input.parentElement;
     input.classList.add('input-invalid');
 
     let error = container.querySelector('.error-message');
     if (!error) {
         error = document.createElement('small');
         error.classList.add('error-message');
-        container.appendChild(error);
+        container.insertBefore(error, input); // Mostrar sobre el input
     }
+
+    const isFooter = input.closest('footer') !== null;
+    error.style.color = isFooter ? '#fff' : '#f5543f';
     error.textContent = message;
     error.style.display = 'block';
+    error.style.width = isFooter ? '100%' : 'auto'; // Ajustar ancho según el contexto
+    error.style.height = isFooter ? '27%' : 'auto'; // Ajustar altura
+
+
+
 }
 
 function clearInputError(input) {
     input.classList.remove('input-invalid');
-
-    let container = input.closest('.form-group') || input.parentElement;
-
+    const container = input.closest('.form-group') || input.parentElement;
     const error = container.querySelector('.error-message');
     if (error) {
         error.textContent = '';
@@ -703,7 +708,6 @@ function clearInputError(input) {
 function validateInput(input) {
     const value = input.value.trim();
     const name = input.name.toLowerCase();
-
     clearInputError(input);
 
     if (!value) {
@@ -712,12 +716,12 @@ function validateInput(input) {
     }
 
     if (name.includes('email') && !isEmailValid(value)) {
-        showInputError(input, 'The email is not valid.');
+        showInputError(input, 'The email is not a valid email.');
         return false;
     }
 
     if (name.includes('phone') && !isPhoneValid(value)) {
-        showInputError(input, 'The phone number must contain only digits.');
+        showInputError(input, 'Only numbers are required.');
         return false;
     }
 
@@ -727,26 +731,21 @@ function validateInput(input) {
 function validateFormFields(form) {
     const inputs = form.querySelectorAll('input[type="text"], input[type="tel"]');
     let valid = true;
-
     inputs.forEach(input => {
         if (!validateInput(input)) valid = false;
     });
-
     return valid;
 }
 
 function applyValidation(form) {
     const inputs = form.querySelectorAll('input[type="text"], input[type="tel"]');
-
     inputs.forEach(input => {
         input.addEventListener('blur', () => validateInput(input));
     });
 
     form.addEventListener('submit', e => {
         e.preventDefault();
-
         const isValid = validateFormFields(form);
-
         if (isValid) {
             const successEl = form.querySelector('.success-message');
             if (successEl) {
@@ -756,13 +755,17 @@ function applyValidation(form) {
                     form.reset();
                 }, 2000);
             } else {
-                alert('Formulario válido. Aquí podrías enviar los datos.');
+                console.log('Formulario válido. Aquí podrías enviar los datos.');
                 form.reset();
             }
         }
     });
 }
 
+// Aplicar validación una vez que el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.form-validate').forEach(applyValidation);
+});
 
 
 
@@ -806,7 +809,7 @@ initHeaderShrink();
 
 // RENDER SECCIONES
 //carousel (home)
-    let singleItemSliderInstance;
+let singleItemSliderInstance;
 if (document.querySelector("#carousel-section")) {
     singleItemSliderInstance = new SingleItemSlider('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
     singleItemSliderInstance.esResponsiveStyles();
@@ -846,16 +849,4 @@ mediaQuery.addEventListener('change', () => {
 
 
 
-// validar todos los formularios reutilizables (como el del footer)
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.form-validate').forEach(applyValidation);
-});
 
-
-
-
-console.log('Validando formularios...');
-
-document.querySelectorAll('.form-validate').forEach((form, index) => {
-  console.log(`Formulario ${index + 1}:`, form);
-});
