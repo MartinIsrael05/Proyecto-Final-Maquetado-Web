@@ -59,6 +59,30 @@
   --transition-transform-slow-ease-out: transform 0.8s ease-out, opacity 0.8s ease-out;
   --transition-easing-default-medium: all .5s ease-in-out;
 }
+/*ROOT THEME DARK*/
+:root[data-theme='dark'] {
+  --colorBlanco: #181818;
+  --color151515: #f5f5f5;
+  --colorNegro: #ffffff;
+  --colorCeleste: #5bbad5;
+  --colorf9faf9: #232323;
+  --colorf5f5f5: #232323;
+  --colorf4f5f5: #232323;
+  --colorf4f3f3: #232323;
+  --color9b9b9b: #bbbbbb;
+  --color454648: #bbbbbb;
+  --color777777: #cccccc;
+  --colora3a3a3: #bbbbbb;
+  --colorffffff80: #ffffff80;
+  --colorcccccc: #444444;
+  --colorbbbbbb: #bbbbbb;
+  --colore1e1e1: #333333;
+  --colord7d7d7: #222222;
+  --coloreaeaea: #222222;
+  --colorBlancoTransparente: rgba(24, 24, 24, 0.7);
+  background-color: #181818;
+  color: #f5f5f5;
+}
 
 /* RESET */
 * {
@@ -3967,3 +3991,29 @@ ul.flex.social-icons-blog-post:hover {
 
   /* /ACA TERMINA GRID SHOP RESPONSIVE */
 }
+
+/* Botón Dark/Light Mode fijo */
+.dark-mode-toggle {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  z-index: 9999;
+  background: var(--colorBlanco);
+  color: var(--color151515);
+  border: none;
+  border-radius: 50%;
+  width: 3.5em;
+  height: 3.5em;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6em;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+.dark-mode-toggle:hover {
+  background: var(--colorCeleste);
+  color: var(--colorBlanco);
+}
+
