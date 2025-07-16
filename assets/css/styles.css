@@ -503,6 +503,28 @@ header {
   background-color: var(--colorCeleste);
 }
 
+.pagination-carousel {
+  display: none;
+}
+
+.pagination-carousel span {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  font-size: large;
+  background-color: var(--colorBlanco);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-carousel span:hover {
+  background-color: var(--colore9da5d);
+}
+
+.pagination-carousel .active {
+  background-color: var(--colore9da5d);
+}
+
 /* categories */
 .categories-section {
   padding: 4em 0;
@@ -1555,10 +1577,6 @@ blockquote p {
 
 .pagination-testimonials {
   gap: .5em;
-}
-
-.pagination-carousel {
-  display: none;
 }
 
 .next-testimonials,
@@ -3062,9 +3080,9 @@ ul.flex.social-icons-blog-post:hover {
   .pagination-blog span {
     width: 1em;
     height: 1em;
-    background-color: var(--colorBlanco);
+    font-size: large;
+    background-color: var(--colord7d7d7);
     border-radius: 50%;
-    display: inline-block;
     cursor: pointer;
     transition: background-color 0.3s;
   }

@@ -1,87 +1,21 @@
 // ==============================
-// DATOS
+// 1. DATOS DEL SITIO
 // ==============================
-
 // Carousel (home)
 const carouselData = [
-    {
-        containerClass: 'cont-center column',
-        titleClass: 'text-white text-center tituloCarrousel',
-        title: ['Top-notch Furniture'],
-        paragraphClass: 'text-center carousel-content-p',
-        paragraph: 'Sofa Store provides the best furniture and accessories for homes and offices.',
-        linkHref: 'grid-shop.html',
-        linkClass: 'bg-white text-151515 carousel-content-a',
-        linkText: 'Shop Now'
-    },
-    {
-        containerClass: 'flex justify-content-center column cont-carousel',
-        titleClass: 'text-grey title-carousel2Y3',
-        title: ['<span>Quality</span>', '<span class="title-carousel-span2">Decor</span>'],
-        paragraphClass: 'carousel2-content-p',
-        paragraph: 'Choose anything you need from a wide range of impressive home decor solutions.',
-        linkHref: 'grid-shop.html',
-        linkClass: 'bg-grey text-center text-white carousel2-content-a',
-        linkText: 'Shop Now'
-    },
-    {
-        containerClass: 'flex justify-content-center column cont-carousel',
-        titleClass: 'text-grey title-carousel2Y3',
-        title: ['<span>Impressive</span>', '<span class="title-carousel-span2">Lighting</span>'],
-        paragraphClass: 'carousel3-content-p',
-        paragraph: 'Improve your home’s lighting with hundreds of products available at Sofa.',
-        linkHref: 'grid-shop.html',
-        linkClass: 'bg-grey text-center text-white carousel3-content-a',
-        linkText: 'Shop Now'
-    }
+    { containerClass: 'cont-center column', titleClass: 'text-white text-center tituloCarrousel', title: ['Top-notch Furniture'], paragraphClass: 'text-center carousel-content-p', paragraph: 'Sofa Store provides the best furniture and accessories for homes and offices.', linkHref: 'grid-shop.html', linkClass: 'bg-white text-151515 carousel-content-a', linkText: 'Shop Now' },
+    { containerClass: 'flex justify-content-center column cont-carousel', titleClass: 'text-grey title-carousel2Y3', title: ['<span>Quality</span>', '<span class="title-carousel-span2">Decor</span>'], paragraphClass: 'carousel2-content-p', paragraph: 'Choose anything you need from a wide range of impressive home decor solutions.', linkHref: 'grid-shop.html', linkClass: 'bg-grey text-center text-white carousel2-content-a', linkText: 'Shop Now' },
+    { containerClass: 'flex justify-content-center column cont-carousel', titleClass: 'text-grey title-carousel2Y3', title: ['<span>Impressive</span>', '<span class="title-carousel-span2">Lighting</span>'], paragraphClass: 'carousel3-content-p', paragraph: 'Improve your home’s lighting with hundreds of products available at Sofa.', linkHref: 'grid-shop.html', linkClass: 'bg-grey text-center text-white carousel3-content-a', linkText: 'Shop Now' }
 ];
-
-
 
 // Categorías (home)
 const categoriesData = [
-    {
-        image: "assets/images/sillon.png",
-        altText: "Sillón",
-        title: "Living Room",
-        description: "Sofas, coffee tables, couches",
-        link: "#"
-    },
-    {
-        image: "assets/images/cama.png",
-        altText: "Cama",
-        title: "Bedroom",
-        description: "Beds, nightstands, dressers",
-        link: "#"
-    },
-    {
-        image: "assets/images/cajon.png",
-        altText: "Cajón",
-        title: "Dining Room",
-        description: "Tables, chairs, cabinets",
-        link: "#"
-    },
-    {
-        image: "assets/images/bano.png",
-        altText: "Baño",
-        title: "Bathroom",
-        description: "Vanities, mirrors, lighting",
-        link: "#"
-    },
-    {
-        image: "assets/images/lampara.png",
-        altText: "Lámpara",
-        title: "Decor & Furniture",
-        description: "Cushions, wall art, drapery",
-        link: "#"
-    },
-    {
-        image: "assets/images/bebe.png",
-        altText: "Bebé",
-        title: "Kids Room",
-        description: "Kids beds, trundlers, dressers",
-        link: "#"
-    }
+    { image: "assets/images/sillon.png", altText: "Sillón", title: "Living Room", description: "Sofas, coffee tables, couches", link: "#" },
+    { image: "assets/images/cama.png", altText: "Cama", title: "Bedroom", description: "Beds, nightstands, dressers", link: "#" },
+    { image: "assets/images/cajon.png", altText: "Cajón", title: "Dining Room", description: "Tables, chairs, cabinets", link: "#" },
+    { image: "assets/images/bano.png", altText: "Baño", title: "Bathroom", description: "Vanities, mirrors, lighting", link: "#" },
+    { image: "assets/images/lampara.png", altText: "Lámpara", title: "Decor & Furniture", description: "Cushions, wall art, drapery", link: "#" },
+    { image: "assets/images/bebe.png", altText: "Bebé", title: "Kids Room", description: "Kids beds, trundlers, dressers", link: "#" }
 ];
 
 // Trending Products (home)
@@ -97,7 +31,7 @@ const productos = [
 ];
 
 // Portfolio (home)
-const portfolioItems = [ // portfolio
+const portfolioItems = [
     { src: "assets/images/portfolio1.jpg", title: "SUNSHINE RESTAURANT", category: "DECOR" },
     { src: "assets/images/portfolio2.jpg", title: "QUADRO HOTEL", category: "FURNITURE" },
     { src: "assets/images/portfolio3.jpg", title: "U-STYLE FASHION HOUSE", category: "DECOR" },
@@ -109,31 +43,11 @@ const portfolioItems = [ // portfolio
 
 // Blogs (home)
 const blogs = [
-    {
-        imgSrc: 'assets/images/blog1.jpg',
-        title: 'LED Lighting and Its Benefits for Homeowners',
-        date: 'August 9, 2021'
-    },
-    {
-        imgSrc: 'assets/images/blog2.jpg',
-        title: 'What to Look for When Shopping for Chairs Online',
-        date: 'August 9, 2021'
-    },
-    {
-        imgSrc: 'assets/images/blog3.jpg',
-        title: 'Ways to Decorate Your Home with the Color Red',
-        date: 'August 9, 2021'
-    },
-    {
-        imgSrc: 'assets/images/blog4.jpg',
-        title: 'Top 20 Interior Home Decor Trends of 2021',
-        date: 'August 9, 2021'
-    },
-    {
-        imgSrc: 'assets/images/blog5.jpg',
-        title: 'HOW TO CHOOSE FURNITURE FOR YOUR HOME',
-        date: 'August 9, 2021'
-    }
+    { imgSrc: 'assets/images/blog1.jpg', title: 'LED Lighting and Its Benefits for Homeowners', date: 'August 9, 2021' },
+    { imgSrc: 'assets/images/blog2.jpg', title: 'What to Look for When Shopping for Chairs Online', date: 'August 9, 2021' },
+    { imgSrc: 'assets/images/blog3.jpg', title: 'Ways to Decorate Your Home with the Color Red', date: 'August 9, 2021' },
+    { imgSrc: 'assets/images/blog4.jpg', title: 'Top 20 Interior Home Decor Trends of 2021', date: 'August 9, 2021' },
+    { imgSrc: 'assets/images/blog5.jpg', title: 'HOW TO CHOOSE FURNITURE FOR YOUR HOME', date: 'August 9, 2021' }
 ];
 
 
@@ -643,14 +557,18 @@ function initBlogSlider() {
 
     const itemsPerPage = isMobileBlog() ? 1 : 4;
 
-    // Limpiar instancia previa si existe
+    // Eliminar slider previo
     if (blogSliderInstance) {
         container.innerHTML = '';
         blogSliderInstance = null;
     }
+
     stopBlogAutoSlide();
 
     blogSliderInstance = new MultiItemSlider(containerSelector, blogs, renderBlogCard, itemsPerPage, 1);
+
+    // Conectar dots de blog
+    conectarDotsConSlider(blogSliderInstance, '.pagination-blog span');
 
     if (isMobileBlog()) {
         startBlogAutoSlide();
@@ -659,10 +577,11 @@ function initBlogSlider() {
 
 
 
+
+
 // ==============================
 // VALIDACIÓN REUTILIZABLE DE FORMULARIOS
 // ==============================
-
 function isEmailValid(value) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(value.trim());
@@ -690,9 +609,6 @@ function showInputError(input, message) {
     error.style.display = 'block';
     error.style.width = isFooter ? '100%' : 'auto'; // Ajustar ancho según el contexto
     error.style.height = isFooter ? '27%' : 'auto'; // Ajustar altura
-
-
-
 }
 
 function clearInputError(input) {
@@ -771,7 +687,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // ==============================
-// EJECUCIONES INICIALES
+// EJECUCIONES INICIALES - HEADER
 // ==============================
 //menu hamburguesa para responsive
 const menuToggle = document.querySelector('.menu-toggle');
@@ -807,12 +723,49 @@ function initHeaderShrink(thresholdPx = 80) {
 initHeaderShrink();
 
 
+
+
+
+// ==============================
+// FUNCIONALIDAD: Dots navegación responsive para carousel
+// ==============================
+function conectarDotsConSlider(sliderInstance, dotSelector, sectionUpdater = null) {
+    const dots = document.querySelectorAll(dotSelector);
+    if (!sliderInstance || dots.length !== sliderInstance.data.length) return;
+
+    // Hacer clic en los dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            sliderInstance.currentIndex = index;
+            sliderInstance.render();
+        });
+    });
+
+    // Envolver el render original para actualizar visualmente los dots
+    const originalRender = sliderInstance.render.bind(sliderInstance);
+    sliderInstance.render = () => {
+        originalRender();
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === sliderInstance.currentIndex);
+        });
+
+        if (sectionUpdater) sectionUpdater(); // solo si es necesario (ej: para el carousel de 3 secciones)
+    };
+
+    // Llamamos manualmente una vez al principio
+    sliderInstance.render();
+}
+
+
+
+
 // RENDER SECCIONES
 //carousel (home)
 let singleItemSliderInstance;
 if (document.querySelector("#carousel-section")) {
     singleItemSliderInstance = new SingleItemSlider('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
     singleItemSliderInstance.esResponsiveStyles();
+    conectarDotsConSlider(singleItemSliderInstance, '.pagination-carousel span', () => singleItemSliderInstance.updateVisibleSlide());
 }
 
 const mediaQueryCarousel = window.matchMedia('(max-width: 768px)');
@@ -845,8 +798,3 @@ const mediaQuery = window.matchMedia('(max-width: 768px)');
 mediaQuery.addEventListener('change', () => {
     initBlogSlider();
 });
-
-
-
-
-
