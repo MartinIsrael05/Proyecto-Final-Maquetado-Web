@@ -963,64 +963,6 @@ initTabNavigation('.tabs .tab-item', '.tab-content .tab-pane');
 
 
 
-// ==============================
-// INICIALIZADORES DE SECCIONES
-// ==============================
-
-//carousel (home)
-let singleItemSliderInstance;
-if (document.querySelector("#carousel-section")) {
-    singleItemSliderInstance = new SingleItemSlider('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
-    singleItemSliderInstance.esResponsiveStyles();
-    conectarDotsConSlider(singleItemSliderInstance, '.pagination-carousel span', () => singleItemSliderInstance.updateVisibleSlide());
-}
-const mediaQueryCarousel = window.matchMedia('(max-width: 768px)');
-mediaQueryCarousel.addEventListener('change', () => {
-    if (singleItemSliderInstance) {
-        singleItemSliderInstance.esResponsiveStyles();
-    }
-});
-
-// categories (home)
-if (document.querySelector("#fila1-categories") && document.querySelector("#fila2-categories")) {
-    createCategories(categoriesData);
-}
-
-// trending products (home)
-if (document.querySelector('#trending-products-section')) {
-    renderTrendingProducts(productos, 4, '.trending-products-section');
-}
-
-// portfolio (home)
-if (document.querySelector('.portfolio')) {
-    new PortfolioGallery('.portfolio', portfolioItems);
-}
-
-// blog (home)
-if (document.querySelector(".blog-container")) {
-    initBlogSlider();
-}
-const mediaQuery = window.matchMedia('(max-width: 768px)');
-mediaQuery.addEventListener('change', () => {
-    initBlogSlider();
-});
-
-// our history (about-us)
-if (document.querySelector('.history-cards')) {
-    initHistorySlider();
-    window.addEventListener('resize', () => {
-        initHistorySlider();
-    });
-}
-
-// Validación de formularios
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.form-validate').forEach(applyValidation);
-});
-
-
-
-
 // =====================
 // SLIDER OUR TEAM
 // =====================
@@ -1166,6 +1108,27 @@ if (teamContainer) {
 
 
 // ==============================
+// ANIMACIÓN DE NÚMEROS (about us)
+// ==============================
+function animateNumbers(element, end, duration) {
+    const start = 0;
+    let startTime;
+
+    function update(currentTime) {
+        if (!startTime) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        element.textContent = Math.floor(progress * (end - start) + start);
+        if (progress < 1) requestAnimationFrame(update);
+    }
+
+    requestAnimationFrame(update);
+}
+
+
+
+
+// ==============================
 // FUNCIONES SINGLE PRODUCT
 // ==============================
 document.addEventListener('DOMContentLoaded', () => {
@@ -1210,6 +1173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 
 
 
@@ -1375,4 +1339,77 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updatePriceRange();
     }
+});
+
+
+
+
+// ==============================
+// INICIALIZADORES DE SECCIONES
+// ==============================
+
+//carousel (home)
+let singleItemSliderInstance;
+if (document.querySelector("#carousel-section")) {
+    singleItemSliderInstance = new SingleItemSlider('.carousel-section, .carousel2-section, .carousel3-section', carouselData);
+    singleItemSliderInstance.esResponsiveStyles();
+    conectarDotsConSlider(singleItemSliderInstance, '.pagination-carousel span', () => singleItemSliderInstance.updateVisibleSlide());
+}
+const mediaQueryCarousel = window.matchMedia('(max-width: 768px)');
+mediaQueryCarousel.addEventListener('change', () => {
+    if (singleItemSliderInstance) {
+        singleItemSliderInstance.esResponsiveStyles();
+    }
+});
+
+// categories (home)
+if (document.querySelector("#fila1-categories") && document.querySelector("#fila2-categories")) {
+    createCategories(categoriesData);
+}
+
+// trending products (home)
+if (document.querySelector('#trending-products-section')) {
+    renderTrendingProducts(productos, 4, '.trending-products-section');
+}
+
+// portfolio (home)
+if (document.querySelector('.portfolio')) {
+    new PortfolioGallery('.portfolio', portfolioItems);
+}
+
+// blog (home)
+if (document.querySelector(".blog-container")) {
+    initBlogSlider();
+}
+const mediaQuery = window.matchMedia('(max-width: 768px)');
+mediaQuery.addEventListener('change', () => {
+    initBlogSlider();
+});
+
+// our history (about-us)
+if (document.querySelector('.history-cards')) {
+    initHistorySlider();
+    window.addEventListener('resize', () => {
+        initHistorySlider();
+    });
+}
+
+// banner con tiempo (about-us)
+if (document.querySelector('.bannerTiempo-aboutUs')) {
+    const stats = [
+        { className: '.stat-number-1', end: 245 },
+        { className: '.stat-number-2', end: 382 },
+        { className: '.stat-number-3', end: 1267 },
+        { className: '.stat-number-4', end: 474 }
+    ];
+
+    stats.forEach(stat => {
+        const el = document.querySelector(stat.className);
+        if (el) animateNumbers(el, stat.end, 1000);
+    });
+}
+
+// Validación de formularios
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.form-validate').forEach(applyValidation);
 });
