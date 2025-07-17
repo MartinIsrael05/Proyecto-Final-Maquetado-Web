@@ -1,6 +1,7 @@
 // ==============================
-// 1. DATOS DEL SITIO
+// DATOS DEL SITIO
 // ==============================
+
 // Carousel (home)
 const carouselData = [
     { containerClass: 'cont-center column', titleClass: 'text-white text-center tituloCarrousel', title: ['Top-notch Furniture'], paragraphClass: 'text-center carousel-content-p', paragraph: 'Sofa Store provides the best furniture and accessories for homes and offices.', linkHref: 'grid-shop.html', linkClass: 'bg-white text-151515 carousel-content-a', linkText: 'Shop Now' },
@@ -38,7 +39,7 @@ const portfolioItems = [
     { src: "assets/images/portfolio4.jpg", title: "FLASH CAFE", category: "FURNITURE" },
     { src: "assets/images/portfolio5.jpg", title: "NEW YORK PUBLIC LIBRARY", category: "DECOR" },
     { src: "assets/images/portfolio6.jpg", title: "Q-BIZ COWORKING", category: "FURNITURE" },
-    { src: "assets/images/portfolio7.jpg", title: "MONROE’S BAR", category: "DECOR" }
+    { src: "assets/images/portfolio7.jpg", title: "MONROE’S BAR", category: "DECOR" },
 ];
 
 // Blogs (home)
@@ -48,6 +49,30 @@ const blogs = [
     { imgSrc: 'assets/images/blog3.jpg', title: 'Ways to Decorate Your Home with the Color Red', date: 'August 9, 2021' },
     { imgSrc: 'assets/images/blog4.jpg', title: 'Top 20 Interior Home Decor Trends of 2021', date: 'August 9, 2021' },
     { imgSrc: 'assets/images/blog5.jpg', title: 'HOW TO CHOOSE FURNITURE FOR YOUR HOME', date: 'August 9, 2021' }
+];
+
+// Our History (about)
+const ourHistoryData = [
+    {
+        title: 'Establishment',
+        description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin facilisis, velit non fringilla pharetra, elit odio.'
+    },
+    {
+        title: 'First Success',
+        description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin facilisis, velit non fringilla pharetra, elit odio.'
+    },
+    {
+        title: 'New Products',
+        description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin facilisis, velit non fringilla pharetra, elit odio.'
+    },
+    {
+        title: 'National Recognition',
+        description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin facilisis, velit non fringilla pharetra, elit odio.'
+    },
+    {
+        title: 'Market Leaders',
+        description: 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin facilisis, velit non fringilla pharetra, elit odio.'
+    }
 ];
 
 
@@ -306,8 +331,14 @@ class PortfolioGallery {
         const overlay = document.createElement('div');
         overlay.className = 'cont-center text-white overlay';
 
+        const a = document.createElement('a');
+        a.href = 'single-product.html';
+        a.className = 'text-white';
+        a.style.textDecoration = 'none';
+
         const h3 = document.createElement('h3');
         h3.textContent = item.title;
+        a.appendChild(h3);
         const h4 = document.createElement('h4');
         h4.textContent = item.category;
 
@@ -324,7 +355,7 @@ class PortfolioGallery {
             this.openModal(item.src, item.title);
         });
 
-        overlay.append(h3, h4, icon);
+        overlay.append(a, h4, icon);
         art.append(fig, overlay);
         return art;
     }
@@ -378,24 +409,35 @@ function renderBlogCard(container, blog) {
     const card = document.createElement('div');
     card.className = 'blog-card';
 
+    // Enlace que envuelve la imagen
+    const imageLink = document.createElement('a');
+    imageLink.href = 'blog-post.html';
     const figure = document.createElement('figure');
     const img = document.createElement('img');
     img.src = blog.imgSrc;
     img.alt = blog.title;
     figure.appendChild(img);
+    imageLink.appendChild(figure);
 
+    // Enlace que envuelve el título
+    const titleLink = document.createElement('a');
+    titleLink.style.textDecoration = 'none';
+    titleLink.href = 'blog-post.html';
     const h3 = document.createElement('h3');
     h3.textContent = blog.title;
+    titleLink.appendChild(h3);
 
     const p = document.createElement('p');
     p.textContent = blog.date;
 
-    card.appendChild(figure);
-    card.appendChild(h3);
+    // Ensamblar la tarjeta
+    card.appendChild(imageLink);
+    card.appendChild(titleLink);
     card.appendChild(p);
 
     container.appendChild(card);
 }
+
 
 /* ---------- Trending Products (home)---------- */
 function buildBadge(label) {
@@ -522,7 +564,64 @@ function renderTrendingProducts(prodArray, itemsPerRow = 4, sectionSel = '.trend
     sec.appendChild(wrap);
 }
 
+// =====================
+// RENDER OUR HISTORY
+// =====================
+function buildHistoryCard(container, item) {
+    const card = document.createElement('article');
+    card.className = 'card';
 
+    const h3 = document.createElement('h3');
+    h3.className = 'text-center text-151515';
+    h3.textContent = item.title;
+
+    const p = document.createElement('p');
+    p.className = 'text-center text-777777';
+    p.textContent = item.description;
+
+    card.append(h3, p);
+    container.appendChild(card);
+}
+
+function isMobileHistory() {
+    return window.matchMedia('(max-width: 768px)').matches;
+}
+
+function getHistoryItemsPerPage() {
+    return isMobileHistory() ? 1 : 4;
+}
+
+// =====================
+// INICIALIZAR SLIDER DE HISTORIA
+// =====================
+let historySliderInstance;
+
+function initHistorySlider() {
+    const containerSelector = '.history-cards';
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+
+    // Eliminar slider previo si existe
+    if (historySliderInstance) {
+        container.innerHTML = '';
+        historySliderInstance = null;
+    }
+
+    historySliderInstance = new MultiItemSlider(
+        containerSelector,
+        ourHistoryData,
+        buildHistoryCard,
+        getHistoryItemsPerPage(),
+        1 // step de a uno
+    );
+
+    // Conectar botones prev/next manualmente si no usas data-prev/data-next
+    const parent = container.closest('section') || container.parentElement;
+    const prevBtn = parent.querySelector('.prev-ourHistory');
+    const nextBtn = parent.querySelector('.next-ourHistory');
+    if (prevBtn) prevBtn.addEventListener('click', () => historySliderInstance.prev());
+    if (nextBtn) nextBtn.addEventListener('click', () => historySliderInstance.next());
+}
 
 
 // ==============================
@@ -574,7 +673,6 @@ function initBlogSlider() {
         startBlogAutoSlide();
     }
 }
-
 
 
 
@@ -687,7 +785,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // ==============================
-// EJECUCIONES INICIALES - HEADER
+// HEADER Y FUNCIONES DE INICIO
 // ==============================
 //menu hamburguesa para responsive
 const menuToggle = document.querySelector('.menu-toggle');
@@ -722,6 +820,39 @@ function initHeaderShrink(thresholdPx = 80) {
 }
 initHeaderShrink();
 
+// DARK/LIGHT MODE
+function toggleDarkMode() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateDarkModeIcon(newTheme);
+}
+
+function updateDarkModeIcon(theme) {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    if (!darkModeToggle) return;
+    const icon = darkModeToggle.querySelector('i');
+    if (theme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+}
+
+// Inicializar tema al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    updateDarkModeIcon(savedTheme);
+
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    if (darkModeToggle) {
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+    }
+});
 
 
 
@@ -755,6 +886,28 @@ function conectarDotsConSlider(sliderInstance, dotSelector, sectionUpdater = nul
     // Llamamos manualmente una vez al principio
     sliderInstance.render();
 }
+
+// Tabs para sección "A Few Words About Us"
+function initTabNavigation(tabsSelector, panesSelector, activeClass = 'active') {
+    const tabs = document.querySelectorAll(tabsSelector);
+    const panes = document.querySelectorAll(panesSelector);
+
+    if (!tabs.length || !panes.length) return;
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetId = tab.dataset.tab;
+
+            tabs.forEach(t => t.classList.remove(activeClass));
+            tab.classList.add(activeClass);
+
+            panes.forEach(p => p.classList.remove(activeClass));
+            const targetPane = document.getElementById(targetId);
+            if (targetPane) targetPane.classList.add(activeClass);
+        });
+    });
+}
+initTabNavigation('.tabs .tab-item', '.tab-content .tab-pane');
 
 
 
@@ -800,38 +953,10 @@ mediaQuery.addEventListener('change', () => {
 });
 
 
-// ==============================
-// DARK/LIGHT MODE
-// ==============================
-function toggleDarkMode() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateDarkModeIcon(newTheme);
+//our history (about-us)
+if (document.querySelector('.history-cards')) {
+    initHistorySlider();
+    window.addEventListener('resize', () => {
+        initHistorySlider();
+    });
 }
-
-function updateDarkModeIcon(theme) {
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    if (!darkModeToggle) return;
-    const icon = darkModeToggle.querySelector('i');
-    if (theme === 'dark') {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-    } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-    }
-}
-
-// Inicializar tema al cargar la página
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateDarkModeIcon(savedTheme);
-
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', toggleDarkMode);
-    }
-});
