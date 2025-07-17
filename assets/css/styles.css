@@ -1852,6 +1852,7 @@ hr {
   font-size: var(--font-size-medium);
   font-weight: bold;
   background-color: var(--colorebebeb);
+  color: #151515 !important;
 }
 
 .quantity-buttons-singleProduct {
@@ -1868,6 +1869,7 @@ hr {
   font-weight: bold;
   cursor: pointer;
   background-color: var(--colorebebeb);
+  color: #151515 !important;
 }
 
 .quantity-increase-singleProduct:hover,
