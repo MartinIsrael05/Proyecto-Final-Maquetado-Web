@@ -1353,6 +1353,10 @@ form.success .success-message {
   padding: 3em 5em;
 }
 
+.our-history-aboutUs h2 {
+ color: #151515 !important;
+}
+
 .history-cards {
   gap: 1.5em;
   flex-wrap: wrap;
@@ -1368,6 +1372,7 @@ form.success .success-message {
 }
 
 .card h3 {
+  color: #151515 !important;
   padding: 0 2em;
   margin-bottom: 1em;
   font-weight: var(--font-weight-bold);
@@ -1375,6 +1380,7 @@ form.success .success-message {
 
 .card p {
   font-size: var(--font-size-medium);
+  color: #777777 !important;
 }
 
 .cont-flechas-ourHistory {

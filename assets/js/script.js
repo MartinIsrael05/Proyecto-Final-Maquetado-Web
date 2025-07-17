@@ -245,13 +245,11 @@ class MultiItemSlider extends Slider {
         }
     }
 
-    // Ahora next avanza a la derecha (mayor índice)
     next() {
         this.currentIndex = (this.currentIndex - this.step + this.data.length) % this.data.length;
         this.render();
     }
 
-    // Ahora prev avanza a la izquierda (menor índice)
     prev() {
         this.currentIndex = (this.currentIndex + this.step + this.data.length) % this.data.length;
         this.render();
@@ -520,12 +518,38 @@ function buildProductCard(p) {
     return art;
 }
 
+/* ---------- Our history (about us)---------- */
+function buildHistoryCard(container, item) {
+    const card = document.createElement('article');
+    card.className = 'card';
+
+    const h3 = document.createElement('h3');
+    h3.className = 'text-center';
+    h3.textContent = item.title;
+
+    const p = document.createElement('p');
+    p.className = 'text-center';
+    p.textContent = item.description;
+
+    card.append(h3, p);
+    container.appendChild(card);
+}
+
+function isMobileHistory() {
+    return window.matchMedia('(max-width: 768px)').matches;
+}
+
+function getHistoryItemsPerPage() {
+    return isMobileHistory() ? 1 : 4;
+}
+
 
 
 
 // ==============================
 // RENDERERS DE SECCIÓN
 // ==============================
+
 /* ---------- Categories (home) ---------- */
 function createCategories(categories) {
     const fila1 = document.querySelector("#fila1-categories");
@@ -540,6 +564,7 @@ function createCategories(categories) {
         }
     });
 }
+
 /* ---------- Trending Products (home)---------- */
 function renderTrendingProducts(prodArray, itemsPerRow = 4, sectionSel = '.trending-products-section') {
     const sec = document.querySelector(sectionSel);
@@ -565,36 +590,9 @@ function renderTrendingProducts(prodArray, itemsPerRow = 4, sectionSel = '.trend
 
     sec.appendChild(wrap);
 }
+
 /* ---------- Our history (about us)---------- */
-function buildHistoryCard(container, item) {
-    const card = document.createElement('article');
-    card.className = 'card';
-
-    const h3 = document.createElement('h3');
-    h3.className = 'text-center text-151515';
-    h3.textContent = item.title;
-
-    const p = document.createElement('p');
-    p.className = 'text-center text-777777';
-    p.textContent = item.description;
-
-    card.append(h3, p);
-    container.appendChild(card);
-}
-
-function isMobileHistory() {
-    return window.matchMedia('(max-width: 768px)').matches;
-}
-
-function getHistoryItemsPerPage() {
-    return isMobileHistory() ? 1 : 4;
-}
-
-// =====================
-// INICIALIZAR SLIDER DE HISTORIA
-// =====================
 let historySliderInstance;
-
 function initHistorySlider() {
     const containerSelector = '.history-cards';
     const container = document.querySelector(containerSelector);
@@ -621,17 +619,12 @@ function initHistorySlider() {
     if (nextBtn) nextBtn.onclick = () => historySliderInstance.next();
 }
 
-
-// ==============================
-// BLOG SLIDER RESPONSIVE
-// ==============================
+/* ---------- Blog (home) ---------- */
 let blogSliderInstance;
 let blogAutoSlide = null;
-
 function isMobileBlog() {
     return window.matchMedia('(max-width: 768px)').matches;
 }
-
 function startBlogAutoSlide() {
     if (!blogAutoSlide && isMobileBlog() && blogSliderInstance) {
         blogAutoSlide = setInterval(() => {
@@ -639,14 +632,12 @@ function startBlogAutoSlide() {
         }, 4000); // o el tiempo que prefieras
     }
 }
-
 function stopBlogAutoSlide() {
     if (blogAutoSlide) {
         clearInterval(blogAutoSlide);
         blogAutoSlide = null;
     }
 }
-
 function initBlogSlider() {
     const containerSelector = '.blog-container';
     const container = document.querySelector(containerSelector);
@@ -682,12 +673,10 @@ function isEmailValid(value) {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(value.trim());
 }
-
 function isPhoneValid(value) {
     const regex = /^\d+$/;
     return regex.test(value.trim());
 }
-
 function showInputError(input, message) {
     const container = input.closest('.form-group') || input.parentElement;
     input.classList.add('input-invalid');
@@ -706,7 +695,6 @@ function showInputError(input, message) {
     error.style.width = isFooter ? '100%' : 'auto'; // Ajustar ancho según el contexto
     error.style.height = isFooter ? '27%' : 'auto'; // Ajustar altura
 }
-
 function clearInputError(input) {
     input.classList.remove('input-invalid');
     const container = input.closest('.form-group') || input.parentElement;
@@ -716,7 +704,6 @@ function clearInputError(input) {
         error.style.display = 'none';
     }
 }
-
 function validateInput(input) {
     const value = input.value.trim();
     const name = input.name.toLowerCase();
@@ -739,7 +726,6 @@ function validateInput(input) {
 
     return true;
 }
-
 function validateFormFields(form) {
     const inputs = form.querySelectorAll('input[type="text"], input[type="tel"]');
     let valid = true;
@@ -748,7 +734,6 @@ function validateFormFields(form) {
     });
     return valid;
 }
-
 function applyValidation(form) {
     const inputs = form.querySelectorAll('input[type="text"], input[type="tel"]');
     inputs.forEach(input => {
@@ -774,21 +759,16 @@ function applyValidation(form) {
     });
 }
 
-// Aplicar validación una vez que el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.form-validate').forEach(applyValidation);
-});
-
 
 
 
 // ==============================
 // HEADER Y FUNCIONES DE INICIO
 // ==============================
-//menu hamburguesa para responsive
+
+//Menu hamburguesa para responsive
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-lista-links');
-
 if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
@@ -826,7 +806,6 @@ function toggleDarkMode() {
     localStorage.setItem('theme', newTheme);
     updateDarkModeIcon(newTheme);
 }
-
 function updateDarkModeIcon(theme) {
     const darkModeToggle = document.getElementById('darkModeToggle');
     if (!darkModeToggle) return;
@@ -839,8 +818,6 @@ function updateDarkModeIcon(theme) {
         icon.classList.add('fa-moon');
     }
 }
-
-// Inicializar tema al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
@@ -885,7 +862,12 @@ function conectarDotsConSlider(sliderInstance, dotSelector, sectionUpdater = nul
     sliderInstance.render();
 }
 
-// Tabs para sección "A Few Words About Us"
+
+
+
+// ==============================
+// TABS PARA SECCIÓN "A Few Words About Us"
+// ==============================
 function initTabNavigation(tabsSelector, panesSelector, activeClass = 'active') {
     const tabs = document.querySelectorAll(tabsSelector);
     const panes = document.querySelectorAll(panesSelector);
@@ -910,7 +892,10 @@ initTabNavigation('.tabs .tab-item', '.tab-content .tab-pane');
 
 
 
-// RENDER SECCIONES
+// ==============================
+// INICIALIZADORES DE SECCIONES
+// ==============================
+
 //carousel (home)
 let singleItemSliderInstance;
 if (document.querySelector("#carousel-section")) {
@@ -918,7 +903,6 @@ if (document.querySelector("#carousel-section")) {
     singleItemSliderInstance.esResponsiveStyles();
     conectarDotsConSlider(singleItemSliderInstance, '.pagination-carousel span', () => singleItemSliderInstance.updateVisibleSlide());
 }
-
 const mediaQueryCarousel = window.matchMedia('(max-width: 768px)');
 mediaQueryCarousel.addEventListener('change', () => {
     if (singleItemSliderInstance) {
@@ -926,22 +910,22 @@ mediaQueryCarousel.addEventListener('change', () => {
     }
 });
 
-//categories (home)
+// categories (home)
 if (document.querySelector("#fila1-categories") && document.querySelector("#fila2-categories")) {
     createCategories(categoriesData);
 }
 
-//trending products (home)
+// trending products (home)
 if (document.querySelector('.trending-products-section')) {
     renderTrendingProducts(productos, 4, '.trending-products-section');
 }
 
-//portfolio (home)
+// portfolio (home)
 if (document.querySelector('.portfolio')) {
     new PortfolioGallery('.portfolio', portfolioItems);
 }
 
-//blog (home)
+// blog (home)
 if (document.querySelector(".blog-container")) {
     initBlogSlider();
 }
@@ -951,10 +935,15 @@ mediaQuery.addEventListener('change', () => {
 });
 
 
-//our history (about-us)
+// our history (about-us)
 if (document.querySelector('.history-cards')) {
     initHistorySlider();
     window.addEventListener('resize', () => {
         initHistorySlider();
     });
 }
+
+// Validación de formularios
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.form-validate').forEach(applyValidation);
+});
