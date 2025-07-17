@@ -75,6 +75,76 @@ const ourHistoryData = [
     }
 ];
 
+// Our Team (about)
+const teamMembers = [
+    {
+        name: 'KATE FERRAND',
+        image: './assets/images/kateFerrand-aboutUs.jpg',
+        description: 'Cum exsul crescere, omnes lanistaes experientia gratis, castus detriuses.',
+        socialLinks: {
+            facebook: 'https://www.facebook.com/',
+            twitter: 'https://x.com/',
+            instagram: 'https://www.instagram.com/',
+            email: 'https://mail.google.com/mail/u/0/#inbox'
+        }
+    },
+    {
+        name: 'RICK MARTINEZ',
+        image: './assets/images/rickMartinez-aboutUs.jpg',
+        description: 'Cum zelus mori, omnes repressores desiderium magnum, rusticus medicinaes.',
+        socialLinks: {
+            facebook: 'https://www.facebook.com/',
+            twitter: 'https://x.com/',
+            instagram: 'https://www.instagram.com/',
+            email: 'https://mail.google.com/mail/u/0/#inbox'
+        }
+    },
+    {
+        name: 'SAMANTHA WILLIAMS',
+        image: './assets/images/samanthaWilliams-aboutUs.jpg',
+        description: 'Cum compater resistere, omnes menses fallere placidus, germanus gemnaes.',
+        socialLinks: {
+            facebook: 'https://www.facebook.com/',
+            twitter: 'https://x.com/',
+            instagram: 'https://www.instagram.com/',
+            email: 'https://mail.google.com/mail/u/0/#inbox'
+        }
+    },
+    {
+        name: 'PETER SMITH',
+        image: './assets/images/peterSmith-aboutUs.jpg',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.',
+        socialLinks: {
+            facebook: 'https://www.facebook.com/',
+            twitter: 'https://x.com/',
+            instagram: 'https://www.instagram.com/',
+            email: 'https://mail.google.com/mail/u/0/#inbox'
+        }
+    },
+    {
+        name: 'CAROLINE LOPEZ',
+        image: './assets/images/carolineLopez-aboutUs.jpg',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.',
+        socialLinks: {
+            facebook: 'https://www.facebook.com/',
+            twitter: 'https://x.com/',
+            instagram: 'https://www.instagram.com/',
+            email: 'https://mail.google.com/mail/u/0/#inbox'
+        }
+    },
+    {
+        name: 'WILL MCMILLAN',
+        image: './assets/images/willMcmillan-aboutUs.jpg',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.',
+        socialLinks: {
+            facebook: 'https://www.facebook.com/',
+            twitter: 'https://x.com/',
+            instagram: 'https://www.instagram.com/',
+            email: 'https://mail.google.com/mail/u/0/#inbox'
+        }
+    }
+];
+
 
 
 
@@ -946,4 +1016,497 @@ if (document.querySelector('.history-cards')) {
 // Validación de formularios
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.form-validate').forEach(applyValidation);
+});
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const minRange = document.getElementById('min-price');
+    const maxRange = document.getElementById('max-price');
+    const minOutput = document.getElementById('price-min');
+    const maxOutput = document.getElementById('price-max');
+    const rangeTrack = document.querySelector('.range-slider .range-track');
+
+    if (maxRange) {
+        maxRange.disabled = true;
+        maxRange.style.pointerEvents = "none";
+        maxRange.style.opacity = "0.6";
+    }
+
+    function updatePriceRange(e) {
+        let minVal = parseInt(minRange.value);
+        let maxVal = parseInt(maxRange.value);
+
+        if (minVal >= maxVal) {
+            if (e && e.target === minRange) {
+                minVal = maxVal - 1;
+                minRange.value = minVal;
+            } else {
+                maxVal = minVal + 1;
+                maxRange.value = maxVal;
+            }
+        }
+
+        minOutput.textContent = minVal;
+        maxOutput.textContent = maxVal;
+
+        // Actualizar barra celeste
+        const min = parseInt(minRange.min);
+        const max = parseInt(minRange.max);
+        const percentMin = ((minVal - min) / (max - min)) * 100;
+        const percentMax = ((maxVal - min) / (max - min)) * 100;
+        if (rangeTrack) {
+            rangeTrack.style.left = percentMin + '%';
+            rangeTrack.style.width = (percentMax - percentMin) + '%';
+        }
+    }
+
+    if (minRange && maxRange && minOutput && maxOutput) {
+        minRange.addEventListener('input', updatePriceRange);
+        maxRange.addEventListener('input', updatePriceRange);
+
+        // Para mouse y touch: siempre que el usuario entra o toca un thumb, lo trae al frente
+        ['mouseenter', 'pointerdown', 'touchstart'].forEach(evt => {
+            minRange.addEventListener(evt, () => bringToFront('min'));
+            maxRange.addEventListener(evt, () => bringToFront('max'));
+        });
+
+        updatePriceRange();
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// =====================
+// RENDER OUR TEAM
+// =====================
+
+function renderTeamMember(container, member) {
+    const article = document.createElement('article');
+    article.className = 'team-member';
+
+    const photoDiv = document.createElement('div');
+    photoDiv.className = 'cont-team-photo';
+    const img = document.createElement('img');
+    img.src = member.image;
+    img.alt = member.name;
+    img.className = 'team-photo';
+    photoDiv.appendChild(img);
+
+    const h3 = document.createElement('h3');
+    h3.className = 'team-member-name text-center';
+    const link = document.createElement('a');
+    link.className = 'text-151515';
+    link.href = '#';
+    const span = document.createElement('span');
+    span.className = 'team-member-name-span';
+    span.textContent = member.name;
+    link.appendChild(span);
+    h3.appendChild(link);
+
+    const p = document.createElement('p');
+    p.className = 'text-center text-777777';
+    p.textContent = member.description;
+
+    const socialLinks = document.createElement('div');
+    socialLinks.className = 'social-links flex justify-content-center';
+    for (const [platform, url] of Object.entries(member.socialLinks)) {
+        const a = document.createElement('a');
+        a.href = url;
+        a.className = 'text-151515';
+        switch (platform) {
+            case 'facebook': a.innerHTML = '&#xf09a;'; break;
+            case 'twitter': a.innerHTML = '&#xf099;'; break;
+            case 'instagram': a.innerHTML = '&#xf16d;'; break;
+            case 'email': a.innerHTML = '&#xf0e0;'; break;
+        }
+        socialLinks.appendChild(a);
+    }
+
+    article.append(photoDiv, h3, p, socialLinks);
+    container.appendChild(article);
+}
+
+function isMobileTeam() {
+    return window.matchMedia('(max-width: 768px)').matches;
+}
+
+let currentIndexTeam = 0;
+let teamItemsPerPage = isMobileTeam() ? 1 : 3;
+let autoSlideInterval;
+
+// --- Definir teamContainer y botones en el scope global ---
+let teamContainer = document.querySelector('.contenedorOurTeam');
+let prevButton = document.querySelector('.prev-ourTeam');
+let nextButton = document.querySelector('.next-ourTeam');
+let pagination = document.querySelector('.pagination');
+
+function updatePaginationActive(index) {
+    const dots = document.querySelectorAll('.pagination .dot');
+    dots.forEach(dot => dot.classList.remove('active'));
+    const currentDot = dots[Math.floor(index / teamItemsPerPage)];
+    if (currentDot) currentDot.classList.add('active');
+}
+
+function rebuildPagination(totalPages) {
+    pagination.querySelectorAll('.dot').forEach(dot => dot.remove());
+    for (let i = 0; i < totalPages; i++) {
+        const dot = document.createElement('span');
+        dot.className = 'dot';
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+            currentIndexTeam = i * teamItemsPerPage;
+            renderTeam(teamContainer, teamMembers, currentIndexTeam, teamItemsPerPage);
+            restartTeamAutoSlide();
+        });
+        pagination.appendChild(dot);
+    }
+}
+
+function renderTeam(container, data, index, perPage) {
+    container.innerHTML = '';
+    const slice = data.slice(index, index + perPage);
+    slice.forEach(member => renderTeamMember(container, member));
+
+    if (prevButton && nextButton) {
+        prevButton.disabled = index === 0;
+        nextButton.disabled = index + perPage >= data.length;
+    }
+
+    updatePaginationActive(index);
+}
+
+function startTeamAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(() => {
+        if (currentIndexTeam + teamItemsPerPage < teamMembers.length) {
+            currentIndexTeam += teamItemsPerPage;
+        } else {
+            currentIndexTeam = 0;
+        }
+        renderTeam(teamContainer, teamMembers, currentIndexTeam, teamItemsPerPage);
+    }, 5000);
+}
+
+function restartTeamAutoSlide() {
+    clearInterval(autoSlideInterval);
+    startTeamAutoSlide();
+}
+
+if (teamContainer) {
+    const totalPages = Math.ceil(teamMembers.length / teamItemsPerPage);
+
+    rebuildPagination(totalPages);
+    renderTeam(teamContainer, teamMembers, currentIndexTeam, teamItemsPerPage);
+
+    prevButton?.addEventListener('click', () => {
+        if (currentIndexTeam > 0) {
+            currentIndexTeam -= teamItemsPerPage;
+            renderTeam(teamContainer, teamMembers, currentIndexTeam, teamItemsPerPage);
+            restartTeamAutoSlide();
+        }
+    });
+
+    nextButton?.addEventListener('click', () => {
+        if (currentIndexTeam + teamItemsPerPage < teamMembers.length) {
+            currentIndexTeam += teamItemsPerPage;
+            renderTeam(teamContainer, teamMembers, currentIndexTeam, teamItemsPerPage);
+            restartTeamAutoSlide();
+        }
+    });
+
+    window.addEventListener('resize', () => {
+        const newPerPage = isMobileTeam() ? 1 : 3;
+        if (newPerPage !== teamItemsPerPage) {
+            teamItemsPerPage = newPerPage;
+            currentIndexTeam = 0;
+            renderTeam(teamContainer, teamMembers, currentIndexTeam, teamItemsPerPage);
+            rebuildPagination(Math.ceil(teamMembers.length / teamItemsPerPage));
+            restartTeamAutoSlide();
+        }
+    });
+
+    startTeamAutoSlide();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Sumar cantidad de productos (single-product)
+document.addEventListener('DOMContentLoaded', () => {
+    const quantityDisplay = document.querySelector('.quantity-display-singleProduct');
+    const increaseBtn = document.querySelector('.quantity-increase-singleProduct');
+    const decreaseBtn = document.querySelector('.quantity-decrease-singleProduct');
+
+    if (quantityDisplay && increaseBtn && decreaseBtn) {
+        let quantity = parseInt(quantityDisplay.textContent) || 1;
+
+        increaseBtn.addEventListener('click', () => {
+            quantity++;
+            quantityDisplay.textContent = quantity;
+        });
+
+        decreaseBtn.addEventListener('click', () => {
+            if (quantity > 1) {
+                quantity--;
+                quantityDisplay.textContent = quantity;
+            }
+        });
+    }
+});
+
+// Cambiar imagen principal y thumbnails (single-product)
+document.addEventListener('DOMContentLoaded', () => {
+    const mainImg = document.querySelector('.main-image-singleProduct img');
+    const thumbnails = document.querySelectorAll('.thumbnail-img');
+
+    thumbnails.forEach(thumb => {
+        thumb.addEventListener('click', function () {
+            // Cambiar imagen principal
+            if (mainImg && thumb.src) {
+                mainImg.src = thumb.src;
+                mainImg.alt = thumb.alt;
+            }
+            // Quitar y poner clase activa
+            document.querySelectorAll('.thumbnail-images-singleProduct figure').forEach(f => {
+                f.classList.remove('active-thumbnail');
+                f.classList.add('inactive-thumbnail');
+            });
+            this.parentElement.classList.add('active-thumbnail');
+            this.parentElement.classList.remove('inactive-thumbnail');
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Actualizar cantidad de productos en el carrito (shopping-cart)
+document.addEventListener('DOMContentLoaded', () => {
+    // Selecciona todas las filas de productos en el carrito
+    const cartRows = document.querySelectorAll('.shopping-cart-box tbody tr');
+
+    cartRows.forEach(row => {
+        const minusBtn = row.querySelector('.boton-quantity-control:first-child');
+        const plusBtn = row.querySelector('.boton-quantity-control:last-child');
+        const qtyInput = row.querySelector('.input-quantity-control');
+        const priceTd = row.querySelectorAll('td')[1];
+        const totalTd = row.querySelectorAll('td')[3];
+
+        if (!minusBtn || !plusBtn || !qtyInput || !priceTd || !totalTd) return;
+
+        // Obtener el precio unitario como número
+        const unitPrice = parseFloat(priceTd.textContent.replace('$', '').replace(',', ''));
+
+        function updateRowTotal() {
+            const qty = parseInt(qtyInput.value, 10);
+            const newTotal = unitPrice * qty;
+            totalTd.textContent = `$${newTotal}`;
+            updateCartTotals();
+        }
+
+        plusBtn.addEventListener('click', () => {
+            let qty = parseInt(qtyInput.value, 10);
+            qty++;
+            qtyInput.value = qty;
+            updateRowTotal();
+        });
+
+        minusBtn.addEventListener('click', () => {
+            let qty = parseInt(qtyInput.value, 10);
+            if (qty > 1) {
+                qty--;
+                qtyInput.value = qty;
+                updateRowTotal();
+            }
+        });
+    });
+
+    // Actualiza el subtotal y total general
+    function updateCartTotals() {
+        const totalTds = document.querySelectorAll('.shopping-cart-box tbody tr td:last-child');
+        let subtotal = 0;
+        totalTds.forEach(td => {
+            subtotal += parseFloat(td.textContent.replace('$', '').replace(',', ''));
+        });
+
+        // Actualiza los valores en el resumen
+        document.querySelectorAll('.summary-value').forEach(span => {
+            if (span.textContent.includes('$')) {
+                span.textContent = `$${subtotal}`;
+            }
+        });
+    }
+
+    // Inicializa los totales al cargar
+    updateCartTotals();
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Manejo de métodos de pago (checkout)
+document.addEventListener('DOMContentLoaded', () => {
+    const paymentBoxes = document.querySelectorAll('.payment-box label');
+
+    paymentBoxes.forEach((label, index) => {
+        const checkbox = label.querySelector('input[type="checkbox"]');
+        const description = label.querySelector('.method-description');
+
+        // Mostrar solo el primer método por defecto
+        if (index === 0) {
+            checkbox.checked = true;
+            description.style.display = 'block';
+        } else {
+            checkbox.checked = false;
+            description.style.display = 'none';
+        }
+
+        // Manejar clic en cualquier checkbox
+        checkbox.addEventListener('change', () => {
+            paymentBoxes.forEach(otherLabel => {
+                const otherCheckbox = otherLabel.querySelector('input[type="checkbox"]');
+                const otherDescription = otherLabel.querySelector('.method-description');
+
+                if (otherCheckbox === checkbox) {
+                    otherCheckbox.checked = true;
+                    otherDescription.style.display = 'block';
+                } else {
+                    otherCheckbox.checked = false;
+                    otherDescription.style.display = 'none';
+                }
+            });
+        });
+    });
 });
