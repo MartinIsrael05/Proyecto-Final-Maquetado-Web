@@ -94,7 +94,7 @@ class Slider {
         if (!this.container || data.length === 0) return;
 
         this.addNavigation();
-        this.startAutoSlide();
+        // this.startAutoSlide();
     }
 
     startAutoSlide() {
@@ -245,13 +245,15 @@ class MultiItemSlider extends Slider {
         }
     }
 
+    // Ahora next avanza a la derecha (mayor índice)
     next() {
-        this.currentIndex = (this.currentIndex + this.step) % this.data.length;
+        this.currentIndex = (this.currentIndex - this.step + this.data.length) % this.data.length;
         this.render();
     }
 
+    // Ahora prev avanza a la izquierda (menor índice)
     prev() {
-        this.currentIndex = (this.currentIndex - this.step + this.data.length) % this.data.length;
+        this.currentIndex = (this.currentIndex + this.step + this.data.length) % this.data.length;
         this.render();
     }
 
@@ -615,12 +617,11 @@ function initHistorySlider() {
         1 // step de a uno
     );
 
-    // Conectar botones prev/next manualmente si no usas data-prev/data-next
-    const parent = container.closest('section') || container.parentElement;
-    const prevBtn = parent.querySelector('.prev-ourHistory');
-    const nextBtn = parent.querySelector('.next-ourHistory');
-    if (prevBtn) prevBtn.addEventListener('click', () => historySliderInstance.prev());
-    if (nextBtn) nextBtn.addEventListener('click', () => historySliderInstance.next());
+    // Buscar los botones en todo el documento
+    const prevBtn = document.querySelector('.prev-ourHistory');
+    const nextBtn = document.querySelector('.next-ourHistory');
+    if (prevBtn) prevBtn.onclick = () => historySliderInstance.prev();
+    if (nextBtn) nextBtn.onclick = () => historySliderInstance.next();
 }
 
 
