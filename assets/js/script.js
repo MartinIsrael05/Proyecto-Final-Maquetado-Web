@@ -94,7 +94,7 @@ class Slider {
         if (!this.container || data.length === 0) return;
 
         this.addNavigation();
-        // this.startAutoSlide();
+        this.startAutoSlide();
     }
 
     startAutoSlide() {
