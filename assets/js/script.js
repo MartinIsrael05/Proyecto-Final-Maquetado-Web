@@ -736,6 +736,8 @@ function initBlogSlider() {
 
 
 
+
+
 // ==============================
 // VALIDACIÓN REUTILIZABLE DE FORMULARIOS
 // ==============================
@@ -844,7 +846,6 @@ if (menuToggle && navLinks) {
         navLinks.classList.toggle('active');
     });
 }
-
 // HEADER SHRINK ON SCROLL (le tuve que preguntar a la IA porque nunca lo vimos)
 function initHeaderShrink(thresholdPx = 80) {
     const header = document.querySelector('header');
@@ -986,7 +987,7 @@ if (document.querySelector("#fila1-categories") && document.querySelector("#fila
 }
 
 // trending products (home)
-if (document.querySelector('.trending-products-section')) {
+if (document.querySelector('#trending-products-section')) {
     renderTrendingProducts(productos, 4, '.trending-products-section');
 }
 
@@ -1004,7 +1005,6 @@ mediaQuery.addEventListener('change', () => {
     initBlogSlider();
 });
 
-
 // our history (about-us)
 if (document.querySelector('.history-cards')) {
     initHistorySlider();
@@ -1021,94 +1021,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const minRange = document.getElementById('min-price');
-    const maxRange = document.getElementById('max-price');
-    const minOutput = document.getElementById('price-min');
-    const maxOutput = document.getElementById('price-max');
-    const rangeTrack = document.querySelector('.range-slider .range-track');
-
-    if (maxRange) {
-        maxRange.disabled = true;
-        maxRange.style.pointerEvents = "none";
-        maxRange.style.opacity = "0.6";
-    }
-
-    function updatePriceRange(e) {
-        let minVal = parseInt(minRange.value);
-        let maxVal = parseInt(maxRange.value);
-
-        if (minVal >= maxVal) {
-            if (e && e.target === minRange) {
-                minVal = maxVal - 1;
-                minRange.value = minVal;
-            } else {
-                maxVal = minVal + 1;
-                maxRange.value = maxVal;
-            }
-        }
-
-        minOutput.textContent = minVal;
-        maxOutput.textContent = maxVal;
-
-        // Actualizar barra celeste
-        const min = parseInt(minRange.min);
-        const max = parseInt(minRange.max);
-        const percentMin = ((minVal - min) / (max - min)) * 100;
-        const percentMax = ((maxVal - min) / (max - min)) * 100;
-        if (rangeTrack) {
-            rangeTrack.style.left = percentMin + '%';
-            rangeTrack.style.width = (percentMax - percentMin) + '%';
-        }
-    }
-
-    if (minRange && maxRange && minOutput && maxOutput) {
-        minRange.addEventListener('input', updatePriceRange);
-        maxRange.addEventListener('input', updatePriceRange);
-
-        // Para mouse y touch: siempre que el usuario entra o toca un thumb, lo trae al frente
-        ['mouseenter', 'pointerdown', 'touchstart'].forEach(evt => {
-            minRange.addEventListener(evt, () => bringToFront('min'));
-            maxRange.addEventListener(evt, () => bringToFront('max'));
-        });
-
-        updatePriceRange();
-    }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // =====================
-// RENDER OUR TEAM
+// SLIDER OUR TEAM
 // =====================
-
 function renderTeamMember(container, member) {
     const article = document.createElement('article');
     article.className = 'team-member';
@@ -1154,28 +1069,22 @@ function renderTeamMember(container, member) {
     article.append(photoDiv, h3, p, socialLinks);
     container.appendChild(article);
 }
-
 function isMobileTeam() {
     return window.matchMedia('(max-width: 768px)').matches;
 }
-
 let currentIndexTeam = 0;
 let teamItemsPerPage = isMobileTeam() ? 1 : 3;
 let autoSlideInterval;
-
-// --- Definir teamContainer y botones en el scope global ---
 let teamContainer = document.querySelector('.contenedorOurTeam');
 let prevButton = document.querySelector('.prev-ourTeam');
 let nextButton = document.querySelector('.next-ourTeam');
 let pagination = document.querySelector('.pagination');
-
 function updatePaginationActive(index) {
     const dots = document.querySelectorAll('.pagination .dot');
     dots.forEach(dot => dot.classList.remove('active'));
     const currentDot = dots[Math.floor(index / teamItemsPerPage)];
     if (currentDot) currentDot.classList.add('active');
 }
-
 function rebuildPagination(totalPages) {
     pagination.querySelectorAll('.dot').forEach(dot => dot.remove());
     for (let i = 0; i < totalPages; i++) {
@@ -1190,7 +1099,6 @@ function rebuildPagination(totalPages) {
         pagination.appendChild(dot);
     }
 }
-
 function renderTeam(container, data, index, perPage) {
     container.innerHTML = '';
     const slice = data.slice(index, index + perPage);
@@ -1203,7 +1111,6 @@ function renderTeam(container, data, index, perPage) {
 
     updatePaginationActive(index);
 }
-
 function startTeamAutoSlide() {
     clearInterval(autoSlideInterval);
     autoSlideInterval = setInterval(() => {
@@ -1215,12 +1122,10 @@ function startTeamAutoSlide() {
         renderTeam(teamContainer, teamMembers, currentIndexTeam, teamItemsPerPage);
     }, 5000);
 }
-
 function restartTeamAutoSlide() {
     clearInterval(autoSlideInterval);
     startTeamAutoSlide();
 }
-
 if (teamContainer) {
     const totalPages = Math.ceil(teamMembers.length / teamItemsPerPage);
 
@@ -1260,42 +1165,9 @@ if (teamContainer) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Sumar cantidad de productos (single-product)
+// ==============================
+// FUNCIONES SINGLE PRODUCT
+// ==============================
 document.addEventListener('DOMContentLoaded', () => {
     const quantityDisplay = document.querySelector('.quantity-display-singleProduct');
     const increaseBtn = document.querySelector('.quantity-increase-singleProduct');
@@ -1317,8 +1189,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-// Cambiar imagen principal y thumbnails (single-product)
 document.addEventListener('DOMContentLoaded', () => {
     const mainImg = document.querySelector('.main-image-singleProduct img');
     const thumbnails = document.querySelectorAll('.thumbnail-img');
@@ -1343,43 +1213,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Actualizar cantidad de productos en el carrito (shopping-cart)
+// ==============================
+// FUNCIONES SHOPPING CART
+// ==============================
 document.addEventListener('DOMContentLoaded', () => {
     // Selecciona todas las filas de productos en el carrito
     const cartRows = document.querySelectorAll('.shopping-cart-box tbody tr');
@@ -1443,40 +1279,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Manejo de métodos de pago (checkout)
+// ==============================
+// FUNCIONES CHECKOUT
+// ==============================
 document.addEventListener('DOMContentLoaded', () => {
     const paymentBoxes = document.querySelectorAll('.payment-box label');
 
@@ -1509,4 +1314,65 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
+});
+
+
+
+
+// ==============================
+// FUNCIONES GRID SHOP (BARRA CELESTE Y NUMEROS)
+// ==============================
+document.addEventListener('DOMContentLoaded', () => {
+    const minRange = document.getElementById('min-price');
+    const maxRange = document.getElementById('max-price');
+    const minOutput = document.getElementById('price-min');
+    const maxOutput = document.getElementById('price-max');
+    const rangeTrack = document.querySelector('.range-slider .range-track');
+
+    if (maxRange) {
+        maxRange.disabled = true;
+        maxRange.style.pointerEvents = "none";
+        maxRange.style.opacity = "0.6";
+    }
+
+    function updatePriceRange(e) {
+        let minVal = parseInt(minRange.value);
+        let maxVal = parseInt(maxRange.value);
+
+        if (minVal >= maxVal) {
+            if (e && e.target === minRange) {
+                minVal = maxVal - 1;
+                minRange.value = minVal;
+            } else {
+                maxVal = minVal + 1;
+                maxRange.value = maxVal;
+            }
+        }
+
+        minOutput.textContent = minVal;
+        maxOutput.textContent = maxVal;
+
+        // Actualizar barra celeste
+        const min = parseInt(minRange.min);
+        const max = parseInt(minRange.max);
+        const percentMin = ((minVal - min) / (max - min)) * 100;
+        const percentMax = ((maxVal - min) / (max - min)) * 100;
+        if (rangeTrack) {
+            rangeTrack.style.left = percentMin + '%';
+            rangeTrack.style.width = (percentMax - percentMin) + '%';
+        }
+    }
+
+    if (minRange && maxRange && minOutput && maxOutput) {
+        minRange.addEventListener('input', updatePriceRange);
+        maxRange.addEventListener('input', updatePriceRange);
+
+        // Para mouse y touch: siempre que el usuario entra o toca un thumb, lo trae al frente
+        ['mouseenter', 'pointerdown', 'touchstart'].forEach(evt => {
+            minRange.addEventListener(evt, () => bringToFront('min'));
+            maxRange.addEventListener(evt, () => bringToFront('max'));
+        });
+
+        updatePriceRange();
+    }
 });
