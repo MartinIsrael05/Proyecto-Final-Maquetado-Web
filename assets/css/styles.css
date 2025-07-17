@@ -84,6 +84,39 @@
   color: #f5f5f5;
 }
 
+[data-theme="dark"] .img-icons-navbar{
+  filter: invert(1);
+
+}
+
+/* Proteger secciones del modo dark: carousel, founder, categories y footer */
+[data-theme="dark"] .founder-section,
+[data-theme="dark"] .footer {
+  background: unset !important;
+  background-color: unset !important;
+  color: unset !important;
+}
+
+/* Forzar los colores de texto originales en esas secciones */
+[data-theme="dark"] .founder-section *,
+[data-theme="dark"] .categories-section *,
+[data-theme="dark"] .footer * {
+  color: inherit !important;
+}
+
+[data-theme="dark"] .carousel-section,
+[data-theme="dark"] .carousel2-section,
+[data-theme="dark"] .carousel3-section{
+  color: unset !important;
+  
+}
+
+/* Solo cambiar el fondo de categories-section en modo dark */
+[data-theme="dark"] .categories-section.bg-grey,
+[data-theme="dark"] .categories-section {
+  background-color: #181818 !important;
+}
+
 /* RESET */
 * {
   margin: 0;
@@ -901,7 +934,7 @@ header {
 }
 
 .overlay h3 {
-  font-size: var(--font-size-medium);
+  /* font-size: var(--font-size-medium); */
   font-weight: var(--font-weight-regular);
   margin: .6em 0 .3em;
 }
@@ -1029,6 +1062,10 @@ dialog.portfolio-modal::backdrop {
   color: var(--color151515);
 }
 
+.blog-card h3:hover {
+  color: var(--colorCeleste);
+}
+
 .blog-card p {
   font-size: var(--font-size-small);
   color: var(--color777777);
@@ -1120,7 +1157,7 @@ form {
 }
 
 form input::placeholder {
-  color: var(--colorBlanco);
+  color: var(--colorBlanco) !important;
 }
 
 form button {
@@ -1292,6 +1329,7 @@ form.success .success-message {
 .tabs .tab-item.active,
 .tabs .tab-item-reseñas.active {
   color: var(--colorCeleste);
+  border-bottom: 4px solid var(--colorCeleste);
 }
 
 .tab-content .tab-pane {
@@ -2149,6 +2187,7 @@ tbody td {
 }
 
 .input-quantity-control {
+  background: transparent;
   width: 3em;
   margin: 0 .6em;
   pointer-events: none;
