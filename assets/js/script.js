@@ -440,7 +440,6 @@ function renderBlogCard(container, blog) {
     container.appendChild(card);
 }
 
-
 /* ---------- Trending Products (home)---------- */
 function buildBadge(label) {
     const span = document.createElement('span');
@@ -527,6 +526,7 @@ function buildProductCard(p) {
 // ==============================
 // RENDERERS DE SECCIÓN
 // ==============================
+/* ---------- Categories (home) ---------- */
 function createCategories(categories) {
     const fila1 = document.querySelector("#fila1-categories");
     const fila2 = document.querySelector("#fila2-categories");
@@ -540,7 +540,7 @@ function createCategories(categories) {
         }
     });
 }
-
+/* ---------- Trending Products (home)---------- */
 function renderTrendingProducts(prodArray, itemsPerRow = 4, sectionSel = '.trending-products-section') {
     const sec = document.querySelector(sectionSel);
     if (!sec) return;
@@ -565,10 +565,7 @@ function renderTrendingProducts(prodArray, itemsPerRow = 4, sectionSel = '.trend
 
     sec.appendChild(wrap);
 }
-
-// =====================
-// RENDER OUR HISTORY
-// =====================
+/* ---------- Our history (about us)---------- */
 function buildHistoryCard(container, item) {
     const card = document.createElement('article');
     card.className = 'card';
