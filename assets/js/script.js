@@ -503,7 +503,7 @@ function createCategoryCard(category) {
 
 /* ---------- Blog (home) ---------- */
 function renderBlogCard(container, blog) {
-    const card = document.createElement('div');
+    const card = document.createElement('article');
     card.className = 'blog-card';
 
     // Enlace que envuelve la imagen
@@ -891,7 +891,7 @@ function startBlogAutoSlide() {
     if (!blogAutoSlide && isMobileBlog() && blogSliderInstance) {
         blogAutoSlide = setInterval(() => {
             blogSliderInstance.next();
-        }, 4000); // o el tiempo que prefieras
+        }, 5000); // o el tiempo que prefieras
     }
 }
 function stopBlogAutoSlide() {
